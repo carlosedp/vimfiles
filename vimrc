@@ -23,7 +23,8 @@ set number " show line numbers
 "" set GUI font
 if has("gui_macvim")
     " set macvim specific stuff
-    set guifont=Inconsolata:h13
+    set guioptions-=L
+    set guifont=Inconsolata:h14
 else
     set guifont=Inconsolata:h11
 endif
