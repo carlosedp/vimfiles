@@ -21,7 +21,12 @@ set incsearch		" do incremental searching
 set number " show line numbers
 
 "" set GUI font
-set guifont=Inconsolata:h11
+if has("gui_macvim")
+    " set macvim specific stuff
+    set guifont=Inconsolata:h13
+else
+    set guifont=Inconsolata:h11
+endif
 
 "" set initial window size
 set lines=40 columns=120
@@ -88,12 +93,12 @@ nmap <khome> <home>
 inoremap <silent> <home> <C-O>:call Home()<CR>
 nnoremap <silent> <home> :call Home()<CR>
 function Home()
-        let curcol = wincol()
-        normal ^
-        let newcol = wincol()
-        if newcol == curcol
-            normal 0 
-        endif
+    let curcol = wincol()
+    normal ^
+    let newcol = wincol()
+    if newcol == curcol
+        normal 0 
+    endif
 endfunction
 
 "" Prevent tab'ing into MiniBufExplorer
