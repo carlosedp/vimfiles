@@ -102,6 +102,12 @@ function Home()
     endif
 endfunction
 
+""Highlight current line and set color
+set cursorline
+"":hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+:hi CursorLine   cterm=NONE ctermbg=darkred guibg=darkred
+
+
 "" Prevent tab'ing into MiniBufExplorer
 au! BufEnter -MiniBufExplorer- :wincmd j
 
