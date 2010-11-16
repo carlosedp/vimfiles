@@ -1,6 +1,13 @@
 filetype off
 call pathogen#runtime_append_all_bundles()
 
+"" Hides the buffer instead of closing. Allows switch unsaved buffers.
+set hidden
+
+"" No backup and swap files
+set nobackup
+set noswapfile
+
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
@@ -117,13 +124,19 @@ nnoremap <silent> <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 "" Reindent Code
 nnoremap <silent> <leader>R gg=G
 
+"" Quit on opening files from the tree
+let NERDTreeQuitOnOpen=1
+
+" Highlight the selected entry in the tree
+let NERDTreeHighlightCursorline=1
+
 " Key Mappings - CarlosEDP
-map <tab> <C-W>w
-map <silent> <C-tab> :buffer #<CR>
-map <silent> <F1> :NERDTreeToggle %:p:h<CR>
-map <silent> <F2> :ls<CR>
-map <silent> <F3> :bp<CR>
-map <silent> <F4> :bn<CR>
+nmap <tab> <C-W>w
+nmap <silent> <C-tab> :buffer #<CR>
+nmap <silent> <F1> :NERDTreeToggle %:p:h<CR>
+nmap <silent> <F2> :ls<CR>
+nmap <silent> <F3> :bp<CR>
+nmap <silent> <F4> :bn<CR>
 
 vmap <C-c> "+yi
 vmap <C-x> "+c
