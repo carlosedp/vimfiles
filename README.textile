@@ -54,7 +54,7 @@ h2. Dependencies
 
 You will need these dependencies figured out:
 
-* Ruby (for the fuzzy finder plugin)
+.
 
 Mac OS X and most Linux distros come with Ruby already. If you're in Windows
 look for Luis Lavena's latest Ruby Installer (http://rubyforge.org/projects/rubyinstaller/)
@@ -72,6 +72,4 @@ h2. Credits
 
 * Original project and most of the heavy lifting: @scrooloose
 * All the cool plugins for Rails, Cucumber and more: @timpope
-* Great Command-T plugin by: Wincent
-* Hacks and some snippets: @akitaonrails
-
+* Hacks and some snippets: @carlosedp
