@@ -33,7 +33,8 @@ if has("gui_macvim")
     set guioptions-=L
     set guifont=Inconsolata:h14
 else
-    set guifont=Inconsolata:h11
+    "set guifont=Inconsolata:h11
+    set guifont=Droid\ Sans\ Mono:h10
 endif
 
 "" set initial window size
@@ -112,8 +113,22 @@ endfunction
 ""Highlight current line and set color
 set cursorline
 
+"" Set MiniBufExplorer parameters
 "" Prevent tab'ing into MiniBufExplorer
-au! BufEnter -MiniBufExplorer- :wincmd j
+"au! BufEnter -MiniBufExplorer- :wincmd j
+
+"let g:miniBufExplUseSingleClick = 1
+"let g:miniBufExplMapWindowNavVim = 1 
+"let g:miniBufExplMapWindowNavArrows = 1 
+"let g:miniBufExplMapCTabSwitchBufs = 1 
+"let g:miniBufExplModSelTarget = 1 
+"let g:miniBufExplForceSyntaxEnable = 1
+
+"" Set BufTabs parameters
+:let g:buftabs_only_basename=1
+set laststatus=2
+:let g:buftabs_in_statusline=1
+
 
 "" Set current buffer dir as working dir
 autocmd BufEnter * lcd %:p:h
