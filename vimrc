@@ -67,7 +67,7 @@ colorscheme molokai
 "" enable spell check
 " :set spell
 "" enable mouse
-":set mouse=a
+:set mouse=a
 "
 "" set search ignorecase 
 :set ignorecase
@@ -99,8 +99,12 @@ set formatoptions=qrn1
 "" not let all windows keep the same height/width
 :set noequalalways
 
+""Highlight current line and set color
+set cursorline
+
 :nmap ,o o<Esc>
 
+"" Remaps search
 nnoremap / /\v
 vnoremap / /\v
 set gdefault
@@ -120,26 +124,7 @@ function Home()
     endif
 endfunction
 
-""Highlight current line and set color
-set cursorline
-
-"" Set BufTabs parameters
-:let g:buftabs_only_basename=1
-set laststatus=2
-:let g:buftabs_in_statusline=1
-
-"" Set current buffer dir as working dir
-autocmd BufEnter * lcd %:p:h
-
-"" Strip all trailing whitespace in the current file
-nnoremap <silent> <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-
-"" Reindent Code
-nnoremap <silent> <leader>R gg=G
-
-"" Toggle Last User files list
-nnoremap <silent> <leader>m :MRU<CR>
-
+"" NERDTree Parameters
 "" Quit on opening files from the tree
 let NERDTreeQuitOnOpen=1
 
@@ -149,21 +134,54 @@ let NERDTreeHighlightCursorline=1
 "" Open NERDTree in same dir
 let NERDTreeChDirMode=1
 
-" Key Mappings - CarlosEDP
+
+"" Set BufTabs parameters
+:let g:buftabs_only_basename=1
+set laststatus=2
+:let g:buftabs_in_statusline=1
+
+"" Set current buffer dir as working dir
+autocmd BufEnter * lcd %:p:h
+
+"" Key Mappings
+
+"" Strip all trailing whitespace in the current file
+nnoremap <silent> <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+"" Reindent Code
+nnoremap <silent> <leader>R gg=G
+
+"" Toggle Last used files list
+nnoremap <silent> <leader>m :MRU<CR>
+
+"" Duplicates current line
+nnoremap <leader>d Yp<CR>
+
+"" Cycles between windows
 nmap <tab> <C-W>w
+
+"" Cycles between buffers
 map <silent> <C-tab> :buffer #<CR>
+
+"" Toggles NERDTree
 map <silent> <F1> :NERDTreeToggle %:p:h<CR>
+
+"" List/Next/Previous buffers
 map <silent> <F2> :ls<CR>
 map <silent> <F3> :bp<CR>
 map <silent> <F4> :bn<CR>
+
+"" Find current file in NERDTree
 map <silent> <C-f> :NERDTreeFind<CR>
 
+"" Maps cut/copy/paste like Windows 
 vmap <C-c> "+yi
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
 
-"map <silent> <C-F4> :Bclose<CR>
+"" Closes buffer but keep window open. Opens clear buffer
+nmap <silent> <C-F4> :Bclose<CR>
 nmap <C-x> :Bclose<CR>
 "nmap <C-S-x> :Bclose!<CR>
 
