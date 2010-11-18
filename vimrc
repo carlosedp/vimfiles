@@ -151,18 +151,19 @@ let NERDTreeChDirMode=1
 
 " Key Mappings - CarlosEDP
 nmap <tab> <C-W>w
-nmap <silent> <C-tab> :buffer #<CR>
-nmap <silent> <F1> :NERDTreeToggle %:p:h<CR>
-nmap <silent> <F2> :ls<CR>
-nmap <silent> <F3> :bp<CR>
-nmap <silent> <F4> :bn<CR>
+map <silent> <C-tab> :buffer #<CR>
+map <silent> <F1> :NERDTreeToggle %:p:h<CR>
+map <silent> <F2> :ls<CR>
+map <silent> <F3> :bp<CR>
+map <silent> <F4> :bn<CR>
+map <silent> <C-f> :NERDTreeFind<CR>
 
 vmap <C-c> "+yi
 vmap <C-x> "+c
 vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
 
-map <silent> <C-F4> :Bclose<CR>
-map <silent> <C-X> :Bclose<CR>
-map <silent> <C-S-X> :Bclose!<CR>
+"map <silent> <C-F4> :Bclose<CR>
+nmap <C-x> :Bclose<CR>
+"nmap <C-S-x> :Bclose!<CR>
 
