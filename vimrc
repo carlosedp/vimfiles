@@ -144,4 +144,5 @@ vmap <C-v> c<ESC>"+p
 imap <C-v> <ESC>"+pa
 
 map <silent> <C-F4> :Bclose<CR>
+map <silent> <C-X> :Bclose<CR>
 
