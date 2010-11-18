@@ -154,6 +154,9 @@ nnoremap <silent> <leader>R gg=G
 "" Toggle Last used files list
 nnoremap <silent> <leader>m :MRU<CR>
 
+"" Open BufExplorer
+nnoremap <silent> <leader>b :BufExplorer<CR>
+
 "" Duplicates current line
 nnoremap <leader>d Yp<CR>
 
@@ -165,6 +168,9 @@ map <silent> <C-tab> :buffer #<CR>
 
 "" Toggles NERDTree
 map <silent> <F1> :NERDTreeToggle %:p:h<CR>
+
+"" Opens NERDTree on rails project root (:NTree)
+map <leader>rt :Rtree<CR>
 
 "" List/Next/Previous buffers
 map <silent> <F2> :ls<CR>
