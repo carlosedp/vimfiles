@@ -1,6 +1,10 @@
 filetype off
 call pathogen#runtime_append_all_bundles()
 
+"" Use Vim settings, rather then Vi settings (much better!).
+"" This must be first, because it changes other options as a side effect.
+set nocompatible
+
 "" Hides the buffer instead of closing. Allows switch unsaved buffers.
 set hidden
 
@@ -11,9 +15,6 @@ set noswapfile
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
-"" a very simple rc for quick run of vim
-"" only most needed config is setting here
-"
 "" Use Vim settings, rather then Vi settings (much better!).
 "" This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -25,17 +26,21 @@ set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
+set hlsearch
 set number " show line numbers
 
 "" set GUI font
 if has("gui_macvim")
     " set macvim specific stuff
+    " Remove left scrollbar
     set guioptions-=L
-    set guifont=Inconsolata:h14
-    set guifont=Droid\ Sans\ Mono:h10
+    "set guifont=Inconsolata:h14
+    "set guifont=Droid\ Sans\ Mono:h10
+    set guifont=Consolas:h11
 else
     "set guifont=Inconsolata:h11
-    set guifont=Droid\ Sans\ Mono:h10
+    set guifont=Consolas:h11
+    "set guifont=Droid\ Sans\ Mono:h10
 endif
 
 "" Set initial window size only on GUI
@@ -58,7 +63,6 @@ set background=dark
 "colorscheme vividchalk
 colorscheme molokai
 
-set hlsearch
 "
 "" enable spell check
 " :set spell
@@ -119,22 +123,10 @@ endfunction
 ""Highlight current line and set color
 set cursorline
 
-"" Set MiniBufExplorer parameters
-"" Prevent tab'ing into MiniBufExplorer
-"au! BufEnter -MiniBufExplorer- :wincmd j
-
-"let g:miniBufExplUseSingleClick = 1
-"let g:miniBufExplMapWindowNavVim = 1 
-"let g:miniBufExplMapWindowNavArrows = 1 
-"let g:miniBufExplMapCTabSwitchBufs = 1 
-"let g:miniBufExplModSelTarget = 1 
-"let g:miniBufExplForceSyntaxEnable = 1
-
 "" Set BufTabs parameters
 :let g:buftabs_only_basename=1
 set laststatus=2
 :let g:buftabs_in_statusline=1
-
 
 "" Set current buffer dir as working dir
 autocmd BufEnter * lcd %:p:h
@@ -144,6 +136,9 @@ nnoremap <silent> <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 "" Reindent Code
 nnoremap <silent> <leader>R gg=G
+
+"" Toggle Last User files list
+nnoremap <silent> <leader>m :MRU<CR>
 
 "" Quit on opening files from the tree
 let NERDTreeQuitOnOpen=1
@@ -169,4 +164,5 @@ imap <C-v> <ESC>"+pa
 
 map <silent> <C-F4> :Bclose<CR>
 map <silent> <C-X> :Bclose<CR>
+map <silent> <C-S-X> :Bclose!<CR>
 
