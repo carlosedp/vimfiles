@@ -32,13 +32,19 @@ if has("gui_macvim")
     " set macvim specific stuff
     set guioptions-=L
     set guifont=Inconsolata:h14
+    set guifont=Droid\ Sans\ Mono:h10
 else
     "set guifont=Inconsolata:h11
     set guifont=Droid\ Sans\ Mono:h10
 endif
 
-"" set initial window size
-set lines=40 columns=120
+"" Set initial window size only on GUI
+if has("gui_running")
+    set lines=40 columns=120
+endif
+
+"" Set narrow linespace
+set linespace=0
 
 "
 "" set filetype check on
@@ -144,6 +150,9 @@ let NERDTreeQuitOnOpen=1
 
 " Highlight the selected entry in the tree
 let NERDTreeHighlightCursorline=1
+
+"" Open NERDTree in same dir
+let NERDTreeChDirMode=1
 
 " Key Mappings - CarlosEDP
 nmap <tab> <C-W>w
