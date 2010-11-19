@@ -175,7 +175,8 @@ nnoremap <silent> <leader>R gg=G
 "" Toggle Last used files list
 nnoremap <silent> <leader>m :MRU<CR>
 "" MRU Ignored files
-let MRU_Exclude_Files = '.*\\Local Settings\\Temp\\.*'
+let MRU_Exclude_Files = '.*\\Local Settings\\Temp\\.*|.git\\index'
+let MRU_Max_Menu_Entries = 40
 
 "" Open BufExplorer
 nnoremap <silent> <leader>b :BufExplorer<CR>
