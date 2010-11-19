@@ -115,12 +115,34 @@ imap <khome> <home>
 nmap <khome> <home>
 inoremap <silent> <home> <C-O>:call Home()<CR>
 nnoremap <silent> <home> :call Home()<CR>
-function Home()
+function! Home()
     let curcol = wincol()
     normal ^
     let newcol = wincol()
     if newcol == curcol
         normal 0 
+    endif
+endfunction
+
+function! NTFinderP()
+    "" Check if NERDTree is open
+    if exists("t:NERDTreeBufName")
+        let s:ntree = bufwinnr(t:NERDTreeBufName)
+    else
+        let s:ntree = -1
+    endif
+    if (s:ntree != -1)
+        "" If NERDTree is open, close it.
+        :NERDTreeClose
+    else
+        "" Try to open a :Rtree for the rails project
+        if exists(":Rtree")
+            "" Open Rtree (using rails plugin, it opens in project dir)
+            :Rtree
+        else
+            "" Open NERDTree in the file path
+            :NERDTreeFind
+        endif
     endif
 endfunction
 
@@ -134,7 +156,6 @@ let NERDTreeHighlightCursorline=1
 "" Open NERDTree in same dir
 let NERDTreeChDirMode=1
 
-
 "" Set BufTabs parameters
 :let g:buftabs_only_basename=1
 set laststatus=2
@@ -143,7 +164,7 @@ set laststatus=2
 "" Set current buffer dir as working dir
 autocmd BufEnter * lcd %:p:h
 
-"" Key Mappings
+"" Key Mappings ""
 
 "" Strip all trailing whitespace in the current file
 nnoremap <silent> <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -167,27 +188,17 @@ nmap <tab> <C-W>w
 map <silent> <C-tab> :buffer #<CR>
 
 "" Toggles NERDTree
-map <silent> <F1> :NERDTreeToggle %:p:h<CR>
-
-"" Opens NERDTree on rails project root (:NTree)
-map <leader>rt :Rtree<CR>
+map <silent> <F1> :call NTFinderP()<CR>
 
 "" List/Next/Previous buffers
 map <silent> <F2> :ls<CR>
 map <silent> <F3> :bp<CR>
 map <silent> <F4> :bn<CR>
 
-"" Find current file in NERDTree
-map <silent> <C-f> :NERDTreeFind<CR>
-
-"" Maps cut/copy/paste like Windows 
-vmap <C-c> "+yi
-vmap <C-x> "+c
-vmap <C-v> c<ESC>"+p
-imap <C-v> <ESC>"+pa
-
 "" Closes buffer but keep window open. Opens clear buffer
 nmap <silent> <C-F4> :Bclose<CR>
 nmap <C-x> :Bclose<CR>
 "nmap <C-S-x> :Bclose!<CR>
 
+"" Clear search highlight
+nnoremap <esc> :noh<return><esc>
