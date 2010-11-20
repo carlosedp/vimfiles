@@ -181,6 +181,9 @@ let MRU_Max_Menu_Entries = 40
 "" Open BufExplorer
 nnoremap <silent> <leader>b :BufExplorer<CR>
 
+"map to CommandT TextMate style finder
+nnoremap <leader>t :CommandT<CR>
+
 "" Duplicates current line
 nnoremap <leader>d Yp<CR>
 
