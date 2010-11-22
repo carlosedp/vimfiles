@@ -204,4 +204,9 @@ nmap <C-x> :Bclose<CR>
 "nmap <C-S-x> :Bclose!<CR>
 
 "" Clear search highlight
-nnoremap <esc> :noh<return><esc>
+nnoremap <silent> <esc> :noh<CR><esc>
+
+"" Pressing < or > will let you indent/unident selected lines
+vnoremap < <gv
+vnoremap > >gv
+
