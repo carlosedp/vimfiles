@@ -190,17 +190,23 @@ nnoremap <silent> <leader>R gg=G
 "" Toggle Last used files list
 nnoremap <silent> <leader>m :MRU<CR>
 "" MRU Ignored files
-let MRU_Exclude_Files = '.*\\Local Settings\\Temp\\.*|.*\\\.git\\.*'
+let MRU_Exclude_Files = '.*\\Local Settings\\Temp\\.*|^.*\.(hg|git|bzr)\\.*$'
 let MRU_Max_Menu_Entries = 40
 
+<<<<<<< HEAD
 "" Open BufExplorer
 nnoremap <silent> <leader>b :BufExplorer<CR>
 
 "map to CommandT TextMate style finder
 nnoremap <leader>t :CommandT<CR>
 
+=======
+>>>>>>> upstream/master
 "" Duplicates current line
 nnoremap <leader>d Yp<CR>
+
+"" Creates new empty buffer
+nmap <C-N> :enew<CR>
 
 "" Cycles between windows
 nmap <tab> <C-W>w
@@ -212,7 +218,8 @@ map <silent> <C-tab> :buffer #<CR>
 map <silent> <F1> :call NTFinderP()<CR>
 
 "" List/Next/Previous buffers
-map <silent> <F2> :ls<CR>
+"map <silent> <F2> :ls<CR>
+map <silent> <F2> :BufExplorer<CR>
 map <silent> <F3> :bp<CR>
 map <silent> <F4> :bn<CR>
 
