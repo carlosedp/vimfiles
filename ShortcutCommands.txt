@@ -19,6 +19,10 @@ Ctrl+X  -   Close current file
 Ctrl+C  -   Copy
 Ctrl+V  -   Paste
 Ctrl+X  -   Cut
+Ctrl+S  -   Save file
+Ctrl+Z  -   Undo
+Ctrl+Y  -   Redo
+Ctrl+A  -   Select all
 
 >       -   Indent selected text
 <       -   Dedent selected text
