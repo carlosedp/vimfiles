@@ -22,12 +22,13 @@ set nocompatible
 "" allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 "
-set history=50		" keep 50 lines of command line history
+set history=500		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set hlsearch
 set number " show line numbers
+set showbreak=...
 
 "" set GUI font
 if has("gui_macvim")
@@ -161,8 +162,22 @@ let NERDTreeChDirMode=1
 set laststatus=2
 :let g:buftabs_in_statusline=1
 
+"Command-T configuration
+let g:CommandTMaxHeight=10
+let g:CommandTMatchWindowAtTop=1
+
 "" Set current buffer dir as working dir
-autocmd BufEnter * lcd %:p:h
+"autocmd BufEnter * lcd %:p:h
+autocmd BufEnter * call ReturnDir()
+
+function! ReturnDir()
+    if exists(":Rtree")
+        lcd `=rails#app().path()`
+    else
+        lcd %:p:h
+    endif
+endfunction
+
 
 "" Key Mappings ""
 
@@ -175,7 +190,7 @@ nnoremap <silent> <leader>R gg=G
 "" Toggle Last used files list
 nnoremap <silent> <leader>m :MRU<CR>
 "" MRU Ignored files
-let MRU_Exclude_Files = '.*\\Local Settings\\Temp\\.*|.git\\index'
+let MRU_Exclude_Files = '.*\\Local Settings\\Temp\\.*|.*\\\.git\\.*'
 let MRU_Max_Menu_Entries = 40
 
 "" Open BufExplorer
