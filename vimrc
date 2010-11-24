@@ -184,8 +184,8 @@ endfunction
 "" Strip all trailing whitespace in the current file
 nnoremap <silent> <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
-"" Reindent Code
-nnoremap <silent> <leader>R gg=G
+"" Reindent Code and go back to the line the cursor was
+nnoremap <silent> <leader>R mlgg=G`l
 
 "" Toggle Last used files list
 nnoremap <silent> <leader>m :MRU<CR>
