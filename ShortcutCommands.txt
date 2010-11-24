@@ -15,7 +15,7 @@ Ctrl+X  -   Close current file
 <leader>t   -   Opens Command-T fuzzy file finder
 <leader>w   -   Strip spaces from the end of lines (entire file)
 
-
+Ctrl+n  -   Create new empty buffer
 Ctrl+C  -   Copy
 Ctrl+V  -   Paste
 Ctrl+X  -   Cut
