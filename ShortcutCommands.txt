@@ -25,6 +25,11 @@ Ctrl+Y  -   Redo
 Ctrl+A  -   Select all
 Ctrl+n  -   Autocomplete
 
+Alt+left    -   Set line bookmark
+Alt+right   -   Set line bookmark
+Alt+up      -   Go to previous line bookmark
+Alt+down    -   Go to next line bookmark
+
 >       -   Indent selected text
 <       -   Dedent selected text
 
