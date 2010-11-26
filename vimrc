@@ -110,6 +110,46 @@ nnoremap / /\v
 vnoremap / /\v
 set gdefault
 
+" Creates a session
+function! MakeSession()
+    let b:sessiondir = $HOME
+    let b:sessionfile = b:sessiondir . '/.session.vim'
+    exe "mksession! " . b:sessionfile
+
+endfunction
+
+" Updates a session, BUT ONLY IF IT ALREADY EXISTS
+function! UpdateSession()
+    if argc()==0
+        let b:sessiondir = $HOME
+        let b:sessionfile = b:sessiondir . "/.session.vim"
+        if !(filereadable(b:sessionfile))
+            :call MakeSession()
+        endif
+        exe "mksession! " . b:sessionfile
+        echo "updating session"
+    endif
+endfunction
+
+" Loads a session if it exists
+function! LoadSession()
+    if argc() == 0
+        let b:sessiondir = $HOME
+        let b:sessionfile = b:sessiondir . "/.session.vim"
+        if (filereadable(b:sessionfile))
+            exe 'source ' b:sessionfile
+        else
+            echo "No session loaded."
+        endif
+    else
+        let b:sessionfile = ""
+        let b:sessiondir = ""
+    endif
+endfunction
+
+au VimEnter * :call LoadSession()
+au VimLeave * :call UpdateSession()
+"map <leader>m :call MakeSession()<CR>
 
 "<home> toggles between start of line and start of text
 imap <khome> <home>
@@ -185,7 +225,7 @@ endfunction
 nnoremap <silent> <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 "" Reindent Code and go back to the line the cursor was
-nnoremap <silent> <leader>R mlgg=G`l
+nnoremap <silent> <leader>R mlgg=G`lz.
 
 "" Toggle Last used files list
 nnoremap <silent> <leader>m :MRU<CR>
