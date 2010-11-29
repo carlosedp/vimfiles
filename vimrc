@@ -259,6 +259,8 @@ nmap <silent> <C-F4> :Bclose<CR>
 nmap <C-x> :Bclose<CR>
 "nmap <C-S-x> :Bclose!<CR>
 
+nmap <M-w> <C-w>c<esc>
+
 "" Clear search highlight
 nnoremap <silent> <esc> :noh<CR><esc>
 

@@ -24,6 +24,7 @@ Ctrl+Z  -   Undo
 Ctrl+Y  -   Redo
 Ctrl+A  -   Select all
 Ctrl+n  -   Autocomplete
+Alt+w   -   Close window
 
 Alt+left    -   Set line bookmark
 Alt+right   -   Set line bookmark
