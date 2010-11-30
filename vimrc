@@ -197,6 +197,9 @@ let NERDTreeHighlightCursorline=1
 "" Open NERDTree in same dir
 let NERDTreeChDirMode=1
 
+"" Show hidden files by default
+let NERDTreeShowHidden=1
+
 "" Set BufTabs parameters
 :let g:buftabs_only_basename=1
 set laststatus=2
