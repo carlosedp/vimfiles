@@ -7,7 +7,7 @@ F4      -   Next Buffer
 
 Ctrl+F4 -   Close current file
 Ctrl+X  -   Close current file
-
+Ctrl+Q  -   Visual Mode
 
 <leader>R   -   Reindent file
 <leader>m   -   Opens Most Recently Used file list

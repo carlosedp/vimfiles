@@ -1,5 +1,6 @@
 filetype off
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 "" Use Vim settings, rather then Vi settings (much better!).
 "" This must be first, because it changes other options as a side effect.
@@ -198,7 +199,7 @@ let NERDTreeHighlightCursorline=1
 let NERDTreeChDirMode=1
 
 "" Show hidden files by default
-let NERDTreeShowHidden=1
+"let NERDTreeShowHidden=1
 
 "" Set BufTabs parameters
 :let g:buftabs_only_basename=1
