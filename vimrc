@@ -38,7 +38,7 @@ if has("gui_macvim")
     set guioptions-=L
     "set guifont=Inconsolata:h14
     "set guifont=Droid\ Sans\ Mono:h10
-    set guifont=Consolas:h11
+    set guifont=Consolas:h14
 else
     "set guifont=Inconsolata:h11
     set guifont=Consolas:h11
