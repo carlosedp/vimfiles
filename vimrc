@@ -210,6 +210,9 @@ set laststatus=2
 let g:CommandTMaxHeight=10
 let g:CommandTMatchWindowAtTop=1
 
+""Set Arduino filetype
+autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
+
 "" Set current buffer dir as working dir
 "autocmd BufEnter * lcd %:p:h
 autocmd BufEnter * call ReturnDir()
