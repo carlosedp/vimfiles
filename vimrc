@@ -31,6 +31,9 @@ set hlsearch
 set number " show line numbers
 set showbreak=...
 
+"" Set GUI Options and scrollbars
+set guioptions=egmrLtTb
+
 "" set GUI font
 if has("gui_macvim")
     " set macvim specific stuff
