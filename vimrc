@@ -201,6 +201,7 @@ let NERDTreeHighlightCursorline=1
 "" Open NERDTree in same dir
 let NERDTreeChDirMode=1
 
+
 "" Show hidden files by default
 "let NERDTreeShowHidden=1
 
@@ -274,4 +275,9 @@ nnoremap <silent> <esc> :noh<CR><esc>
 "" Pressing < or > will let you indent/unident selected lines
 vnoremap < <gv
 vnoremap > >gv
+
+" Unimpaired configuration
+" Bubble single lines
+nmap <C-Up> [e
+nmap <C-Down> ]e
 

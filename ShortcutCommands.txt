@@ -26,6 +26,9 @@ Ctrl+A  -   Select all
 Ctrl+n  -   Autocomplete
 Alt+w   -   Close window
 
+Ctrl+up     -   Move current line up
+Ctrl+down   -   Move current line down
+
 Alt+left    -   Set line bookmark
 Alt+right   -   Set line bookmark
 Alt+up      -   Go to previous line bookmark
