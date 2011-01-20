@@ -82,8 +82,7 @@ colorscheme Mustang
 set smartcase
 set scrolloff=3
 "
-:set sessionoptions+=unix,slash
-"
+
 "" encodings configure
 :set fileencoding=utf-8
 :set encoding=utf-8
@@ -117,6 +116,10 @@ set cursorline
 nnoremap / /\v
 vnoremap / /\v
 set gdefault
+
+"" Use Unix format for files
+":set sessionoptions+=unix,slash,localoptions 
+:set sessionoptions=buffers,curdir,folds,help,resize,winpos,winsize,tabpages,unix,slash,localoptions
 
 " Creates a session
 function! MakeSession()
