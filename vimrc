@@ -66,8 +66,6 @@ set t_Co=256 " 256 colors
 set background=dark 
 "colorscheme ir_black
 "colorscheme desert 
-"colorscheme herald 
-"colorscheme vividchalk
 "colorscheme molokai
 colorscheme Mustang
 
