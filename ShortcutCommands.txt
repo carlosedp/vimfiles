@@ -1,39 +1,45 @@
 Shortcut list:
 
-F1      -   Opens NERDTree in current buffer directory or Rails project root
-F2      -   Opens Buffer list
-F3      -   Previous Buffer
-F4      -   Next Buffer
+F1              -   Opens NERDTree in current buffer directory or Rails project root
+F2              -   Opens Buffer list
+F3              -   Previous Buffer
+F4              -   Next Buffer
 
-Ctrl+F4 -   Close current file
-Ctrl+X  -   Close current file
-Ctrl+Q  -   Visual Mode
+F11             -   Toggle between wrap and nowrap lines
+F12             -   Toggle between display special characters (line endings, tabs)
 
-<leader>R   -   Reindent file
-<leader>m   -   Opens Most Recently Used file list
-<leader>ci  -   Toggles block comment/uncomment
-<leader>t   -   Opens Command-T fuzzy file finder
-<leader>w   -   Strip spaces from the end of lines (entire file)
+Ctrl+F4         -   Close current file
+Ctrl+X          -   Close current file
+Shift+F4        -   Close current file without saving
+Ctrl+Q          -   Visual Mode
 
-Ctrl+n  -   Create new empty buffer
-Ctrl+C  -   Copy
-Ctrl+V  -   Paste
-Ctrl+X  -   Cut
-Ctrl+S  -   Save file
-Ctrl+Z  -   Undo
-Ctrl+Y  -   Redo
-Ctrl+A  -   Select all
-Ctrl+n  -   Autocomplete
-Alt+w   -   Close window
+<leader>R       -   Reindent file
+<leader>m       -   Opens Most Recently Used file list
+<leader>ci      -   Toggles block comment/uncomment
+<leader>t       -   Opens Command-T fuzzy file finder
+<leader>w       -   Strip spaces from the end of lines (entire file)
+<leader>space   -   Clear search highlight
+<leader>s       -   Split window vertically and switch to it
 
-Ctrl+up     -   Move current line up
-Ctrl+down   -   Move current line down
+Ctrl+n          -   Create new empty buffer
+Ctrl+C          -   Copy
+Ctrl+V          -   Paste
+Ctrl+X          -   Cut
+Ctrl+S          -   Save file
+Ctrl+Z          -   Undo
+Ctrl+Y          -   Redo
+Ctrl+A          -   Select all
+Ctrl+n          -   Autocomplete
+Alt+w           -   Close window
 
-Alt+left    -   Set line bookmark
-Alt+right   -   Set line bookmark
-Alt+up      -   Go to previous line bookmark
-Alt+down    -   Go to next line bookmark
+Ctrl+up         -   Move current line up
+Ctrl+down       -   Move current line down
 
->       -   Indent selected text
-<       -   Dedent selected text
+Alt+left        -   Set line bookmark
+Alt+right       -   Set line bookmark
+Alt+up          -   Go to previous line bookmark
+Alt+down        -   Go to next line bookmark
+
+>               -   Indent selected text
+<               -   Dedent selected text
 

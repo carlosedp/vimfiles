@@ -6,6 +6,8 @@ call pathogen#helptags()
 "" This must be first, because it changes other options as a side effect.
 set nocompatible
 
+set modeline
+
 "" Hides the buffer instead of closing. Allows switch unsaved buffers.
 set hidden
 
@@ -66,7 +68,8 @@ set background=dark
 "colorscheme desert 
 "colorscheme herald 
 "colorscheme vividchalk
-colorscheme molokai
+colorscheme Mustang
+"colorscheme molokai
 
 "
 "" enable spell check
@@ -87,8 +90,9 @@ set scrolloff=3
 :set fileencodings=ucs-bom,utf-8,gb2312,cp936
 "
 "" set tabstop value and shift width 
-:set ts=4
-:set sw=4
+:set tabstop=4
+:set shiftwidth=4
+:set softtabstop=4
 :set expandtab
 "
 set wrap
@@ -265,15 +269,23 @@ map <silent> <F2> :BufExplorer<CR>
 map <silent> <F3> :bp<CR>
 map <silent> <F4> :bn<CR>
 
+"" Toggle between Wrap and no Wrap lines
+map <silent> <F11> :set nowrap!<CR>
+
+"" Toggle between display line endings
+map <silent> <F12> :set nolist!<CR>
+
 "" Closes buffer but keep window open. Opens clear buffer
 nmap <silent> <C-F4> :Bclose<CR>
+nmap <silent> <S-F4> :Bclose!<CR>
 nmap <C-x> :Bclose<CR>
 "nmap <C-S-x> :Bclose!<CR>
 
+"" Closes current window
 nmap <M-w> <C-w>c<esc>
 
 "" Clear search highlight
-nnoremap <silent> <esc> :noh<CR><esc>
+nnoremap <leader><space> :noh<CR>
 
 "" Pressing < or > will let you indent/unident selected lines
 vnoremap < <gv
@@ -284,3 +296,5 @@ vnoremap > >gv
 nmap <C-Up> [e
 nmap <C-Down> ]e
 
+"" Split vertical window and switch to it
+nnoremap <leader>s <C-w>v<C-w>l
