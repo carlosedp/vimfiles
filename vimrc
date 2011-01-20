@@ -68,8 +68,8 @@ set background=dark
 "colorscheme desert 
 "colorscheme herald 
 "colorscheme vividchalk
-colorscheme Mustang
 "colorscheme molokai
+colorscheme Mustang
 
 "
 "" enable spell check
@@ -279,7 +279,6 @@ map <silent> <F12> :set nolist!<CR>
 nmap <silent> <C-F4> :Bclose<CR>
 nmap <silent> <S-F4> :Bclose!<CR>
 nmap <C-x> :Bclose<CR>
-"nmap <C-S-x> :Bclose!<CR>
 
 "" Closes current window
 nmap <M-w> <C-w>c<esc>
