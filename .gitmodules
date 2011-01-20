@@ -3,10 +3,10 @@
 	url = http://github.com/tpope/vim-vividchalk.git
 [submodule "bundle/vim-unimpaired"]
 	path = bundle/vim-unimpaired
-	url = http://github.com/tpope/vim-unimpaired.git
+	url = https://github.com/tpope/vim-unimpaired.git
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
-	url = http://github.com/tpope/vim-surround.git
+	url = https://github.com/tpope/vim-surround.git
 [submodule "bundle/vim-repeat"]
 	path = bundle/vim-repeat
 	url = http://github.com/tpope/vim-repeat.git
@@ -27,7 +27,7 @@
 	url = http://github.com/tpope/vim-cucumber.git
 [submodule "bundle/vim-abolish"]
 	path = bundle/vim-abolish
-	url = http://github.com/tpope/vim-abolish.git
+	url = https://github.com/tpope/vim-abolish.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = http://github.com/scrooloose/nerdtree.git
@@ -36,7 +36,7 @@
 	url = http://github.com/scrooloose/nerdcommenter.git
 [submodule "bundle/vim-ruby"]
 	path = bundle/vim-ruby
-	url = http://github.com/vim-ruby/vim-ruby.git
+	url = https://github.com/vim-ruby/vim-ruby.git
 [submodule "bundle/vim-ragtag"]
 	path = bundle/vim-ragtag
-	url = http://github.com/tpope/vim-ragtag.git
+	url = https://github.com/tpope/vim-ragtag.git
