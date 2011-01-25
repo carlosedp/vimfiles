@@ -43,3 +43,9 @@
 [submodule "bundle/jslint"]
 	path = bundle/jslint
 	url = http://github.com/hallettj/jslint.vim.git
+[submodule "bundle\\vim-jade"]
+	path = bundle\\vim-jade
+	url = http://github.com/digitaltoad/vim-jade.git
+[submodule "bundle\\vim-abolish"]
+	path = bundle\\vim-abolish
+	url = https://github.com/tpope/vim-abolish.git
