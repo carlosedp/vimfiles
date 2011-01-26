@@ -219,8 +219,9 @@ set laststatus=2
 let g:CommandTMaxHeight=10
 let g:CommandTMatchWindowAtTop=1
 
-""Set Arduino filetype
+""Set custom filetypes
 autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
+autocmd! BufNewFile,BufRead *.ejs set filetype=html.js
 
 "" Set current buffer dir as working dir
 "autocmd BufEnter * lcd %:p:h
