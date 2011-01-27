@@ -15,16 +15,12 @@ set hidden
 set nobackup
 set noswapfile
 
-source $VIMRUNTIME/mswin.vim
-behave mswin
 
 "" Use Vim settings, rather then Vi settings (much better!).
 "" This must be first, because it changes other options as a side effect.
 set nocompatible
 "
-"" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-"
+
 set history=500		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -58,14 +54,20 @@ endif
 "" Set narrow linespace
 set linespace=0
 
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
+" Backspace and cursor keys wrap to previous/next line
+set backspace=indent,eol,start whichwrap+=<,>,[,]
+
 "
 "" set filetype check on
 :filetype plugin indent on
-syntax on 
+syntax on
 set t_Co=256 " 256 colors
-set background=dark 
+set background=dark
 "colorscheme ir_black
-"colorscheme desert 
+"colorscheme desert
 "colorscheme molokai
 colorscheme Mustang
 
@@ -75,7 +77,7 @@ colorscheme Mustang
 "" enable mouse
 :set mouse=a
 "
-"" set search ignorecase 
+"" set search ignorecase
 :set ignorecase
 set smartcase
 set scrolloff=3
@@ -86,7 +88,7 @@ set scrolloff=3
 :set encoding=utf-8
 :set fileencodings=ucs-bom,utf-8,gb2312,cp936
 "
-"" set tabstop value and shift width 
+"" set tabstop value and shift width
 :set tabstop=4
 :set shiftwidth=4
 :set softtabstop=4
@@ -116,7 +118,7 @@ vnoremap / /\v
 set gdefault
 
 "" Use Unix format for files
-":set sessionoptions+=unix,slash,localoptions 
+":set sessionoptions+=unix,slash,localoptions
 :set sessionoptions=buffers,curdir,folds,help,resize,winpos,winsize,tabpages,unix,slash,localoptions
 
 " Creates a session
@@ -170,7 +172,7 @@ function! Home()
     normal ^
     let newcol = wincol()
     if newcol == curcol
-        normal 0 
+        normal 0
     endif
 endfunction
 
@@ -236,7 +238,7 @@ function! ReturnDir()
 endfunction
 
 
-"" Key Mappings ""
+"" Key Mappings
 
 "" Strip all trailing whitespace in the current file
 nnoremap <silent> <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -263,19 +265,25 @@ nmap <tab> <C-W>w
 map <silent> <C-tab> :buffer #<CR>
 
 "" Toggles NERDTree
-map <silent> <F1> :call NTFinderP()<CR>
+map <silent> <F1> <C-O>:call NTFinderP()<CR>
+imap <silent> <F1> <C-O>:call NTFinderP()<CR>
 
 "" List/Next/Previous buffers
 "map <silent> <F2> :ls<CR>
-map <silent> <F2> :BufExplorer<CR>
-map <silent> <F3> :bp<CR>
-map <silent> <F4> :bn<CR>
+map <silent> <F2> <esc>:BufExplorer<CR>
+imap <silent> <F2> <C-O>:BufExplorer<CR>
+map <silent> <F3> <esc>:bp<CR>
+imap <silent> <F3> <C-O>:bp<CR>
+map <silent> <F4> <esc>:bn<CR>
+imap <silent> <F4> <C-O>:bn<CR>
 
 "" Toggle between Wrap and no Wrap lines
 map <silent> <F11> :set nowrap!<CR>
+imap <silent> <F11> <C-O>:set nowrap!<CR>
 
 "" Toggle between display line endings
 map <silent> <F12> :set nolist!<CR>
+imap <silent> <F12> <C-O>:set nolist!<CR>
 
 "" Closes buffer but keep window open. Opens clear buffer
 nmap <silent> <C-F4> :Bclose<CR>
