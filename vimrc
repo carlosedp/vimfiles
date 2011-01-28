@@ -32,6 +32,9 @@ set showbreak=...
 "" Set GUI Options and scrollbars
 set guioptions=egmrLtTb
 
+"" Automatically change working dir to current buffer
+set autochdir
+
 "" set GUI font
 if has("gui_macvim")
     " set macvim specific stuff
@@ -176,6 +179,7 @@ function! Home()
     endif
 endfunction
 
+
 function! NTFinderP()
     "" Check if NERDTree is open
     if exists("t:NERDTreeBufName")
@@ -227,7 +231,7 @@ autocmd! BufNewFile,BufRead *.ejs set filetype=html.js
 
 "" Set current buffer dir as working dir
 "autocmd BufEnter * lcd %:p:h
-autocmd BufEnter * call ReturnDir()
+"autocmd BufEnter * call ReturnDir()
 
 function! ReturnDir()
     if exists(":Rtree")
@@ -265,11 +269,12 @@ nmap <tab> <C-W>w
 map <silent> <C-tab> :buffer #<CR>
 
 "" Toggles NERDTree
-map <silent> <F1> <C-O>:call NTFinderP()<CR>
-imap <silent> <F1> <C-O>:call NTFinderP()<CR>
+"nmap <silent> <F1> <C-O>:call NTFinderP()<CR>
+"imap <silent> <F1> <C-O>:call NTFinderP()<CR>
+imap <silent> <F1> <C-O>:NERDTreeFind<CR>
+nmap <silent> <F1> :NERDTreeFind<CR>
 
 "" List/Next/Previous buffers
-"map <silent> <F2> :ls<CR>
 map <silent> <F2> <esc>:BufExplorer<CR>
 imap <silent> <F2> <C-O>:BufExplorer<CR>
 map <silent> <F3> <esc>:bp<CR>
@@ -287,8 +292,11 @@ imap <silent> <F12> <C-O>:set nolist!<CR>
 
 "" Closes buffer but keep window open. Opens clear buffer
 nmap <silent> <C-F4> :Bclose<CR>
+imap <silent> <C-F4> <C-O>:Bclose<CR>
 nmap <silent> <S-F4> :Bclose!<CR>
+imap <silent> <S-F4> <C-O>:Bclose!<CR>
 nmap <C-x> :Bclose<CR>
+imap <C-x> <C-O>:Bclose<CR>
 
 "" Closes current window
 nmap <M-w> <C-w>c<esc>
