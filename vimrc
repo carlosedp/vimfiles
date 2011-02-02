@@ -271,7 +271,7 @@ map <silent> <C-tab> :buffer #<CR>
 "" Toggles NERDTree
 "nmap <silent> <F1> <C-O>:call NTFinderP()<CR>
 "imap <silent> <F1> <C-O>:call NTFinderP()<CR>
-imap <silent> <F1> <C-O>:NERDTreeFind<CR>
+imap <silent> <F1> <esc>:NERDTreeFind<CR>
 nmap <silent> <F1> :NERDTreeFind<CR>
 
 "" List/Next/Previous buffers
