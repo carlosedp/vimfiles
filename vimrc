@@ -15,6 +15,8 @@ set hidden
 set nobackup
 set noswapfile
 
+"" Disable ALT keys access to menubar. Makes mappings work.
+set winaltkeys=no
 
 "" Use Vim settings, rather then Vi settings (much better!).
 "" This must be first, because it changes other options as a side effect.
@@ -31,6 +33,9 @@ set showbreak=...
 
 "" Set GUI Options and scrollbars
 set guioptions=egmrLtTb
+
+"" Remove the 'tear bla bla from menus'
+set guioptions-=t
 
 "" Automatically change working dir to current buffer
 set autochdir
@@ -299,7 +304,7 @@ nmap <C-x> :Bclose<CR>
 imap <C-x> <C-O>:Bclose<CR>
 
 "" Closes current window
-nmap <M-w> <C-w>c<esc>
+nnoremap <M-w> <C-w>c<esc>
 
 "" Clear search highlight
 nnoremap <leader><space> :noh<CR>
