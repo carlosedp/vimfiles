@@ -5,8 +5,8 @@ F2              -   Opens Buffer list
 F3              -   Previous Buffer
 F4              -   Next Buffer
 
-F11             -   Toggle between wrap and nowrap lines
-F12             -   Toggle between display special characters (line endings, tabs)
+F5              -   Toggle between wrap and nowrap lines
+F6              -   Toggle between display special characters (line endings, tabs)
 
 Ctrl+F4         -   Close current file
 Ctrl+X          -   Close current file

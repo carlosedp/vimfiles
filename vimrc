@@ -283,12 +283,12 @@ map <silent> <F4> <esc>:bn<CR>
 imap <silent> <F4> <C-O>:bn<CR>
 
 "" Toggle between Wrap and no Wrap lines
-map <silent> <F11> :set nowrap!<CR>
-imap <silent> <F11> <C-O>:set nowrap!<CR>
+map <silent> <F5> :set nowrap!<CR>
+imap <silent> <F5> <C-O>:set nowrap!<CR>
 
 "" Toggle between display line endings
-map <silent> <F12> :set nolist!<CR>
-imap <silent> <F12> <C-O>:set nolist!<CR>
+map <silent> <F6> :set nolist!<CR>
+imap <silent> <F6> <C-O>:set nolist!<CR>
 
 "" Closes buffer but keep window open. Opens clear buffer
 nmap <silent> <C-F4> :Bclose<CR>
