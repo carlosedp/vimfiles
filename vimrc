@@ -31,6 +31,9 @@ set hlsearch
 set number " show line numbers
 set showbreak=...
 
+"" Disable bell
+set vb
+
 "" Set GUI Options and scrollbars
 set guioptions=egmrLtTb
 
