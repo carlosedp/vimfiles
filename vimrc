@@ -246,6 +246,21 @@ function! ReturnDir()
     endif
 endfunction
 
+function! IndentFile()
+    if &filetype == 'javascript'
+        let l = line('.')
+        let c = col('.')
+        call g:Jsbeautify() 
+        call cursor(l,c)
+    else
+        let l = line('.')
+        let c = col('.')
+        execute "normal! gg=G"
+        call cursor(l,c)
+    endif    
+endfunction
+
+
 
 "" Key Mappings
 
@@ -253,7 +268,7 @@ endfunction
 nnoremap <silent> <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 "" Reindent Code and go back to the line the cursor was
-nnoremap <silent> <leader>R mlgg=G`lz.
+nnoremap <silent> <leader>R :call IndentFile()<CR> 
 
 "" Toggle Last used files list
 nnoremap <silent> <leader>m :MRU<CR>
