@@ -31,6 +31,9 @@ set hlsearch
 set number " show line numbers
 set showbreak=...
 
+"" Disable bell
+set vb
+
 "" Set GUI Options and scrollbars
 set guioptions=egmrLtTb
 
@@ -45,6 +48,8 @@ if has("gui_macvim")
     " set macvim specific stuff
     " Remove left scrollbar
     set guioptions-=L
+    " make Mac 'Option' key behave as 'Alt'
+    set invmmta
     "set guifont=Inconsolata:h14
     "set guifont=Droid\ Sans\ Mono:h10
     set guifont=Consolas:h14
