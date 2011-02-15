@@ -134,6 +134,9 @@ set gdefault
 ":set sessionoptions+=unix,slash,localoptions
 :set sessionoptions=buffers,curdir,folds,help,resize,winpos,winsize,tabpages,unix,slash,localoptions
 
+"" Disable code folding
+set nofoldenable
+
 " Creates a session
 function! MakeSession()
     let b:sessiondir = $HOME
