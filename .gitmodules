@@ -40,9 +40,6 @@
 [submodule "bundle/vim-unimpaired"]
 	path = bundle/vim-unimpaired
 	url = http://github.com/tpope/vim-unimpaired.git
-[submodule "bundle/jslint"]
-	path = bundle/jslint
-	url = http://github.com/hallettj/jslint.vim.git
 [submodule "bundle/vim-jade"]
 	path = bundle/vim-jade
 	url = http://github.com/digitaltoad/vim-jade.git
