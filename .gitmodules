@@ -55,3 +55,12 @@
 [submodule "bundle/jsbeautify"]
 	path = bundle/jsbeautify
 	url = http://github.com/vim-scripts/jsbeautify.git
+[submodule "bundle/Arduino-syntax"]
+	path = bundle/Arduino-syntax
+	url = https://github.com/vim-scripts/Arduino-syntax-file.git
+[submodule "bundle/bufexplorer"]
+	path = bundle/bufexplorer
+	url = https://github.com/vim-scripts/bufexplorer.zip.git
+[submodule "bundle/buftabs"]
+	path = bundle/buftabs
+	url = https://github.com/vim-scripts/buftabs.git
