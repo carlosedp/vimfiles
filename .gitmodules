@@ -52,3 +52,6 @@
 [submodule "bundle/vim-markdown"]
 	path = bundle/vim-markdown
 	url = http://github.com/hallison/vim-markdown.git
+[submodule "bundle/jsbeautify"]
+	path = bundle/jsbeautify
+	url = http://github.com/vim-scripts/jsbeautify.git
