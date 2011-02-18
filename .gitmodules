@@ -46,6 +46,3 @@
 [submodule "bundle\\jsbeautify"]
 	path = bundle\\jsbeautify
 	url = http://github.com/vim-scripts/jsbeautify.git
-[submodule "bundle\\javascript-indent"]
-	path = bundle\\javascript-indent
-	url = http://github.com/vim-scripts/JavaScript-Indent.git
