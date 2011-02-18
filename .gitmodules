@@ -43,3 +43,12 @@
 [submodule "bundle/vim-jade"]
 	path = bundle/vim-jade
 	url = http://github.com/digitaltoad/vim-jade.git
+[submodule "bundle/Javascript-indent"]
+	path = bundle/Javascript-indent
+	url = http://github.com/vim-scripts/JavaScript-Indent.git
+[submodule "bundle/jslint"]
+	path = bundle/jslint
+	url = http://github.com/hallettj/jslint.vim.git
+[submodule "bundle/vim-markdown"]
+	path = bundle/vim-markdown
+	url = http://github.com/hallison/vim-markdown.git

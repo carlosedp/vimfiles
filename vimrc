@@ -233,6 +233,7 @@ let NERDTreeChDirMode=1
 :let g:buftabs_only_basename=1
 set laststatus=2
 :let g:buftabs_in_statusline=1
+:let g:buftabs_active_highlight_group="Visual"
 
 "Command-T configuration
 let g:CommandTMaxHeight=10
