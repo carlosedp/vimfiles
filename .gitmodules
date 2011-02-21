@@ -67,6 +67,6 @@
 [submodule "bundle/Javascript-syntax"]
 	path = bundle/Javascript-syntax
 	url = https://github.com/vim-scripts/JavaScript-syntax.git
-[submodule "bundle/MRU"]
-	path = bundle/MRU
-	url = https://github.com/vim-scripts/MRU.git
+[submodule "bundle/mru"]
+	path = bundle/mru
+	url = https://github.com/vim-scripts/mru.vim.git
