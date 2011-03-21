@@ -59,6 +59,10 @@ else
     "set guifont=Droid\ Sans\ Mono:h10
 endif
 
+" MacVIM shift+arrow-keys behavior (required in .vimrc)
+let macvim_hig_shift_movement = 1
+
+
 "" Set initial window size only on GUI
 if has("gui_running")
     set lines=40 columns=120
@@ -67,15 +71,24 @@ endif
 "" Set narrow linespace
 set linespace=0
 
+" Tab completion
+set wildmode=list:longest,list:full
+set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,test/fixtures/*,vendor/gems/*
+
+set wildmenu "Turn on WiLd menu
+        
+set magic "Set magic on, for regular expressions
+
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
 " Backspace and cursor keys wrap to previous/next line
-set backspace=indent,eol,start whichwrap+=<,>,[,]
+set backspace=indent,eol,start
+set whichwrap+=<,>,[,],h,l
 
 "
 "" set filetype check on
-:filetype plugin indent on
+filetype plugin indent on
 syntax on
 set t_Co=256 " 256 colors
 set background=dark
@@ -86,44 +99,44 @@ colorscheme Mustang
 
 "
 "" enable spell check
-" :set spell
+" set spell
 "" enable mouse
-:set mouse=a
+set mouse=a
 "
 "" set search ignorecase
-:set ignorecase
+set ignorecase
 set smartcase
 set scrolloff=3
 "
 
 "" encodings configure
-:set fileencoding=utf-8
-:set encoding=utf-8
-:set fileencodings=ucs-bom,utf-8,gb2312,cp936
+set fileencoding=utf-8
+set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,gb2312,cp936
 "
 "" set tabstop value and shift width
-:set tabstop=4
-:set shiftwidth=4
-:set softtabstop=4
-:set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
 "
 set wrap
 set textwidth=79
 set formatoptions=qrn1
 
 ""setting about indent
-:set autoindent
-:set smartindent
+set autoindent
+set smartindent
 "
 ""setting about old window resizing behavior when open a new window
-:set winfixheight
+set winfixheight
 "" not let all windows keep the same height/width
-:set noequalalways
+set noequalalways
 
 ""Highlight current line and set color
 set cursorline
 
-:nmap ,o o<Esc>
+nmap ,o o<Esc>
 
 "" Remaps search
 nnoremap / /\v
@@ -131,8 +144,8 @@ vnoremap / /\v
 set gdefault
 
 "" Use Unix format for files
-":set sessionoptions+=unix,slash,localoptions
-:set sessionoptions=buffers,curdir,folds,help,resize,winpos,winsize,tabpages,unix,slash,localoptions
+"set sessionoptions+=unix,slash,localoptions
+set sessionoptions=buffers,curdir,folds,help,resize,winpos,winsize,tabpages,unix,slash,localoptions
 
 "" Disable code folding
 set nofoldenable
@@ -230,10 +243,10 @@ let NERDTreeChDirMode=1
 "let NERDTreeShowHidden=1
 
 "" Set BufTabs parameters
-:let g:buftabs_only_basename=1
+let g:buftabs_only_basename=1
 set laststatus=2
-:let g:buftabs_in_statusline=1
-:let g:buftabs_active_highlight_group="Visual"
+let g:buftabs_in_statusline=1
+let g:buftabs_active_highlight_group="Visual"
 
 "Command-T configuration
 let g:CommandTMaxHeight=10
@@ -272,6 +285,16 @@ endfunction
 
 
 "" Key Mappings
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Parenthesis/bracket expanding
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap { {}<Esc>i
+inoremap < <><Esc>i
+inoremap ' ''<Esc>i
+inoremap " ""<Esc>i
 
 "" Strip all trailing whitespace in the current file
 nnoremap <silent> <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -341,6 +364,9 @@ vnoremap > >gv
 " Bubble single lines
 nmap <C-Up> [e
 nmap <C-Down> ]e
+" Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
 
 "" Split vertical window and switch to it
 nnoremap <leader>s <C-w>v<C-w>l
