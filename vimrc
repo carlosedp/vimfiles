@@ -62,22 +62,36 @@ endif
 " MacVIM shift+arrow-keys behavior (required in .vimrc)
 let macvim_hig_shift_movement = 1
 
-
 "" Set initial window size only on GUI
 if has("gui_running")
     set lines=40 columns=120
+    set browsedir=buffer
+endif
+
+"" encodings configure
+set fileencoding=utf-8
+set encoding=utf-8
+set fileencodings=ucs-bom,utf-8,gb2312,cp936
+
+if has("multi_byte")
+    if &termencoding == ""
+        let &termencoding = &encoding
+    endif
+    set encoding=utf-8
+    setglobal fileencoding=utf-8 bomb
+    set fileencodings=ucs-bom,utf-8,default,latin1
 endif
 
 "" Set narrow linespace
 set linespace=0
 
 " Tab completion
+set wildmenu "Turn on WiLd menu
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,test/fixtures/*,vendor/gems/*
 
-set wildmenu "Turn on WiLd menu
-        
-set magic "Set magic on, for regular expressions
+"Set magic on, for regular expressions
+set magic
 
 source $VIMRUNTIME/mswin.vim
 behave mswin
@@ -98,8 +112,16 @@ set background=dark
 colorscheme Mustang
 
 "
-"" enable spell check
-" set spell
+" set English language
+language messages en
+set langmenu=none
+
+" Use english for spellchecking, but don't spellcheck by default
+if version >= 700
+    set spl=en spell
+    set nospell
+endif
+
 "" enable mouse
 set mouse=a
 "
@@ -107,19 +129,16 @@ set mouse=a
 set ignorecase
 set smartcase
 set scrolloff=3
-"
 
-"" encodings configure
-set fileencoding=utf-8
-set encoding=utf-8
-set fileencodings=ucs-bom,utf-8,gb2312,cp936
-"
 "" set tabstop value and shift width
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
-"
+
+" No extra space when join lines
+set joinspaces
+
 set wrap
 set textwidth=79
 set formatoptions=qrn1
@@ -127,7 +146,19 @@ set formatoptions=qrn1
 ""setting about indent
 set autoindent
 set smartindent
-"
+
+" Display invisible characters.
+" Use the same symbols as TextMate for tabstops and EOLs
+"set listchars=eol:?,tab:>-,trail:~,extends:>,precedes:<
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+set nolist
+
+" add to autocomplete the dictionary
+set complete+=k
+
+" for XSL / CSS - completition works great
+set iskeyword+=-,:
+
 ""setting about old window resizing behavior when open a new window
 set winfixheight
 "" not let all windows keep the same height/width
@@ -135,6 +166,12 @@ set noequalalways
 
 ""Highlight current line and set color
 set cursorline
+
+" Now you can select both with the mouse and shifted arrow keys and press '>' to indent
+set selectmode=
+
+" set inclusive, default is exclusive... but have problem with sorround.vim plugin
+set selection=inclusive
 
 nmap ,o o<Esc>
 
@@ -149,6 +186,10 @@ set sessionoptions=buffers,curdir,folds,help,resize,winpos,winsize,tabpages,unix
 
 "" Disable code folding
 set nofoldenable
+
+
+"""""""""""""""""""""Functions""""""""""""""""""""""""""""
+
 
 " Creates a session
 function! MakeSession()
@@ -204,6 +245,40 @@ function! Home()
         normal 0
     endif
 endfunction
+
+set diffexpr=MyDiff()
+function! MyDiff()
+    let opt = '-a --binary '
+    if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+    if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+    let arg1 = v:fname_in
+    if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+    let arg2 = v:fname_new
+    if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+    let arg3 = v:fname_out
+    if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+    let eq = ''
+    if $VIMRUNTIME =~ ' '
+        if &sh =~ '\<cmd'
+            let cmd = '""' . $VIMRUNTIME . '\diff"'
+            let eq = '"'
+        else
+            let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+        endif
+    else
+        let cmd = $VIMRUNTIME . '\diff'
+    endif
+    silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+endfunction
+
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+if !exists(":DiffOrig")
+    command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+                \ | wincmd p | diffthis
+endif
 
 
 function! NTFinderP()
@@ -272,14 +347,14 @@ function! IndentFile()
     if &filetype == 'javascript'
         let l = line('.')
         let c = col('.')
-        call g:Jsbeautify() 
+        call g:Jsbeautify()
         call cursor(l,c)
     else
         let l = line('.')
         let c = col('.')
         execute "normal! gg=G"
         call cursor(l,c)
-    endif    
+    endif
 endfunction
 
 
@@ -296,11 +371,38 @@ inoremap < <><Esc>i
 inoremap ' ''<Esc>i
 inoremap " ""<Esc>i
 
+" Make cursor move as expected with wrapped lines (in insert mode only with Alt key)
+nnoremap <silent> <Up> gk
+nnoremap <silent> <Down> gj
+inoremap <M-Down> <C-o>gj
+inoremap <M-Up> <C-o>gk
+
+" better Shift + Ctrl + Left-Right selection range
+vnoremap <S-C-Left> b
+vnoremap <S-C-Right> e
+nnoremap <C-Left> b
+nnoremap <C-Right> e
+nnoremap <S-C-Left> vb
+nnoremap <S-C-Right> ve
+
+" Fast find selected text
+map , y/<C-R>"/<cr>
+
+"" Inserts hard tab in INSERT mode
+imap <S-Tab> <C-Q><Tab>
+
+" Make enter useful in normal & visual mode (match tags and brackets)
+nmap <C-CR> %
+vmap <C-CR> %
+
 "" Strip all trailing whitespace in the current file
 nnoremap <silent> <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
-"" Reindent Code and go back to the line the cursor was
-nnoremap <silent> <leader>R :call IndentFile()<CR> 
+"" Reindent Code, strip trailing whitespace and go back to the line the cursor was
+nnoremap <silent> <leader>R :%s/\s\+$//<cr>:let @/=''<CR>:call IndentFile()<CR>
+
+""" Remove the Windows ^M - when the encodings gets messed up
+noremap <Leader>mm mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 "" Toggle Last used files list
 nnoremap <silent> <leader>m :MRU<CR>
