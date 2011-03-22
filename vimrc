@@ -111,6 +111,13 @@ set background=dark
 "colorscheme molokai
 colorscheme Mustang
 
+try
+  source $VIM/vimfiles/snippets/support_functions.vim
+catch
+  source ~/vimfiles/snippets/support_functions.vim
+endtry
+
+
 "
 " set English language
 language messages en
