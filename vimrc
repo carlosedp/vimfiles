@@ -174,13 +174,8 @@ set noequalalways
 ""Highlight current line and set color
 set cursorline
 
-" Now you can select both with the mouse and shifted arrow keys and press '>' to indent
-set selectmode=
-
 " set inclusive, default is exclusive... but have problem with sorround.vim plugin
 set selection=inclusive
-
-nmap ,o o<Esc>
 
 "" Remaps search
 nnoremap / /\v
