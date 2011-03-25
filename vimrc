@@ -114,13 +114,13 @@ colorscheme Mustang
 try
   source $VIM/vimfiles/snippets/support_functions.vim
 catch
-  source ~/vimfiles/snippets/support_functions.vim
+  source ~/.vim/snippets/support_functions.vim
 endtry
 
 
 "
 " set English language
-language messages en
+language messages en_US
 set langmenu=none
 
 " Use english for spellchecking, but don't spellcheck by default
