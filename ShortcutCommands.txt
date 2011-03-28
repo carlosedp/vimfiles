@@ -23,6 +23,7 @@ Shift+Tab       -   Inserts a Hard Tab in insert mode
 <leader>d       -   Duplicates current line
 <leader>space   -   Clear search highlight
 <leader>s       -   Split window vertically and switch to it
+<leader>e       -   Edits vimrc file
 
 Ctrl+n          -   Create new empty buffer
 Ctrl+C          -   Copy

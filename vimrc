@@ -411,6 +411,14 @@ nnoremap <silent> <leader>m :MRU<CR>
 "" MRU Ignored files
 let MRU_Exclude_Files = '.*\\Local Settings\\Temp\\.*|^.*\.(hg|git|bzr)\\.*$'
 let MRU_Max_Menu_Entries = 40
+let MRU_Max_Entries = 50
+
+"" Edits vimrc file
+try
+  map <leader>e :e $VIM/vimfiles/vimrc<CR>
+catch
+  map <leader>e :e ~/.vim/vimrc<CR>
+endtry
 
 "" Duplicates current line
 nnoremap <leader>d Yp<CR>
