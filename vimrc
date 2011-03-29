@@ -100,7 +100,6 @@ behave mswin
 set backspace=indent,eol,start
 set whichwrap+=<,>,[,],h,l
 
-"
 "" set filetype check on
 filetype plugin indent on
 syntax on
@@ -117,8 +116,6 @@ catch
     source ~/.vim/snippets/support_functions.vim
 endtry
 
-
-"
 " set English language
 language messages en_US
 set langmenu=none
@@ -194,8 +191,6 @@ set nofoldenable
 
 
 """""""""""""""""""""Functions""""""""""""""""""""""""""""
-
-
 " Creates a session
 function! MakeSession()
     let b:sessiondir = $HOME
@@ -235,7 +230,6 @@ endfunction
 
 au VimEnter * :call LoadSession()
 au VimLeave * :call UpdateSession()
-"map <leader>m :call MakeSession()<CR>
 
 "<home> toggles between start of line and start of text
 imap <khome> <home>
@@ -285,29 +279,6 @@ if !exists(":DiffOrig")
                 \ | wincmd p | diffthis
 endif
 
-
-function! NTFinderP()
-    "" Check if NERDTree is open
-    if exists("t:NERDTreeBufName")
-        let s:ntree = bufwinnr(t:NERDTreeBufName)
-    else
-        let s:ntree = -1
-    endif
-    if (s:ntree != -1)
-        "" If NERDTree is open, close it.
-        :NERDTreeClose
-    else
-        "" Try to open a :Rtree for the rails project
-        if exists(":Rtree")
-            "" Open Rtree (using rails plugin, it opens in project dir)
-            :Rtree
-        else
-            "" Open NERDTree in the file path
-            :NERDTreeFind
-        endif
-    endif
-endfunction
-
 "" NERDTree Parameters
 "" Quit on opening files from the tree
 let NERDTreeQuitOnOpen=1
@@ -317,7 +288,6 @@ let NERDTreeHighlightCursorline=1
 
 "" Open NERDTree in same dir
 let NERDTreeChDirMode=1
-
 
 "" Show hidden files by default
 "let NERDTreeShowHidden=1
@@ -332,21 +302,16 @@ let g:buftabs_active_highlight_group="Visual"
 let g:CommandTMaxHeight=10
 let g:CommandTMatchWindowAtTop=1
 
+"" MRU Configuration
+let MRU_Exclude_Files = '.*\\Local Settings\\Temp\\.*|^.*\.(hg|git|bzr)\\.*$'
+let MRU_Max_Menu_Entries = 40
+let MRU_Max_Entries = 50
+
+
 ""Set custom filetypes
 autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
 autocmd! BufNewFile,BufRead *.ejs set filetype=html.js
 
-"" Set current buffer dir as working dir
-"autocmd BufEnter * lcd %:p:h
-"autocmd BufEnter * call ReturnDir()
-
-function! ReturnDir()
-    if exists(":Rtree")
-        lcd `=rails#app().path()`
-    else
-        lcd %:p:h
-    endif
-endfunction
 
 function! IndentFile()
     if &filetype == 'javascript'
@@ -361,8 +326,6 @@ function! IndentFile()
         call cursor(l,c)
     endif
 endfunction
-
-
 
 "" Key Mappings
 
@@ -394,27 +357,23 @@ nnoremap <S-C-Right> ve
 map , y/<C-R>"/<cr>
 
 "" Inserts hard tab in INSERT mode
-imap <S-Tab> <C-Q><Tab>
+inoremap <S-Tab> <C-V><Tab>
 
 " Make enter useful in normal & visual mode (match tags and brackets)
 nmap <C-CR> %
 vmap <C-CR> %
 
 "" Strip all trailing whitespace in the current file
-nnoremap <silent> <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap <silent> <leader>W :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 "" Reindent Code, strip trailing whitespace and go back to the line the cursor was
-nnoremap <silent> <leader>R :call IndentFile()<CR>:%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap <silent> <leader>R :call IndentFile()<CR>:let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 """ Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>mm mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 "" Toggle Last used files list
 nnoremap <silent> <leader>m :MRU<CR>
-"" MRU Ignored files
-let MRU_Exclude_Files = '.*\\Local Settings\\Temp\\.*|^.*\.(hg|git|bzr)\\.*$'
-let MRU_Max_Menu_Entries = 40
-let MRU_Max_Entries = 50
 
 "" Edits vimrc file
 if has("gui_macvim")
@@ -436,8 +395,6 @@ nmap <tab> <C-W>w
 map <silent> <C-tab> :buffer #<CR>
 
 "" Toggles NERDTree
-"nmap <silent> <F1> <C-O>:call NTFinderP()<CR>
-"imap <silent> <F1> <C-O>:call NTFinderP()<CR>
 imap <silent> <F1> <esc>:NERDTreeFind<CR>
 nmap <silent> <F1> :NERDTreeFind<CR>
 
