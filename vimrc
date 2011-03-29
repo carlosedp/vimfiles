@@ -112,9 +112,9 @@ set background=dark
 colorscheme Mustang
 
 try
-  source $VIM/vimfiles/snippets/support_functions.vim
+    source $VIM/vimfiles/snippets/support_functions.vim
 catch
-  source ~/.vim/snippets/support_functions.vim
+    source ~/.vim/snippets/support_functions.vim
 endtry
 
 
@@ -404,7 +404,7 @@ vmap <C-CR> %
 nnoremap <silent> <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 "" Reindent Code, strip trailing whitespace and go back to the line the cursor was
-nnoremap <silent> <leader>R :%s/\s\+$//<cr>:let @/=''<CR>:call IndentFile()<CR>
+nnoremap <silent> <leader>R :call IndentFile()<CR>:%s/\s\+$//<cr>:let @/=''<CR>
 
 """ Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>mm mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
@@ -417,11 +417,11 @@ let MRU_Max_Menu_Entries = 40
 let MRU_Max_Entries = 50
 
 "" Edits vimrc file
-try
-  map <leader>e :e $VIM/vimfiles/vimrc<CR>
-catch
-  map <leader>e :e ~/.vim/vimrc<CR>
-endtry
+if has("gui_macvim")
+    map <leader>e :e ~/.vim/vimrc<CR>
+else
+    map <leader>e :e $VIM/vimfiles/vimrc<CR>
+endif
 
 "" Duplicates current line
 nnoremap <leader>d Yp<CR>
