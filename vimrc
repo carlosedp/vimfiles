@@ -6,6 +6,9 @@ call pathogen#helptags()
 "" This must be first, because it changes other options as a side effect.
 set nocompatible
 
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
 set modeline
 
 "" Hides the buffer instead of closing. Allows switch unsaved buffers.
@@ -92,9 +95,6 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,test/fixtures/*,vendor/gems/*
 
 "Set magic on, for regular expressions
 set magic
-
-source $VIMRUNTIME/mswin.vim
-behave mswin
 
 " Backspace and cursor keys wrap to previous/next line
 set backspace=indent,eol,start
