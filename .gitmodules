@@ -84,4 +84,4 @@
 	url = https://github.com/MarcWeber/snipmate.vim.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
-	url = https://github.com/MarcWeber/snipmate.vim.git
+	url = https://carlosedp@github.com/carlosedp/snipmate.vim.git
