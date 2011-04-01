@@ -108,7 +108,8 @@ set background=dark
 "colorscheme ir_black
 "colorscheme desert
 "colorscheme molokai
-colorscheme Mustang
+"colorscheme Mustang
+colorscheme solarized
 
 try
     source $VIM/vimfiles/snippets/support_functions.vim
