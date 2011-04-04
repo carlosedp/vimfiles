@@ -15,21 +15,41 @@ set hidden
 set nobackup
 set noswapfile
 
+" set English language
+language messages en_US
+set langmenu=none
+
+" Use english for spellchecking, but don't spellcheck by default
+if version >= 700
+    set spl=en spell
+    set nospell
+endif
+
+"" enable mouse
+set mouse=a
+
 "" Disable ALT keys access to menubar. Makes mappings work.
 set winaltkeys=no
 
-"" Use Vim settings, rather then Vi settings (much better!).
-"" This must be first, because it changes other options as a side effect.
-set nocompatible
-"
-
-set history=500		" keep 50 lines of command line history
+set history=500		" keep 500 lines of command line history
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
+set number " show line numbers
+
+"" set search ignorecase
+set ignorecase
+set smartcase
 set incsearch		" do incremental searching
 set hlsearch
-set number " show line numbers
-set showbreak=...
+
+"" Remaps search
+nnoremap / /\v
+vnoremap / /\v
+"" All matches in a line are substituted instead of one
+set gdefault
+
+"" Automatically change working dir to current buffer
+set autochdir
 
 "" Disable bell
 set vb
@@ -39,9 +59,6 @@ set guioptions=egmrLtTb
 
 "" Remove the 'tear bla bla from menus'
 set guioptions-=t
-
-"" Automatically change working dir to current buffer
-set autochdir
 
 "" set GUI font
 if has("gui_macvim")
@@ -53,14 +70,13 @@ if has("gui_macvim")
     "set guifont=Inconsolata:h14
     "set guifont=Droid\ Sans\ Mono:h10
     set guifont=Consolas:h14
+    " MacVIM shift+arrow-keys behavior (required in .vimrc)
+    let macvim_hig_shift_movement = 1
 else
     "set guifont=Inconsolata:h11
     set guifont=Consolas:h11
     "set guifont=Droid\ Sans\ Mono:h10
 endif
-
-" MacVIM shift+arrow-keys behavior (required in .vimrc)
-let macvim_hig_shift_movement = 1
 
 "" Set initial window size only on GUI
 if has("gui_running")
@@ -111,28 +127,14 @@ set background=dark
 "colorscheme Mustang
 colorscheme solarized
 
+"" Load snippets
 try
     source $VIM/vimfiles/snippets/support_functions.vim
 catch
     source ~/.vim/snippets/support_functions.vim
 endtry
 
-" set English language
-language messages en_US
-set langmenu=none
-
-" Use english for spellchecking, but don't spellcheck by default
-if version >= 700
-    set spl=en spell
-    set nospell
-endif
-
-"" enable mouse
-set mouse=a
-"
-"" set search ignorecase
-set ignorecase
-set smartcase
+""Minimal number of screen lines to keep above and below the cursor.
 set scrolloff=3
 
 "" set tabstop value and shift width
@@ -141,16 +143,18 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
-" No extra space when join lines
-set joinspaces
-
-set wrap
-set textwidth=79
-set formatoptions=qrn1
-
 ""setting about indent
 set autoindent
 set smartindent
+
+" No extra space when join lines
+set joinspaces
+
+"" Wrap text
+set wrap
+set showbreak=...
+set textwidth=79
+set formatoptions=qrn1
 
 " Display invisible characters.
 " Use the same symbols as TextMate for tabstops and EOLs
@@ -178,11 +182,6 @@ set selection=exclusive
 "" Allow cursor to be positioned anywhere in block select mode
 set virtualedit=block
 
-"" Remaps search
-nnoremap / /\v
-vnoremap / /\v
-set gdefault
-
 "" Use Unix format for files
 "set sessionoptions+=unix,slash,localoptions
 set sessionoptions=buffers,curdir,folds,help,resize,winpos,winsize,tabpages,unix,slash,localoptions
@@ -190,8 +189,14 @@ set sessionoptions=buffers,curdir,folds,help,resize,winpos,winsize,tabpages,unix
 "" Disable code folding
 set nofoldenable
 
+""Set custom filetypes
+autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
+autocmd! BufNewFile,BufRead *.ejs set filetype=html.js
 
-"""""""""""""""""""""Functions""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""
+"""""""""""""  Functions  """""""""""""
+"""""""""""""""""""""""""""""""""""""""
+
 " Creates a session
 function! MakeSession()
     let b:sessiondir = $HOME
@@ -246,6 +251,24 @@ function! Home()
     endif
 endfunction
 
+"" Indent files. Use plugin when filetype is Javascript.
+function! IndentFile()
+    if &filetype == 'javascript'
+        let l = line('.')
+        let c = col('.')
+        call g:Jsbeautify()
+        call cursor(l,c)
+    else
+        let l = line('.')
+        let c = col('.')
+        execute "normal! gg=G"
+        call cursor(l,c)
+    endif
+endfunction
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
 set diffexpr=MyDiff()
 function! MyDiff()
     let opt = '-a --binary '
@@ -271,14 +294,14 @@ function! MyDiff()
     silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
 if !exists(":DiffOrig")
     command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
                 \ | wincmd p | diffthis
 endif
+
+"""""""""""""""""""""""""""""""""""""""
+"""""""""" Plugin Parameters """"""""""
+"""""""""""""""""""""""""""""""""""""""
 
 "" NERDTree Parameters
 "" Quit on opening files from the tree
@@ -309,30 +332,12 @@ let MRU_Max_Menu_Entries = 40
 let MRU_Max_Entries = 50
 
 
-""Set custom filetypes
-autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
-autocmd! BufNewFile,BufRead *.ejs set filetype=html.js
 
+""""""""""""""""""""""""""""""""""""""
+"""""""""""" Key Mappings """"""""""""
+""""""""""""""""""""""""""""""""""""""
 
-function! IndentFile()
-    if &filetype == 'javascript'
-        let l = line('.')
-        let c = col('.')
-        call g:Jsbeautify()
-        call cursor(l,c)
-    else
-        let l = line('.')
-        let c = col('.')
-        execute "normal! gg=G"
-        call cursor(l,c)
-    endif
-endfunction
-
-"" Key Mappings
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Parenthesis/bracket expanding
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Parenthesis/bracket expanding
 inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
 inoremap { {}<Esc>i
@@ -340,13 +345,13 @@ inoremap < <><Esc>i
 inoremap ' ''<Esc>i
 inoremap " ""<Esc>i
 
-" Make cursor move as expected with wrapped lines (in insert mode only with Alt key)
+"" Make cursor move as expected with wrapped lines (in insert mode only with Alt key)
 nnoremap <silent> <Up> gk
 nnoremap <silent> <Down> gj
 inoremap <M-Down> <C-o>gj
 inoremap <M-Up> <C-o>gk
 
-" better Shift + Ctrl + Left-Right selection range
+"" Better Shift + Ctrl + Left-Right selection range
 vnoremap <S-C-Left> b
 vnoremap <S-C-Right> e
 nnoremap <C-Left> b
@@ -354,13 +359,13 @@ nnoremap <C-Right> e
 nnoremap <S-C-Left> vb
 nnoremap <S-C-Right> ve
 
-" Fast find selected text
+"" Fast find selected text
 map , y/<C-R>"/<cr>
 
 "" Inserts hard tab in INSERT mode
 inoremap <S-Tab> <C-V><Tab>
 
-" Make enter useful in normal & visual mode (match tags and brackets)
+"" Make enter useful in normal & visual mode (match tags and brackets)
 nmap <C-CR> %
 vmap <C-CR> %
 
@@ -370,7 +375,7 @@ nnoremap <silent> <leader>W :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl
 "" Reindent Code, strip trailing whitespace and go back to the line the cursor was
 nnoremap <silent> <leader>R :call IndentFile()<CR>:let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-""" Remove the Windows ^M - when the encodings gets messed up
+"" Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>mm mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 "" Toggle Last used files list
