@@ -69,13 +69,15 @@ if has("gui_macvim")
     set invmmta
     "set guifont=Inconsolata:h14
     "set guifont=Droid\ Sans\ Mono:h10
-    set guifont=Consolas:h14
+    "set guifont=Consolas:h14
+    set guifont=Bitstream\ Vera\ Sans\ Mono:h14
     " MacVIM shift+arrow-keys behavior (required in .vimrc)
     let macvim_hig_shift_movement = 1
 else
     "set guifont=Inconsolata:h11
-    set guifont=Consolas:h11
+    "set guifont=Consolas:h11
     "set guifont=Droid\ Sans\ Mono:h10
+    set guifont=Bitstream\ Vera\ Sans\ Mono:h11
 endif
 
 "" Set initial window size only on GUI
@@ -173,10 +175,10 @@ set winfixheight
 "" not let all windows keep the same height/width
 set noequalalways
 
-""Highlight current line and set color
+"" Highlight current line and set color
 set cursorline
 
-" set inclusive, default is exclusive... but have problem with sorround.vim plugin
+"" Set inclusive, default is exclusive... but have problem with sorround.vim plugin
 set selection=exclusive
 
 "" Allow cursor to be positioned anywhere in block select mode
@@ -189,9 +191,19 @@ set sessionoptions=buffers,curdir,folds,help,resize,winpos,winsize,tabpages,unix
 "" Disable code folding
 set nofoldenable
 
-""Set custom filetypes
+"" Set custom filetypes
 autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
 autocmd! BufNewFile,BufRead *.ejs set filetype=html.js
+
+"" Status line
+"set statusline=
+"set statusline+=%f\ %2*%m\ %1*%h
+"set statusline+=%#warningmsg#
+"set statusline+=%{fugitive#statusline()}
+"set statusline+=%*
+"set statusline+=%r%=[%{&encoding}\ %{&fileformat}\ %{strlen(&ft)?&ft:'none'}]\ %12.(%c:%l/%L%)\ (%P)
+"set laststatus=2
+
 
 """""""""""""""""""""""""""""""""""""""
 """""""""""""  Functions  """""""""""""
@@ -338,12 +350,13 @@ let MRU_Max_Entries = 50
 """"""""""""""""""""""""""""""""""""""
 
 "" Parenthesis/bracket expanding
-inoremap ( ()<Esc>i
-inoremap [ []<Esc>i
-inoremap { {}<Esc>i
-inoremap < <><Esc>i
-inoremap ' ''<Esc>i
-inoremap " ""<Esc>i
+"" Disabled after adding vim-autoclose module
+"inoremap ( ()<Esc>i
+"inoremap [ []<Esc>i
+"inoremap { {}<Esc>i
+"inoremap < <><Esc>i
+"inoremap ' ''<Esc>i
+"inoremap " ""<Esc>i
 
 "" Make cursor move as expected with wrapped lines (in insert mode only with Alt key)
 nnoremap <silent> <Up> gk
