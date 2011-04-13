@@ -121,7 +121,6 @@ set whichwrap+=<,>,[,],h,l
 "" set filetype check on
 filetype plugin indent on
 syntax on
-set t_Co=256 " 256 colors
 set background=dark
 "colorscheme ir_black
 "colorscheme desert
