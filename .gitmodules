@@ -90,4 +90,4 @@
 	url = https://github.com/Ariba/vim-haml.git
 [submodule "bundle/buftabs"]
 	path = bundle/buftabs
-	url = https://github.com/vim-scripts/buftabs.git
+	url = https://github.com/carlosedp/buftabs.git
