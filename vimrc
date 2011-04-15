@@ -178,7 +178,7 @@ set noequalalways
 set cursorline
 
 "" Set inclusive, default is exclusive... but have problem with sorround.vim plugin
-set selection=exclusive
+set selection=inclusive
 
 "" Allow cursor to be positioned anywhere in block select mode
 set virtualedit=block
