@@ -345,6 +345,10 @@ let MRU_Exclude_Files = '.*\\Local Settings\\Temp\\.*|^.*\.(hg|git|bzr)\\.*$'
 let MRU_Max_Menu_Entries = 40
 let MRU_Max_Entries = 50
 
+"" Tagbar configuration
+let g:tagbar_width = 25 
+let g:tagbar_autoclose = 0
+let g:tagbar_autofocus = 1
 
 
 """"""""""""""""""""""""""""""""""""""
@@ -463,3 +467,6 @@ vmap <C-Down> ]egv
 
 "" Split vertical window and switch to it
 nnoremap <leader>s <C-w>v<C-w>l
+
+"" Tagbar Toggle
+map <leader>b :TagbarToggle<CR>
