@@ -58,11 +58,12 @@ You will need these dependencies figured out:
 * Exuberant Ctags (http://ctags.sourceforge.net/)
 
 In Ubuntu, for example, you will have to do:
-    apt-get install exuberant-ctags ncurses-term
-In OS X, you can install ctags with homebrew
-    brew install ctags
-On Windows you have to download Ctags and add ctags.exe in your PATH.
+    `apt-get install exuberant-ctags ncurses-term`
 
+In OS X, you can install ctags with homebrew
+    `brew install ctags`
+
+On Windows you have to download Ctags and add ctags.exe in your PATH.
 
 Mac OS X and most Linux distros come with Ruby already. If you're in Windows
 look for Luis Lavena's latest Ruby Installer (http://rubyforge.org/projects/rubyinstaller/)
