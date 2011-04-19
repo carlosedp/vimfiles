@@ -195,17 +195,16 @@ autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
 autocmd! BufNewFile,BufRead *.ejs set filetype=html.js
 
 "" Status line
+set laststatus=2
 set statusline=
 "set statusline+=%f\ %2*%m\ %1*%h
-set statusline+=%buftabs#statusline()
+set statusline+=buftabs#statusline()
 set statusline+=%=\ %{fugitive#statusline()}
 "set statusline+=%#warningmsg#
 "set statusline+=%*
-"set statusline+=%r%=[%{&encoding}\ %{&fileformat}\ %{strlen(&ft)?&ft:'none'}]\ %12.(%c:%l/%L%)\ (%P)
-set statusline+=%r%=\ %(%c:%l/%L%)\ (%P)
+set statusline+=%r%=[%{&encoding}\ %{&fileformat}\ %{strlen(&ft)?&ft:'none'}]\ %(%c:%l/%L%)\ (%P)
+"set statusline+=%r%=\ %(%c:%l/%L%)\ (%P)
 "set statusline+=%r%=\ %12.(%c:%l/%L%)\ (%P)
-set laststatus=2
-
 
 """""""""""""""""""""""""""""""""""""""
 """""""""""""  Functions  """""""""""""
@@ -333,7 +332,7 @@ let NERDTreeChDirMode=1
 "" Set BufTabs parameters
 let g:buftabs_only_basename=1
 let g:buftabs_in_statusline=1
-let g:buftabs_reserved_space=35
+let g:buftabs_reserved_space=55
 let g:buftabs_active_highlight_group="Visual"
 
 "Command-T configuration
