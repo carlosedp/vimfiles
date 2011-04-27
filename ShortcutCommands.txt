@@ -36,7 +36,7 @@ Ctrl+Y          -   Redo
 Ctrl+A          -   Select all
 Ctrl+n          -   Autocomplete
 Alt+w           -   Close window
-,               -   Quick search current selection
+,               -   Quick search current word under cursor
 
 
 Ctrl+up         -   Move current line up(Also works with selection)

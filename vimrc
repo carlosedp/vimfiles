@@ -470,4 +470,8 @@ vmap <C-Down> ]egv
 nnoremap <leader>s <C-w>v<C-w>l
 
 "" Taglist Toggle
-map <leader>tl :TlistToggle<CR>
+map <silent> <leader>tl :TlistToggle<CR>
+
+"" Search word under cursor
+nnoremap , /<C-R><C-W><CR>N
+
