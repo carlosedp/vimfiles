@@ -344,10 +344,12 @@ let MRU_Exclude_Files = '.*\\Local Settings\\Temp\\.*|^.*\.(hg|git|bzr)\\.*$'
 let MRU_Max_Menu_Entries = 40
 let MRU_Max_Entries = 50
 
-"" Tagbar configuration
-let g:tagbar_width = 25 
-let g:tagbar_autoclose = 0
-let g:tagbar_autofocus = 1
+"" Taglist configuration
+let Tlist_Use_Right_Window = 1
+let Tlist_Auto_Highlight_Tag = 1
+let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Show_One_File = 1
+let Tlist_Sort_Type = "name"
 
 
 """"""""""""""""""""""""""""""""""""""
@@ -467,5 +469,5 @@ vmap <C-Down> ]egv
 "" Split vertical window and switch to it
 nnoremap <leader>s <C-w>v<C-w>l
 
-"" Tagbar Toggle
-map <leader>b :TagbarToggle<CR>
+"" Taglist Toggle
+map <leader>tl :TlistToggle<CR>

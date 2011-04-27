@@ -24,7 +24,7 @@ Shift+Tab       -   Inserts a Hard Tab in insert mode
 <leader>space   -   Clear search highlight
 <leader>s       -   Split window vertically and switch to it
 <leader>e       -   Edits vimrc file
-<leader>b       -   Opens Tagbar browser
+<leader>tl      -   Opens Taglist-plus tag browser
 
 Ctrl+n          -   Create new empty buffer
 Ctrl+C          -   Copy
