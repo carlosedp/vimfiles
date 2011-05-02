@@ -347,10 +347,20 @@ let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Show_One_File = 1
 let Tlist_Sort_Type = "name"
 
-"" MiniBufferExplorer++ configuration
+"" MiniBufferExplorer configuration
 autocmd BufEnter -MiniBufExplorer- execute "normal \<c-w>w"
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
 let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplMaxSize = 2
+hi MBEVisibleActive guifg=#A6DB29 guibg=fg
+hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
+hi MBEVisibleChanged guifg=#F1266F guibg=fg
+hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
+hi MBEChanged guifg=#CD5907 guibg=fg
+hi MBENormal guifg=#808080 guibg=fg
+
 
 """"""""""""""""""""""""""""""""""""""
 """""""""""" Key Mappings """"""""""""
