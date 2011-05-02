@@ -348,7 +348,7 @@ let Tlist_Show_One_File = 1
 let Tlist_Sort_Type = "name"
 
 "" MiniBufferExplorer configuration
-autocmd BufEnter -MiniBufExplorer- execute "normal \<c-w>w"
+"autocmd BufEnter -MiniBufExplorer- execute "normal \<c-w>w"
 let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
@@ -365,15 +365,6 @@ hi MBENormal guifg=#808080 guibg=fg
 """"""""""""""""""""""""""""""""""""""
 """""""""""" Key Mappings """"""""""""
 """"""""""""""""""""""""""""""""""""""
-
-"" Parenthesis/bracket expanding
-"" Disabled after adding vim-autoclose module
-"inoremap ( ()<Esc>i
-"inoremap [ []<Esc>i
-"inoremap { {}<Esc>i
-"inoremap < <><Esc>i
-"inoremap ' ''<Esc>i
-"inoremap " ""<Esc>i
 
 "" Make cursor move as expected with wrapped lines (in insert mode only with Alt key)
 nnoremap <silent> <Up> gk
@@ -425,7 +416,7 @@ nnoremap <leader>d Yp<CR>
 nmap <C-N> :enew<CR>
 
 "" Cycles between windows
-nmap <tab> <C-W>w
+nmap <M-tab> <C-W>w
 
 "" Cycles between buffers
 map <silent> <C-tab> :buffer #<CR>
@@ -478,6 +469,9 @@ vmap <C-Down> ]egv
 
 "" Split vertical window and switch to it
 nnoremap <leader>s <C-w>v<C-w>l
+
+"" Split horizontal window and switch to it
+nnoremap <leader>h :split<CR>
 
 "" Taglist Toggle
 map <silent> <leader>tl :TlistToggle<CR>
