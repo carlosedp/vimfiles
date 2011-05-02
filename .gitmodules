@@ -85,9 +85,6 @@
 [submodule "bundle/vim-haml"]
 	path = bundle/vim-haml
 	url = https://github.com/Ariba/vim-haml.git
-[submodule "bundle/buftabs"]
-	path = bundle/buftabs
-	url = https://github.com/carlosedp/buftabs.git
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = https://github.com/ervandew/supertab.git

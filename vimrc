@@ -197,14 +197,10 @@ autocmd! BufNewFile,BufRead *.ejs set filetype=html.js
 "" Status line
 set laststatus=2
 set statusline=
-"set statusline+=%f\ %2*%m\ %1*%h
-set statusline+=buftabs#statusline()
-set statusline+=%=\ %{fugitive#statusline()}
-"set statusline+=%#warningmsg#
-"set statusline+=%*
-set statusline+=%r%=[%{&encoding}\ %{&fileformat}\ %{strlen(&ft)?&ft:'none'}]\ %(%c:%l/%L%)\ (%P)
-"set statusline+=%r%=\ %(%c:%l/%L%)\ (%P)
-"set statusline+=%r%=\ %12.(%c:%l/%L%)\ (%P)
+set statusline+=%f\ %m\ %r
+set statusline+=%{fugitive#statusline()}
+set statusline+=%=
+set statusline+=[%{&encoding}\ %{&fileformat}\ %{strlen(&ft)?&ft:'none'}]\ %(%c:%l/%L%)\ (%P)
 
 """""""""""""""""""""""""""""""""""""""
 """""""""""""  Functions  """""""""""""
@@ -351,6 +347,10 @@ let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Show_One_File = 1
 let Tlist_Sort_Type = "name"
 
+"" MiniBufferExplorer++ configuration
+autocmd BufEnter -MiniBufExplorer- execute "normal \<c-w>w"
+let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplMaxSize = 2
 
 """"""""""""""""""""""""""""""""""""""
 """""""""""" Key Mappings """"""""""""
