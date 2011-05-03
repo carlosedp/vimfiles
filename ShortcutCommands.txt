@@ -14,6 +14,7 @@ Shift+F4        -   Close current file without saving
 Ctrl+Q          -   Visual Mode (Replaces <C-V>)
 Shift+Tab       -   Inserts a Hard Tab in insert mode
 
+<leader><tab>   -   Rotate thru windows
 <leader>R       -   Reindent file and strips trailing whitespaces
 <leader>W       -   Strip spaces from the end of lines (entire file)
 <leader>mm      -   Remove windows ^M

@@ -349,8 +349,8 @@ let Tlist_Sort_Type = "name"
 
 "" MiniBufferExplorer configuration
 "autocmd BufEnter -MiniBufExplorer- execute "normal \<c-w>w"
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
+"let g:miniBufExplMapWindowNavArrows = 1
+"let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplMaxSize = 2
@@ -416,7 +416,7 @@ nnoremap <leader>d Yp<CR>
 nmap <C-N> :enew<CR>
 
 "" Cycles between windows
-nmap <M-tab> <C-W>w
+nmap <leader><tab> <C-W>w
 
 "" Cycles between buffers
 map <silent> <C-tab> :buffer #<CR>
