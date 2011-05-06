@@ -178,7 +178,7 @@ set noequalalways
 set cursorline
 
 "" Set inclusive, default is exclusive... but have problem with sorround.vim plugin
-set selection=inclusive
+set selection=old
 
 "" Allow cursor to be positioned anywhere in block select mode
 set virtualedit=block
@@ -197,6 +197,7 @@ autocmd! BufNewFile,BufRead *.ejs set filetype=html.js
 "" Disable AutoClose plugin on markdown files"
 autocmd FileType * :AutoCloseOn
 autocmd FileType mkd :AutoCloseOff
+autocmd FileType mkd :set spell
 
 "" Status line
 set laststatus=2
