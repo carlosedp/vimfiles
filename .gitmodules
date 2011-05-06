@@ -94,9 +94,9 @@
 [submodule "bundle/taglist-plus"]
 	path = bundle/taglist-plus
 	url = https://github.com/int3/vim-taglist-plus.git
-[submodule "bundle/minibufexpl"]
-	path = bundle/minibufexpl
-	url = https://github.com/fholgado/minibufexpl.vim.git
 [submodule "bundle/Command-T"]
 	path = bundle/Command-T
 	url = https://github.com/akitaonrails/Command-T.git
+[submodule "bundle/minibufexplorerpp"]
+	path = bundle/minibufexplorerpp
+	url = https://github.com/vim-scripts/minibufexplorerpp.git
