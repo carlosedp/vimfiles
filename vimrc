@@ -361,7 +361,6 @@ hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
 hi MBEChanged guifg=#CD5907 guibg=fg
 hi MBENormal guifg=#808080 guibg=fg
 
-
 """"""""""""""""""""""""""""""""""""""
 """""""""""" Key Mappings """"""""""""
 """"""""""""""""""""""""""""""""""""""
@@ -416,7 +415,8 @@ nnoremap <leader>d Yp<CR>
 nmap <C-N> :enew<CR>
 
 "" Cycles between windows
-nmap <leader><tab> <C-W>w
+nnoremap <leader><tab> <C-W>w
+nnoremap <tab> <C-W>w
 
 "" Cycles between buffers
 map <silent> <C-tab> :buffer #<CR>
