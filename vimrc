@@ -194,6 +194,10 @@ set nofoldenable
 autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
 autocmd! BufNewFile,BufRead *.ejs set filetype=html.js
 
+"" Disable AutoClose plugin on markdown files"
+autocmd FileType * :AutoCloseOn
+autocmd FileType mkd :AutoCloseOff
+
 "" Status line
 set laststatus=2
 set statusline=
