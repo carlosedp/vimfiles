@@ -87,18 +87,9 @@ if has("gui_running")
 endif
 
 "" encodings configure
-"set fileencoding=utf-8
-"set encoding=utf-8
-"set fileencodings=utf-8
-
-"if has("multi_byte")
-    "if &termencoding == ""
-        "let &termencoding = &encoding
-    "endif
-    "set encoding=utf-8
-    "setglobal fileencoding=utf-8 bomb
-    "set fileencodings=utf-8,default,latin1
-"endif
+set fileencoding=utf-8
+set encoding=utf-8
+set fileencodings=utf-8
 
 "" Set narrow linespace
 set linespace=0
