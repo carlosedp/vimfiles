@@ -353,7 +353,7 @@ let Tlist_Show_One_File = 1
 let Tlist_Sort_Type = "name"
 
 "" MiniBufferExplorer configuration
-"autocmd BufEnter -MiniBufExplorer- execute "normal \<c-w>w"
+autocmd BufEnter -MiniBufExplorer- execute "normal \<c-w>w"
 "let g:miniBufExplMapWindowNavArrows = 1
 "let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
@@ -366,6 +366,16 @@ hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
 hi MBEChanged guifg=#CD5907 guibg=fg
 hi MBENormal guifg=#808080 guibg=fg
 
+"" TabBar Settings
+let g:Tb_MoreThanOne= 0 
+let g:Tb_cTabSwitchBufs = 0
+let g:Tb_UseSingleClick = 1
+let g:did_tabbar_syntax_inits = 1
+highlight Tb_Normal guifg=#808080 guibg=fg
+highlight Tb_Changed guifg=#CD5907 guibg=fg
+highlight Tb_VisibleNormal guifg=#5DC2D6 guibg=fg
+highlight Tb_VisibleChanged guifg=#F1266F guibg=fg
+ 
 """"""""""""""""""""""""""""""""""""""
 """""""""""" Key Mappings """"""""""""
 """"""""""""""""""""""""""""""""""""""

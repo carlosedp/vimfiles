@@ -97,6 +97,6 @@
 [submodule "bundle/Command-T"]
 	path = bundle/Command-T
 	url = https://github.com/akitaonrails/Command-T.git
-[submodule "bundle/minibufexplorerpp"]
-	path = bundle/minibufexplorerpp
-	url = https://github.com/vim-scripts/minibufexplorerpp.git
+[submodule "bundle/TabBar"]
+	path = bundle/TabBar
+	url = https://github.com/vim-scripts/TabBar.git
