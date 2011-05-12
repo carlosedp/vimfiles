@@ -319,13 +319,13 @@ let NERDTreeHighlightCursorline=1
 let NERDTreeChDirMode=1
 
 "" Show hidden files by default
-"let NERDTreeShowHidden=1
+let NERDTreeShowHidden=1
 
 "" Set BufTabs parameters
-let g:buftabs_only_basename=1
-let g:buftabs_in_statusline=1
-let g:buftabs_reserved_space=55
-let g:buftabs_active_highlight_group="Visual"
+"let g:buftabs_only_basename=1
+"let g:buftabs_in_statusline=1
+"let g:buftabs_reserved_space=55
+"let g:buftabs_active_highlight_group="Visual"
 
 "Command-T configuration
 let g:CommandTMaxHeight=10
@@ -347,18 +347,21 @@ let Tlist_Sort_Type = "name"
 autocmd BufEnter -MiniBufExplorer- execute "normal \<c-w>w"
 "let g:miniBufExplMapWindowNavArrows = 1
 "let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-let g:miniBufExplUseSingleClick = 1
-let g:miniBufExplMaxSize = 2
-hi MBEVisibleActive guifg=#A6DB29 guibg=fg
-hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
-hi MBEVisibleChanged guifg=#F1266F guibg=fg
-hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
-hi MBEChanged guifg=#CD5907 guibg=fg
-hi MBENormal guifg=#808080 guibg=fg
+"let g:miniBufExplModSelTarget = 1
+"let g:miniBufExplUseSingleClick = 1
+"let g:miniBufExplMaxSize = 2
+"hi MBEVisibleActive guifg=#A6DB29 guibg=fg
+"hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
+"hi MBEVisibleChanged guifg=#F1266F guibg=fg
+"hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
+"hi MBEChanged guifg=#CD5907 guibg=fg
+"hi MBENormal guifg=#808080 guibg=fg
 
 "" TabBar Settings
 let g:Tb_MoreThanOne= 0 
+let g:Tb_MaxSize = 0
+let g:Tb_MinSize = 1
+let g:Tb_ModSelTarget = 1
 let g:Tb_cTabSwitchBufs = 0
 let g:Tb_UseSingleClick = 1
 let g:did_tabbar_syntax_inits = 1
