@@ -82,7 +82,7 @@ endif
 
 "" Set initial window size only on GUI
 if has("gui_running")
-    set lines=40 columns=120
+    "set lines=40 columns=120
     set browsedir=buffer
 endif
 
