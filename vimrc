@@ -304,6 +304,23 @@ if !exists(":DiffOrig")
                 \ | wincmd p | diffthis
 endif
 
+let g:fullscreen = 0
+function! ToggleFullScreen()
+    if g:fullscreen == 0
+        :TbStop
+        let g:fullscreen = 1
+        set guioptions-=mTrb
+        set laststatus=0
+        set nonumber
+    else
+        :TbStart
+        let g:fullscreen = 0
+        set guioptions+=mTrb
+        set laststatus=2
+        set number
+    endif
+endfunction
+
 """""""""""""""""""""""""""""""""""""""
 """""""""" Plugin Parameters """"""""""
 """""""""""""""""""""""""""""""""""""""
@@ -392,7 +409,7 @@ nnoremap <S-C-Right> ve
 map , y/<C-R>"/<cr>
 
 "" Inserts hard tab in INSERT mode
-inoremap <S-Tab> <C-V><Tab>
+inoremap <leader><Tab> <C-V><Tab>
 
 "" Make enter useful in normal & visual mode (match tags and brackets)
 nmap <C-CR> %
@@ -449,6 +466,9 @@ imap <silent> <F5> <C-O>:set nowrap!<CR>
 "" Toggle between display line endings
 map <silent> <F6> :set nolist!<CR>
 imap <silent> <F6> <C-O>:set nolist!<CR>
+
+map <silent> <F11> :call ToggleFullScreen()<CR>
+
 
 "" Closes buffer but keep window open. Opens clear buffer
 nmap <silent> <C-F4> :Bclose<CR>
