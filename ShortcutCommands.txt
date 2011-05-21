@@ -8,6 +8,8 @@ F4              -   Next Buffer
 F5              -   Toggle between wrap and nowrap lines
 F6              -   Toggle between display special characters (line endings, tabs)
 
+F11             -   No-distraction mode (fullscreen)
+
 Ctrl+F4         -   Close current file
 Ctrl+X          -   Close current file
 Shift+F4        -   Close current file without saving
