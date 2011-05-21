@@ -304,20 +304,35 @@ if !exists(":DiffOrig")
                 \ | wincmd p | diffthis
 endif
 
-let g:fullscreen = 0
+let w:fullscreen = 0
 function! ToggleFullScreen()
-    if g:fullscreen == 0
-        :TbStop
-        let g:fullscreen = 1
-        set guioptions-=mTrb
+    if w:fullscreen == 0
+        let w:fullscreen = 1
+        set guioptions-=mrTb
         set laststatus=0
         set nonumber
+        "set invfullscreen
+        if has("gui_running")
+            " GUI is running or is about to start.
+            " Maximize gvim window.
+            set lines=999 columns=999
+        else
+            " This is console Vim.
+            if exists("+lines")
+                set lines=50
+            endif
+            if exists("+columns")
+                set columns=100
+            endif
+        endif
+        :TbStop
     else
-        :TbStart
-        let g:fullscreen = 0
-        set guioptions+=mTrb
+        let w:fullscreen = 0
+        set guioptions+=mrTb
         set laststatus=2
         set number
+        :TbStart
+        execute "normal \<c-w>w"
     endif
 endfunction
 
@@ -375,7 +390,7 @@ autocmd BufEnter -MiniBufExplorer- execute "normal \<c-w>w"
 "hi MBENormal guifg=#808080 guibg=fg
 
 "" TabBar Settings
-let g:Tb_MoreThanOne= 0 
+let g:Tb_MoreThanOne= 0
 let g:Tb_MaxSize = 0
 let g:Tb_MinSize = 1
 let g:Tb_ModSelTarget = 1
@@ -386,7 +401,7 @@ highlight Tb_Normal guifg=#808080 guibg=fg
 highlight Tb_Changed guifg=#CD5907 guibg=fg
 highlight Tb_VisibleNormal guifg=#5DC2D6 guibg=fg
 highlight Tb_VisibleChanged guifg=#F1266F guibg=fg
- 
+
 """"""""""""""""""""""""""""""""""""""
 """""""""""" Key Mappings """"""""""""
 """"""""""""""""""""""""""""""""""""""
