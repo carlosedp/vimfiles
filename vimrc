@@ -66,7 +66,7 @@ if has("gui_macvim")
     " Remove left scrollbar
     set guioptions-=L
     " make Mac 'Option' key behave as 'Alt'
-    set invmmta
+    set mmta
     "set guifont=Inconsolata:h14
     "set guifont=Droid\ Sans\ Mono:h10
     "set guifont=Consolas:h14
@@ -145,6 +145,7 @@ set joinspaces
 "" Wrap text
 set wrap
 set showbreak=...
+set linebreak
 set textwidth=79
 set formatoptions=qrn1
 
@@ -196,7 +197,9 @@ set statusline=
 set statusline+=%f\ %m\ %r
 set statusline+=%{fugitive#statusline()}
 set statusline+=%=
-set statusline+=[%{&encoding}\ %{&fileformat}\ %{strlen(&ft)?&ft:'none'}]\ %(%c:%l/%L%)\ (%P)
+set statusline+=\ [%{&encoding}\ %{&fileformat}\ %{strlen(&ft)?&ft:'none'}]
+set statusline+=\ %{WordCount()}\ words
+set statusline+=\ \ %(%c:%l/%L%)\ (%P)
 
 """""""""""""""""""""""""""""""""""""""
 """""""""""""  Functions  """""""""""""
@@ -304,6 +307,26 @@ if !exists(":DiffOrig")
                 \ | wincmd p | diffthis
 endif
 
+let g:word_count="<unknown>"
+fun! WordCount()
+    return g:word_count
+endfun
+fun! UpdateWordCount()
+    let s = system("wc -w ".expand("%p"))
+    let parts = split(s, ' ')
+    if len(parts) > 1
+        let g:word_count = parts[0]
+    endif
+endfun
+
+augroup WordCounter
+    au! CursorHold * call UpdateWordCount()
+    au! CursorHoldI * call UpdateWordCount()
+augroup END
+
+" how eager are you? (default is 4000 ms)
+set updatetime=1000
+
 let w:fullscreen = 0
 function! ToggleFullScreen()
     if w:fullscreen == 0
@@ -325,12 +348,18 @@ function! ToggleFullScreen()
                 set columns=100
             endif
         endif
+        if has("gui_macvim")
+            set fullscreen
+        endif
         :TbStop
     else
         let w:fullscreen = 0
         set guioptions+=mrTb
         set laststatus=2
         set number
+        if has("gui_macvim")
+            set nofullscreen
+        endif
         :TbStart
         execute "normal \<c-w>w"
     endif
@@ -405,13 +434,6 @@ highlight Tb_VisibleChanged guifg=#F1266F guibg=fg
 """"""""""""""""""""""""""""""""""""""
 """""""""""" Key Mappings """"""""""""
 """"""""""""""""""""""""""""""""""""""
-
-"" Make cursor move as expected with wrapped lines (in insert mode only with Alt key)
-nnoremap <silent> <Up> gk
-nnoremap <silent> <Down> gj
-inoremap <M-Down> <C-o>gj
-inoremap <M-Up> <C-o>gk
-
 "" Better Shift + Ctrl + Left-Right selection range
 vnoremap <S-C-Left> b
 vnoremap <S-C-Right> e
@@ -523,3 +545,8 @@ map <silent> <leader>tl :TlistToggle<CR>
 "" Search word under cursor
 nnoremap , /<C-R><C-W><CR>N
 
+"" Make cursor move as expected with wrapped lines (in insert mode only with Ctrl key)
+nnoremap <silent> <Up> gk
+nnoremap <silent> <Down> gj
+inoremap <silent> <C-Up> <C-O>gk
+inoremap <silent> <C-Down> <C-O>gj
