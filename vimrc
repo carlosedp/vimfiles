@@ -307,26 +307,31 @@ if !exists(":DiffOrig")
                 \ | wincmd p | diffthis
 endif
 
+
+"" Word count functions
 let g:word_count="<unknown>"
 fun! WordCount()
     return g:word_count
 endfun
-fun! UpdateWordCount()
-    let s = system("wc -w ".expand("%p"))
-    let parts = split(s, ' ')
-    if len(parts) > 1
-        let g:word_count = parts[0]
-    endif
-endfun
+function! UpdateWordCount()
+  let lnum = 1
+  let g:word_count = 0
+  while lnum <= line('$')
+    let g:word_count = g:word_count + len(split(getline(lnum)))
+    let lnum = lnum + 1
+  endwhile
+  return g:word_count
+endfunction
 
 augroup WordCounter
-    au! CursorHold * call UpdateWordCount()
-    au! CursorHoldI * call UpdateWordCount()
+    au! BufRead,BufNewFile,BufEnter,CursorHold,CursorHoldI,InsertEnter,InsertLeave * call UpdateWordCount()
 augroup END
 
 " how eager are you? (default is 4000 ms)
-set updatetime=1000
+set updatetime=500
 
+
+"" Full screen function
 let w:fullscreen = 0
 function! ToggleFullScreen()
     if w:fullscreen == 0
@@ -405,7 +410,7 @@ let Tlist_Show_One_File = 1
 let Tlist_Sort_Type = "name"
 
 "" MiniBufferExplorer configuration
-autocmd BufEnter -MiniBufExplorer- execute "normal \<c-w>w"
+"autocmd BufEnter -MiniBufExplorer- execute "normal \<c-w>w"
 "let g:miniBufExplMapWindowNavArrows = 1
 "let g:miniBufExplMapCTabSwitchBufs = 1
 "let g:miniBufExplModSelTarget = 1
@@ -420,7 +425,7 @@ autocmd BufEnter -MiniBufExplorer- execute "normal \<c-w>w"
 
 "" TabBar Settings
 let g:Tb_MoreThanOne= 0
-let g:Tb_MaxSize = 0
+let g:Tb_MaxSize = 3
 let g:Tb_MinSize = 1
 let g:Tb_ModSelTarget = 1
 let g:Tb_cTabSwitchBufs = 0
