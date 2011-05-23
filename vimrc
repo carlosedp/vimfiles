@@ -555,3 +555,6 @@ nnoremap <silent> <Up> gk
 nnoremap <silent> <Down> gj
 inoremap <silent> <C-Up> <C-O>gk
 inoremap <silent> <C-Down> <C-O>gj
+
+"" Inserts file name without extension into text
+inoremap \fn <C-R>=expand("%:t:r")<CR>
