@@ -336,9 +336,10 @@ let w:fullscreen = 0
 function! ToggleFullScreen()
     if w:fullscreen == 0
         let w:fullscreen = 1
-        set guioptions-=mrTb
-        set laststatus=0
         set nonumber
+        set laststatus=0
+        set guioptions-=mr
+        set guioptions-=Tb
         "set invfullscreen
         if has("gui_running")
             " GUI is running or is about to start.
@@ -359,7 +360,8 @@ function! ToggleFullScreen()
         :TbStop
     else
         let w:fullscreen = 0
-        set guioptions+=mrTb
+        set guioptions+=mr
+        set guioptions+=Tb
         set laststatus=2
         set number
         if has("gui_macvim")
