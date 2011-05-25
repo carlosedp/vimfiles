@@ -70,14 +70,16 @@ if has("gui_macvim")
     "set guifont=Inconsolata:h14
     "set guifont=Droid\ Sans\ Mono:h10
     "set guifont=Consolas:h14
-    set guifont=Bitstream\ Vera\ Sans\ Mono:h14
+    "set guifont=Bitstream\ Vera\ Sans\ Mono:h14
+    set guifont=Mensch:h14
     " MacVIM shift+arrow-keys behavior (required in .vimrc)
     let macvim_hig_shift_movement = 1
 else
     "set guifont=Inconsolata:h11
     "set guifont=Consolas:h11
     "set guifont=Droid\ Sans\ Mono:h10
-    set guifont=Bitstream\ Vera\ Sans\ Mono:h11
+    "set guifont=Bitstream\ Vera\ Sans\ Mono:h11
+    set guifont=Mensch:h11
 endif
 
 "" Set initial window size only on GUI
