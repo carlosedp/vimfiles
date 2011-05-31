@@ -70,12 +70,6 @@
 [submodule "bundle/vim-addon-mw-utils"]
 	path = bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule "bundle\\snipmate"]
-	path = bundle\\snipmate
-	url = https://github.com/MarcWeber/snipmate.vim.git
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = https://github.com/carlosedp/snipmate.vim.git
 [submodule "bundle/color-solarized"]
 	path = bundle/color-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
@@ -100,3 +94,6 @@
 [submodule "bundle/TabBar"]
 	path = bundle/TabBar
 	url = https://github.com/vim-scripts/TabBar.git
+[submodule "bundle/vim-snipmate"]
+	path = bundle/vim-snipmate
+	url = https://github.com/garbas/vim-snipmate.git
