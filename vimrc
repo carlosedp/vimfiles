@@ -120,11 +120,11 @@ set background=dark
 colorscheme solarized
 
 "" Load snippets
-try
-    source $VIM/vimfiles/snippets/support_functions.vim
-catch
-    source ~/.vim/snippets/support_functions.vim
-endtry
+"try
+    "source $VIM/vimfiles/snippets/support_functions.vim
+"catch
+    "source ~/.vim/snippets/support_functions.vim
+"endtry
 
 ""Minimal number of screen lines to keep above and below the cursor.
 set scrolloff=3
@@ -437,6 +437,7 @@ highlight Tb_Normal guifg=#808080 guibg=fg
 highlight Tb_Changed guifg=#CD5907 guibg=fg
 highlight Tb_VisibleNormal guifg=#5DC2D6 guibg=fg
 highlight Tb_VisibleChanged guifg=#F1266F guibg=fg
+
 
 """"""""""""""""""""""""""""""""""""""
 """""""""""" Key Mappings """"""""""""

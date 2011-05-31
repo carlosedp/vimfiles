@@ -60,10 +60,7 @@
 	url = https://github.com/vim-scripts/mru.vim.git
 [submodule "bundle/vim-markdown"]
 	path = bundle/vim-markdown
-	url = https://github.com/plasticboy/vim-markdown.git
-[submodule "snippets"]
-	path = snippets
-	url = https://github.com/carlosedp/snipmate-snippets.git
+	url = https://github.com/tpope/vim-markdown.git
 [submodule "bundle/tlib"]
 	path = bundle/tlib
 	url = https://github.com/tomtom/tlib_vim.git
@@ -96,4 +93,7 @@
 	url = https://github.com/vim-scripts/TabBar.git
 [submodule "bundle/vim-snipmate"]
 	path = bundle/vim-snipmate
-	url = https://github.com/garbas/vim-snipmate.git
+	url = https://github.com/spf13/snipmate.vim.git
+[submodule "bundle/snipmate-snippets"]
+	path = bundle/snipmate-snippets
+	url = https://github.com/spf13/snipmate-snippets.git
