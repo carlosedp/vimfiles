@@ -188,8 +188,8 @@ autocmd! BufNewFile,BufRead *.ejs set filetype=html.js
 
 "" Disable AutoClose plugin on markdown files"
 autocmd FileType * :AutoCloseOn
-autocmd FileType mkd :AutoCloseOff
-autocmd FileType mkd :set spell
+autocmd FileType markdown :AutoCloseOff
+autocmd FileType markdown :set spell
 
 "" Status line
 set laststatus=2
