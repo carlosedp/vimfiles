@@ -31,6 +31,14 @@ easiest thing to do is:
 
     ln -s ~/.vim/vimrc ~/.vimrc
 
+On windows, create an environment var `gVim` pointing to the install dir and put
+the _vimrc file in this dir. Clone the vimfiles repo into the same place like:
+
+c:/apps/vim/_vimrc
+           /vim72/...
+           /vimfiles/...
+
+
 If you already have a custom `.vimrc` file, append the following lines to
 load everything else along with your personal hacks:
 
