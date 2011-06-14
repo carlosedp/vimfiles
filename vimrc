@@ -89,8 +89,8 @@ endif
 
 "" encodings configure
 set fileencoding=utf-8
-set encoding=utf-8
-set fileencodings=utf-8
+set encoding=latin1
+set fileencodings=utf-8,latin1
 
 "" Set narrow linespace
 set linespace=0
