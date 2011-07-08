@@ -58,10 +58,7 @@
 [submodule "bundle/mru"]
 	path = bundle/mru
 	url = https://github.com/vim-scripts/mru.vim.git
-[submodule "bundle/vim-markdown"]
-	path = bundle/vim-markdown
-	url = https://github.com/tpope/vim-markdown.git
-[submodule "bundle/tlib"]
+  [submodule "bundle/tlib"]
 	path = bundle/tlib
 	url = https://github.com/tomtom/tlib_vim.git
 [submodule "bundle/vim-addon-mw-utils"]
@@ -97,3 +94,6 @@
 [submodule "bundle/snipmate-snippets"]
 	path = bundle/snipmate-snippets
 	url = https://github.com/spf13/snipmate-snippets.git
+[submodule "bundle/vim-markdown"]
+	path = bundle/vim-markdown
+	url = https://github.com/hallison/vim-markdown.git
