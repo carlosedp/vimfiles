@@ -147,7 +147,7 @@ set joinspaces
 set wrap
 set showbreak=...
 set linebreak
-set textwidth=79
+"set textwidth=79
 set formatoptions=qrn1
 
 " Display invisible characters.
