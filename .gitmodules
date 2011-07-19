@@ -96,4 +96,4 @@
 	url = https://github.com/hallison/vim-markdown.git
 [submodule "bundle/tabbar"]
 	path = bundle/tabbar
-	url = https://carlosedp@github.com/carlosedp/TabBar.git
+	url = https://github.com/carlosedp/TabBar.git
