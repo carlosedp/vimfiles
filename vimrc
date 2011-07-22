@@ -481,7 +481,7 @@ else
 endif
 
 "" Duplicates current line
-nnoremap <leader>d Yp<CR>
+nnoremap <leader>d Yp
 
 "" Creates new empty buffer
 nmap <C-N> :enew<CR>
