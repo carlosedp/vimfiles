@@ -14,12 +14,12 @@ Ctrl+F4         -   Close current file
 Ctrl+X          -   Close current file
 Shift+F4        -   Close current file without saving
 Ctrl+Q          -   Visual Mode (Replaces <C-V>)
-Shift+Tab       -   Inserts a Hard Tab in insert mode
 
 <leader><tab>   -   Rotate thru windows
+<leader><tab>   -   In insert mode, inserts a hard tab (\t)
 <leader>R       -   Reindent file and strips trailing whitespaces
 <leader>W       -   Strip spaces from the end of lines (entire file)
-<leader>mm      -   Remove windows ^M
+<leader>mm      -   Remove windows to unix "^M" artifacts
 <leader>m       -   Opens Most Recently Used file list
 <leader>ci      -   Toggles block comment/uncomment
 <leader>t       -   Opens Command-T fuzzy file finder
@@ -29,6 +29,11 @@ Shift+Tab       -   Inserts a Hard Tab in insert mode
 <leader>h       -   Split window horizontally and switch to it
 <leader>e       -   Edits vimrc file
 <leader>tl      -   Opens Taglist-plus tag browser
+<leader>fn      -   Inserts current file name into text
+<leader>fu      -   Converts filetype endings to unix
+<leader>fd      -   Converts filetype endings to dos
+<leader>fm      -   Converts filetype endings to mac
+<leader>pr      -   Executes pandoc generating an RTF from current file
 
 Ctrl+n          -   Create new empty buffer
 Ctrl+C          -   Copy
@@ -41,10 +46,10 @@ Ctrl+A          -   Select all
 Ctrl+n          -   Autocomplete
 Alt+w           -   Close window
 ,               -   Quick search current word under cursor
+Ctrl+[hjkl]     -   Navigates thru split windows (left, down, up, right)
 
-
-Ctrl+up         -   Move current line up(Also works with selection)
-Ctrl+down       -   Move current line down(Also works with selection)
+Ctrl+Shift+up         -   Move current line up(Also works with selection)
+Ctrl+Shift+down       -   Move current line down(Also works with selection)
 
 
 Alt+left        -   Set line bookmark

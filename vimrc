@@ -358,7 +358,8 @@ function! ToggleFullScreen()
     if has("gui_macvim")
       set fullscreen
     endif
-    :TbStop
+    ":TbStop
+    :CMiniBufExplorer
   else
     let w:fullscreen = 0
     set guioptions+=mr
@@ -368,7 +369,8 @@ function! ToggleFullScreen()
     if has("gui_macvim")
       set nofullscreen
     endif
-    :TbStart
+    ":TbStart
+    :MiniBufExplorer
     execute "normal \<c-w>w"
   endif
 endfunction
@@ -412,20 +414,6 @@ let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Show_One_File = 1
 let Tlist_Sort_Type = "name"
 
-"" MiniBufferExplorer configuration
-"autocmd BufEnter -MiniBufExplorer- execute "normal \<c-w>w"
-"let g:miniBufExplMapWindowNavArrows = 1
-"let g:miniBufExplMapCTabSwitchBufs = 1
-"let g:miniBufExplModSelTarget = 1
-"let g:miniBufExplUseSingleClick = 1
-"let g:miniBufExplMaxSize = 2
-"hi MBEVisibleActive guifg=#A6DB29 guibg=fg
-"hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
-"hi MBEVisibleChanged guifg=#F1266F guibg=fg
-"hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
-"hi MBEChanged guifg=#CD5907 guibg=fg
-"hi MBENormal guifg=#808080 guibg=fg
-
 "" TabBar Settings
 let g:Tb_MoreThanOne= 0
 let g:Tb_MaxSize = 3
@@ -439,17 +427,59 @@ highlight Tb_Changed guifg=#CD5907 guibg=fg
 highlight Tb_VisibleNormal guifg=#5DC2D6 guibg=fg
 highlight Tb_VisibleChanged guifg=#F1266F guibg=fg
 
+"" MiniBufExplorer settings
+"autocmd BufEnter -MiniBufExplorer- execute "normal \<c-w>w"
+let g:miniBufExplMaxSize = 3
+let g:miniBufExplMinSize = 1
+let g:miniBufExplorerMoreThanOne=0
+let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplModSelTarget = 1
+let g:miniBufExplMapWindowNavArrows = 0
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplCheckDupeBufs = 0
+
+hi MBEVisibleActive guifg=#A6DB29 guibg=fg
+hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
+hi MBEVisibleChanged guifg=#F1266F guibg=fg
+hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
+hi MBEChanged guifg=#CD5907 guibg=fg
+hi MBENormal guifg=#808080 guibg=fg
 
 """"""""""""""""""""""""""""""""""""""
 """""""""""" Key Mappings """"""""""""
 """"""""""""""""""""""""""""""""""""""
-"" Better Shift + Ctrl + Left-Right selection range
-vnoremap <S-C-Left> b
-vnoremap <S-C-Right> e
-nnoremap <C-Left> b
-nnoremap <C-Right> e
-nnoremap <S-C-Left> vb
-nnoremap <S-C-Right> ve
+
+"" These mappings override any mapping made by plugins and are called after
+"" all plugins. Be careful.
+function! AfterMappings()
+  "<Ctrl-X> -- cut (goto visual mode and cut)
+  imap <C-X> <C-O>vgG
+  vmap <C-X> "*x<Esc>i
+
+  "<Ctrl-C> -- copy (goto visual mode and copy)
+  imap <C-C> <C-O>vgG
+  vmap <C-C> "*y<Esc>i
+
+  "<Ctrl-A> -- copy all
+  imap <C-A> <C-O>gg<C-O>gH<C-O>G<Esc>
+  vmap <C-A> <Esc>gggH<C-O>G<Esc>i
+
+  "<Ctrl-V> -- paste
+  nm \\paste\\ "=@*.'xy'<CR>gPFx"_2x:echo<CR>
+  imap <C-V> x<Esc>\\paste\\"_s
+  vmap <C-V> "-cx<Esc>\\paste\\"_x
+
+  "" Better Shift + Ctrl + Left-Right selection range
+  vnoremap <S-C-Left> b
+  vnoremap <S-C-Right> e
+  nnoremap <C-Left> b
+  nnoremap <C-Right> e
+  nnoremap <S-C-Left> vb
+  nnoremap <S-C-Right> ve
+
+endfunction
+au VimEnter * :call AfterMappings()
 
 "" Fast find selected text
 map , y/<C-R>"/<cr>
@@ -513,8 +543,8 @@ imap <silent> <F5> <C-O>:set nowrap!<CR>
 map <silent> <F6> :set nolist!<CR>
 imap <silent> <F6> <C-O>:set nolist!<CR>
 
+"" Toggle full screen mode
 map <silent> <F11> :call ToggleFullScreen()<CR>
-
 
 "" Closes buffer but keep window open. Opens clear buffer
 nmap <silent> <C-F4> :Bclose<CR>
@@ -536,11 +566,11 @@ vnoremap > >gv
 
 " Unimpaired configuration
 " Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
+nmap <C-S-Up> [e
+nmap <C-S-Down> ]e
 " Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
+vmap <C-S-Up> [egv
+vmap <C-S-Down> ]egv
 
 "" Split vertical window and switch to it
 nnoremap <leader>s <C-w>v<C-w>l
@@ -563,6 +593,9 @@ inoremap <silent> <C-Down> <C-O>gj
 "" Inserts file name without extension into text
 inoremap \fn <C-R>=expand("%:t:r")<CR>
 
+"" Changes line filetype endings
 map <leader>fu :set ff=unix<CR>
 map <leader>fd :set ff=dos<CR>
 map <leader>fm :set ff=mac<CR>
+
+map <leader>pr :!pandoc % -o %:t:r.rtf -t rtf -s<CR>

@@ -94,6 +94,6 @@
 [submodule "bundle/vim-markdown"]
 	path = bundle/vim-markdown
 	url = https://github.com/hallison/vim-markdown.git
-[submodule "bundle/tabbar"]
-	path = bundle/tabbar
-	url = https://github.com/carlosedp/TabBar.git
+[submodule "bundle/minibufexpl"]
+	path = bundle/minibufexpl
+	url = https://github.com/fholgado/minibufexpl.vim.git
