@@ -38,14 +38,13 @@ c:/apps/vim/_vimrc
            /vim72/...
            /vimfiles/...
 
-
 If you already have a custom `.vimrc` file, append the following lines to
 load everything else along with your personal hacks:
 
     source ~/.vim/vimrc      "linux
     source ~/vimfiles/vimrc  "windows
 
-To update all submodules, use the following on vimfiles dir:
+To update all submodules, use the following command on vimfiles dir:
 
     git submodule foreach git pull origin master
 
@@ -75,6 +74,13 @@ On Windows you have to download Ctags and add ctags.exe in your PATH.
 
 Mac OS X and most Linux distros come with Ruby already. If you're in Windows
 look for Luis Lavena's latest Ruby Installer (http://rubyforge.org/projects/rubyinstaller/)
+
+* Ack
+
+You can download Ack standalone from http://betterthangrep.com/ using their own instructions:
+    `curl http://betterthangrep.com/ack-standalone > ~/bin/ack && chmod 0755 !#:3`
+
+On Windows, download the ack-standalone, and perl(git already ships with it) than, create a `ack.cmd` on Windows path with the following content: `@"C:\Program Files\Git\bin\perl" C:\dev\ack-standalone.pl %*` adjusting the paths for your needs.
 
 Learn Vim
 ---------
