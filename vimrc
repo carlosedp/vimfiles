@@ -566,11 +566,11 @@ vnoremap > >gv
 
 " Unimpaired configuration
 " Bubble single lines
-nmap <C-S-Up> [e
-nmap <C-S-Down> ]e
+nmap <C-Up> [e
+nmap <C-Down> ]e
 " Bubble multiple lines
-vmap <C-S-Up> [egv
-vmap <C-S-Down> ]egv
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
 
 "" Split vertical window and switch to it
 nnoremap <leader>s <C-w>v<C-w>l

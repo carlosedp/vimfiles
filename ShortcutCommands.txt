@@ -48,8 +48,8 @@ Alt+w           -   Close window
 ,               -   Quick search current word under cursor
 Ctrl+[hjkl]     -   Navigates thru split windows (left, down, up, right)
 
-Ctrl+Shift+up         -   Move current line up(Also works with selection)
-Ctrl+Shift+down       -   Move current line down(Also works with selection)
+Ctrl+up         -   Move current line up(Also works with selection)
+Ctrl+down       -   Move current line down(Also works with selection)
 
 
 Alt+left        -   Set line bookmark
