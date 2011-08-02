@@ -48,15 +48,6 @@ To update all submodules, use the following command on vimfiles dir:
 
     git submodule foreach git pull origin master
 
-Help Tags
----------
-
-At first usage of vim, type ":" while in command mode and execute:
-
-    call pathogen#helptags()
-
-This will make the plugins documentations available upon `:help`
-
 Dependencies
 ------------
 
