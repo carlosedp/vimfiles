@@ -29,6 +29,12 @@ endif
 "" enable mouse
 set mouse=a
 
+" Better modes.  Remeber where we are, support yankring
+set viminfo=!,'100,\"100,:20,<50,s10,h,n~/.viminfo
+
+"" Do not return to start of line 
+set nostartofline
+
 "" Disable ALT keys access to menubar. Makes mappings work.
 set winaltkeys=no
 
@@ -89,8 +95,10 @@ endif
 
 "" encodings configure
 set fileencoding=utf-8
-set encoding=latin1
+"set encoding=latin1
+set encoding=utf-8
 set fileencodings=utf-8,latin1
+set fileformats=unix,dos,mac
 
 "" Set narrow linespace
 set linespace=0
@@ -191,6 +199,9 @@ autocmd! BufNewFile,BufRead *.ejs set filetype=html.js
 autocmd FileType * :AutoCloseOn
 autocmd FileType markdown :AutoCloseOff
 autocmd FileType markdown :set spell
+
+" Remember cursor position
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
 "" Status line
 set laststatus=2
