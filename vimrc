@@ -609,4 +609,4 @@ map <leader>fu :set ff=unix<CR>
 map <leader>fd :set ff=dos<CR>
 map <leader>fm :set ff=mac<CR>
 
-map <leader>pr :!pandoc % -o %:t:r.rtf -t rtf -s<CR>
+map <leader>pr :!pandoc "%" -o "%:t:r.rtf" -t rtf -s<CR>
