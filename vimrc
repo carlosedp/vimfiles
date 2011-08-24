@@ -149,7 +149,7 @@ set autoindent
 set smartindent
 
 " No extra space when join lines
-set joinspaces
+set nojoinspaces
 
 "" Wrap text
 set wrap
@@ -609,4 +609,9 @@ map <leader>fu :set ff=unix<CR>
 map <leader>fd :set ff=dos<CR>
 map <leader>fm :set ff=mac<CR>
 
+"" Generate rtf from markdown using Pandoc
 map <leader>pr :!pandoc "%" -o "%:t:r.rtf" -t rtf -s<CR>
+
+"" Remaps J to gJ to join lines without spaces
+map J gJ
+
