@@ -352,7 +352,6 @@ function! ToggleFullScreen()
     set laststatus=0
     set guioptions-=mr
     set guioptions-=Tb
-    "set invfullscreen
     if has("gui_running")
       " GUI is running or is about to start.
       " Maximize gvim window.
@@ -367,9 +366,12 @@ function! ToggleFullScreen()
       endif
     endif
     if has("gui_macvim")
+      " Settings for WriteRoom like mode.
+      set lines=50 columns=80
+      set fuoptions=background:#00002b36
+      hi NonText guifg=bg
       set fullscreen
     endif
-    ":TbStop
     :CMiniBufExplorer
   else
     let w:fullscreen = 0
@@ -380,7 +382,6 @@ function! ToggleFullScreen()
     if has("gui_macvim")
       set nofullscreen
     endif
-    ":TbStart
     :MiniBufExplorer
     execute "normal \<c-w>w"
   endif

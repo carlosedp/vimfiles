@@ -48,6 +48,10 @@ To update all submodules, use the following command on vimfiles dir:
 
     git submodule foreach git pull origin master
 
+
+If you are using MacVim on MacOS Lion, disable the native fullscreen mode to allow "WriteRoom" mode:
+    defaults write org.vim.MacVim MMNativeFullScreen
+
 Dependencies
 ------------
 
