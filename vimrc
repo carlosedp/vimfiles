@@ -344,10 +344,10 @@ set updatetime=500
 
 
 "" Full screen function
-let w:fullscreen = 0
+let g:fullscreenmode = 0
 function! ToggleFullScreen()
-  if w:fullscreen == 0
-    let w:fullscreen = 1
+  if g:fullscreenmode == 0
+    let g:fullscreenmode = 1
     set nonumber
     set laststatus=0
     set guioptions-=mr
@@ -374,7 +374,7 @@ function! ToggleFullScreen()
     endif
     :CMiniBufExplorer
   else
-    let w:fullscreen = 0
+    let g:fullscreenmode = 0
     set guioptions+=mr
     set guioptions+=Tb
     set laststatus=2
