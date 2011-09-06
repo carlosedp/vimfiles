@@ -482,15 +482,19 @@ function! AfterMappings()
   imap <C-V> x<Esc>\\paste\\"_s
   vmap <C-V> "-cx<Esc>\\paste\\"_x
 
-  "" Better Shift + Ctrl + Left-Right selection range
-  vnoremap <S-C-Left> b
-  vnoremap <S-C-Right> e
+  "Edit mapping (make cursor keys work like in Windows: <C-Left><C-Right>
+  "Move to next word.
   nnoremap <C-Left> b
-  nnoremap <C-Right> e
-  nnoremap <S-C-Left> vb
-  nnoremap <S-C-Right> ve
+  vnoremap <C-S-Left> b
+  nnoremap <C-S-Left> gh<C-O>b
+  inoremap <C-S-Left> <C-\><C-O>gh<C-O>b
 
+  nnoremap <C-Right> e
+  vnoremap <C-S-Right> e
+  nnoremap <C-S-Right> gh<C-O>e
+  inoremap <C-S-Right> <C-\><C-O>gh<C-O>e
 endfunction
+"" Call mapping function
 au VimEnter * :call AfterMappings()
 
 "" Fast find selected text
