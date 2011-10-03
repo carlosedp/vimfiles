@@ -16,6 +16,9 @@ set hidden
 set nobackup
 set noswapfile
 
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
 " set English language
 language messages en_US
 set langmenu=none
@@ -110,9 +113,6 @@ set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,test/fixtures/*,vendor/gems/*
 
 "Set magic on, for regular expressions
 set magic
-
-source $VIMRUNTIME/mswin.vim
-behave mswin
 
 " Backspace and cursor keys wrap to previous/next line
 set backspace=indent,eol,start
@@ -465,17 +465,14 @@ hi MBENormal guifg=#808080 guibg=fg
 "" These mappings override any mapping made by plugins and are called after
 "" all plugins. Be careful.
 function! AfterMappings()
-  "<Ctrl-X> -- cut (goto visual mode and cut)
-  imap <C-X> <C-O>vgG
-  vmap <C-X> "*x<Esc>i
 
-  "<Ctrl-C> -- copy (goto visual mode and copy)
-  imap <C-C> <C-O>vgG
-  vmap <C-C> "*y<Esc>i
+  " CTRL-X and SHIFT-Del are Cut
+  vnoremap <C-X> "+x
+  vnoremap <S-Del> "+x
 
-  "<Ctrl-A> -- copy all
-  imap <C-A> <C-O>gg<C-O>gH<C-O>G<Esc>
-  vmap <C-A> <Esc>gggH<C-O>G<Esc>i
+  " CTRL-C and CTRL-Insert are Copy
+  vnoremap <C-C> "+y
+  vnoremap <C-Insert> "+y
 
   "<Ctrl-V> -- paste
   nm \\paste\\ "=@*.'xy'<CR>gPFx"_2x:echo<CR>
@@ -615,8 +612,7 @@ map <leader>fd :set ff=dos<CR>
 map <leader>fm :set ff=mac<CR>
 
 "" Generate rtf from markdown using Pandoc
-map <leader>pr :!pandoc "%" -o "%:t:r.rtf" -t rtf -s<CR>
+command! PR :!pandoc "%" -o "%:t:r.rtf" -t rtf -s
 
 "" Remaps J to gJ to join lines without spaces
 map J gJ
-
