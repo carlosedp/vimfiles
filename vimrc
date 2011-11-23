@@ -197,7 +197,7 @@ autocmd! BufNewFile,BufRead *.ejs set filetype=html.js
 "" Disable AutoClose plugin on markdown files"
 autocmd FileType * :AutoCloseOn
 autocmd FileType markdown :AutoCloseOff
-autocmd FileType markdown :set spell
+"autocmd FileType markdown :set spell
 
 " Remember cursor position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
