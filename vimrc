@@ -138,9 +138,9 @@ colorscheme solarized
 set scrolloff=3
 
 "" set tabstop value and shift width
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 
 ""setting about indent
@@ -202,7 +202,16 @@ autocmd FileType markdown :AutoCloseOff
 " Remember cursor position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
+" Resize splits when the window is resized
+au VimResized * exe "normal! \<c-w>="
+
+
 "" Status line
+augroup ft_statuslinecolor
+    au!
+    au InsertEnter * hi StatusLine ctermfg=196 guifg=#FF3145
+    au InsertLeave * hi StatusLine ctermfg=130 guifg=gray
+augroup END
 set laststatus=2
 set statusline=
 set statusline+=%f\ %m\ %r
@@ -615,3 +624,9 @@ command! PR :!pandoc "%" -o "%:t:r.rtf" -t rtf -s
 
 "" Remaps J to gJ to join lines without spaces
 map J gJ
+
+"" Replace
+nnoremap <leader>r :%s//<left>
+
+" Easy filetype switching {{{
+nnoremap _md :set ft=markdown<CR>
