@@ -395,6 +395,19 @@ function! ToggleFullScreen()
   endif
 endfunction
 
+"" Fix for quitting with just one window open (MiniBufExplorer bug)
+au BufEnter * call MyLastWindow()
+function! MyLastWindow()
+  " if the window is quickfix go on
+  if &buftype=="nofile"
+    " if this window is last on screen quit without warning
+    if winnr('$') < 2
+      quit!
+    endif
+  endif
+endfunction
+
+
 """""""""""""""""""""""""""""""""""""""
 """""""""" Plugin Parameters """"""""""
 """""""""""""""""""""""""""""""""""""""
