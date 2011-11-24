@@ -641,5 +641,7 @@ map J gJ
 "" Replace
 nnoremap <leader>r :%s//<left>
 
-" Easy filetype switching {{{
+" Easy filetype switching
 nnoremap _md :set ft=markdown<CR>
+nnoremap _py :set ft=python
+nnoremap _js :set ft=javascript<CR>
