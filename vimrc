@@ -481,9 +481,9 @@ hi MBENormal guifg=#808080 guibg=fg
 
 "" Jekyll settings
 if has("gui_macvim")
-    let g:jekyll_path = "/Users/carlosedp/#Projects/carlosedp.github.com"
+    let g:jekyll_path = '/Users/carlosedp/\#Projects/carlosedp.github.com'
 else
-    let g:jekyll_path = ""
+    let g:jekyll_path = 'E:/\#Projects/carlosedp.github.com'
 endif
 let g:jekyll_post_suffix = "md"
 
