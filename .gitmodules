@@ -103,3 +103,6 @@
 [submodule "bundle/vim-less"]
 	path = bundle/vim-less
 	url = https://github.com/groenewege/vim-less.git
+[submodule "bundle/jekyll"]
+	path = bundle/jekyll
+	url = https://github.com/csexton/jekyll.vim.git

@@ -479,6 +479,14 @@ hi MBEVisibleNormal guifg=#5DC2D6 guibg=fg
 hi MBEChanged guifg=#CD5907 guibg=fg
 hi MBENormal guifg=#808080 guibg=fg
 
+"" Jekyll settings
+if has("gui_macvim")
+    let g:jekyll_path = "/Users/carlosedp/#Projects/carlosedp.github.com"
+else
+    let g:jekyll_path = ""
+endif
+let g:jekyll_post_suffix = "md"
+
 """"""""""""""""""""""""""""""""""""""
 """""""""""" Key Mappings """"""""""""
 """"""""""""""""""""""""""""""""""""""
