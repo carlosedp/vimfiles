@@ -106,3 +106,6 @@
 [submodule "bundle/snipmate-snippets/snippets"]
 	path = bundle/snipmate-snippets/snippets
 	url = https://github.com/akitaonrails/snipmate-snippets.git
+[submodule "bundle/vim-commentary"]
+	path = bundle/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
