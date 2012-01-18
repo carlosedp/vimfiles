@@ -24,8 +24,8 @@ set langmenu=none
 
 " Use english for spellchecking, but don't spellcheck by default
 if version >= 700
-  set spl=en spell
-  set nospell
+    set spl=en spell
+    set nospell
 endif
 
 "" enable mouse
@@ -71,28 +71,28 @@ set guioptions-=t
 
 "" set GUI font
 if has("gui_macvim")
-  " set macvim specific stuff
-  " Remove left scrollbar
-  set guioptions-=L
-  " make Mac 'Option' key behave as 'Alt'
-  set mmta
-  "set guifont=Inconsolata:h14
-  "set guifont=Droid\ Sans\ Mono:h10
-  "set guifont=Consolas:h14
-  set guifont=Bitstream\ Vera\ Sans\ Mono:h14
-  " MacVIM shift+arrow-keys behavior (required in .vimrc)
-  let macvim_hig_shift_movement = 1
+    " set macvim specific stuff
+    " Remove left scrollbar
+    set guioptions-=L
+    " make Mac 'Option' key behave as 'Alt'
+    set mmta
+    "set guifont=Inconsolata:h14
+    "set guifont=Droid\ Sans\ Mono:h10
+    "set guifont=Consolas:h14
+    set guifont=Bitstream\ Vera\ Sans\ Mono:h14
+    " MacVIM shift+arrow-keys behavior (required in .vimrc)
+    let macvim_hig_shift_movement = 1
 else
-  "set guifont=Inconsolata:h11
-  "set guifont=Consolas:h11
-  "set guifont=Droid\ Sans\ Mono:h10
-  set guifont=Bitstream\ Vera\ Sans\ Mono:h11
+    "set guifont=Inconsolata:h11
+    "set guifont=Consolas:h11
+    "set guifont=Droid\ Sans\ Mono:h10
+    set guifont=Bitstream\ Vera\ Sans\ Mono:h11
 endif
 
 "" Set initial window size only on GUI
 if has("gui_running")
-  "set lines=40 columns=120
-  set browsedir=buffer
+    "set lines=40 columns=120
+    set browsedir=buffer
 endif
 
 "" encodings configure
@@ -228,39 +228,39 @@ set statusline+=\ \ %(%c:%l/%L%)\ (%P)
 
 " Creates a session
 function! MakeSession()
-  let b:sessiondir = $HOME
-  let b:sessionfile = b:sessiondir . '/.session.vim'
-  exe "mksession! " . b:sessionfile
+    let b:sessiondir = $HOME
+    let b:sessionfile = b:sessiondir . '/.session.vim'
+    exe "mksession! " . b:sessionfile
 
 endfunction
 
 " Updates a session, BUT ONLY IF IT ALREADY EXISTS
 function! UpdateSession()
-  if argc()==0
-    let b:sessiondir = $HOME
-    let b:sessionfile = b:sessiondir . "/.session.vim"
-    if !(filereadable(b:sessionfile))
-      :call MakeSession()
+    if argc()==0
+        let b:sessiondir = $HOME
+        let b:sessionfile = b:sessiondir . "/.session.vim"
+        if !(filereadable(b:sessionfile))
+            :call MakeSession()
+        endif
+        exe "mksession! " . b:sessionfile
+        echo "updating session"
     endif
-    exe "mksession! " . b:sessionfile
-    echo "updating session"
-  endif
 endfunction
 
 " Loads a session if it exists
 function! LoadSession()
-  if argc() == 0
-    let b:sessiondir = $HOME
-    let b:sessionfile = b:sessiondir . "/.session.vim"
-    if (filereadable(b:sessionfile))
-      exe 'source ' b:sessionfile
+    if argc() == 0
+        let b:sessiondir = $HOME
+        let b:sessionfile = b:sessiondir . "/.session.vim"
+        if (filereadable(b:sessionfile))
+            exe 'source ' b:sessionfile
+        else
+            echo "No session loaded."
+        endif
     else
-      echo "No session loaded."
+        let b:sessionfile = ""
+        let b:sessiondir = ""
     endif
-  else
-    let b:sessionfile = ""
-    let b:sessiondir = ""
-  endif
 endfunction
 
 au VimEnter * :call LoadSession()
@@ -272,27 +272,27 @@ nmap <khome> <home>
 inoremap <silent> <home> <C-O>:call Home()<CR>
 nnoremap <silent> <home> :call Home()<CR>
 function! Home()
-  let curcol = wincol()
-  normal ^
-  let newcol = wincol()
-  if newcol == curcol
-    normal 0
-  endif
+    let curcol = wincol()
+    normal ^
+    let newcol = wincol()
+    if newcol == curcol
+        normal 0
+    endif
 endfunction
 
 "" Indent files. Use plugin when filetype is Javascript.
 function! IndentFile()
-  if &filetype == 'javascript'
-    let l = line('.')
-    let c = col('.')
-    call g:Jsbeautify()
-    call cursor(l,c)
-  else
-    let l = line('.')
-    let c = col('.')
-    execute "normal! gg=G"
-    call cursor(l,c)
-  endif
+    if &filetype == 'javascript'
+        let l = line('.')
+        let c = col('.')
+        call g:Jsbeautify()
+        call cursor(l,c)
+    else
+        let l = line('.')
+        let c = col('.')
+        execute "normal! gg=G"
+        call cursor(l,c)
+    endif
 endfunction
 
 " Convenient command to see the difference between the current buffer and the
@@ -300,52 +300,52 @@ endfunction
 " Only define it when not defined already.
 set diffexpr=MyDiff()
 function! MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let eq = ''
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      let cmd = '""' . $VIMRUNTIME . '\diff"'
-      let eq = '"'
+    let opt = '-a --binary '
+    if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+    if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+    let arg1 = v:fname_in
+    if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+    let arg2 = v:fname_new
+    if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+    let arg3 = v:fname_out
+    if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+    let eq = ''
+    if $VIMRUNTIME =~ ' '
+        if &sh =~ '\<cmd'
+            let cmd = '""' . $VIMRUNTIME . '\diff"'
+            let eq = '"'
+        else
+            let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+        endif
     else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+        let cmd = $VIMRUNTIME . '\diff'
     endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+    silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
 
 if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-        \ | wincmd p | diffthis
+    command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+                \ | wincmd p | diffthis
 endif
 
 
 "" Word count functions
 let g:word_count="<unknown>"
 fun! WordCount()
-  return g:word_count
+    return g:word_count
 endfun
 function! UpdateWordCount()
-  let lnum = 1
-  let g:word_count = 0
-  while lnum <= line('$')
-    let g:word_count = g:word_count + len(split(getline(lnum)))
-    let lnum = lnum + 1
-  endwhile
-  return g:word_count
+    let lnum = 1
+    let g:word_count = 0
+    while lnum <= line('$')
+        let g:word_count = g:word_count + len(split(getline(lnum)))
+        let lnum = lnum + 1
+    endwhile
+    return g:word_count
 endfunction
 
 augroup WordCounter
-  au! BufRead,BufNewFile,BufEnter,CursorHold,CursorHoldI,InsertEnter,InsertLeave * call UpdateWordCount()
+    au! BufRead,BufNewFile,BufEnter,CursorHold,CursorHoldI,InsertEnter,InsertLeave * call UpdateWordCount()
 augroup END
 
 " how eager are you? (default is 4000 ms)
@@ -355,57 +355,57 @@ set updatetime=500
 "" Full screen function
 let g:fullscreenmode = 0
 function! ToggleFullScreen()
-  if g:fullscreenmode == 0
-    let g:fullscreenmode = 1
-    set nonumber
-    set laststatus=0
-    set guioptions-=mr
-    set guioptions-=Tb
-    if has("gui_running")
-      " GUI is running or is about to start.
-      " Maximize gvim window.
-      set lines=999 columns=999
+    if g:fullscreenmode == 0
+        let g:fullscreenmode = 1
+        set nonumber
+        set laststatus=0
+        set guioptions-=mr
+        set guioptions-=Tb
+        if has("gui_running")
+            " GUI is running or is about to start.
+            " Maximize gvim window.
+            set lines=999 columns=999
+        else
+            " This is console Vim.
+            if exists("+lines")
+                set lines=50
+            endif
+            if exists("+columns")
+                set columns=100
+            endif
+        endif
+        if has("gui_macvim")
+            " Settings for WriteRoom like mode.
+            set lines=50 columns=80
+            set fuoptions=background:#00002b36
+            hi NonText guifg=bg
+            set fullscreen
+        endif
+        :CMiniBufExplorer
     else
-      " This is console Vim.
-      if exists("+lines")
-        set lines=50
-      endif
-      if exists("+columns")
-        set columns=100
-      endif
+        let g:fullscreenmode = 0
+        set guioptions+=mr
+        set guioptions+=Tb
+        set laststatus=2
+        set number
+        if has("gui_macvim")
+            set nofullscreen
+        endif
+        :MiniBufExplorer
+        execute "normal \<c-w>w"
     endif
-    if has("gui_macvim")
-      " Settings for WriteRoom like mode.
-      set lines=50 columns=80
-      set fuoptions=background:#00002b36
-      hi NonText guifg=bg
-      set fullscreen
-    endif
-    :CMiniBufExplorer
-  else
-    let g:fullscreenmode = 0
-    set guioptions+=mr
-    set guioptions+=Tb
-    set laststatus=2
-    set number
-    if has("gui_macvim")
-      set nofullscreen
-    endif
-    :MiniBufExplorer
-    execute "normal \<c-w>w"
-  endif
 endfunction
 
 "" Fix for quitting with just one window open (MiniBufExplorer bug)
 au BufEnter * call MyLastWindow()
 function! MyLastWindow()
-  " if the window is quickfix go on
-  if &buftype=="nofile"
-    " if this window is last on screen quit without warning
-    if winnr('$') < 2
-      quit!
+    " if the window is quickfix go on
+    if &buftype=="nofile"
+        " if this window is last on screen quit without warning
+        if winnr('$') < 2
+            quit!
+        endif
     endif
-  endif
 endfunction
 
 
@@ -496,30 +496,30 @@ let g:jekyll_post_suffix = "md"
 "" all plugins. Be careful.
 function! AfterMappings()
 
-  " CTRL-X and SHIFT-Del are Cut
-  vnoremap <C-X> "+x
-  vnoremap <S-Del> "+x
+    " CTRL-X and SHIFT-Del are Cut
+    vnoremap <C-X> "+x
+    vnoremap <S-Del> "+x
 
-  " CTRL-C and CTRL-Insert are Copy
-  vnoremap <C-C> "+y
-  vnoremap <C-Insert> "+y
+    " CTRL-C and CTRL-Insert are Copy
+    vnoremap <C-C> "+y
+    vnoremap <C-Insert> "+y
 
-  "<Ctrl-V> -- paste
-  nm \\paste\\ "=@*.'xy'<CR>gPFx"_2x:echo<CR>
-  imap <C-V> x<Esc>\\paste\\"_s
-  vmap <C-V> "-cx<Esc>\\paste\\"_x
+    "<Ctrl-V> -- paste
+    nm \\paste\\ "=@*.'xy'<CR>gPFx"_2x:echo<CR>
+    imap <C-V> x<Esc>\\paste\\"_s
+    vmap <C-V> "-cx<Esc>\\paste\\"_x
 
-  "Edit mapping (make cursor keys work like in Windows: <C-Left><C-Right>
-  "Move to next word.
-  nnoremap <C-Left> b
-  vnoremap <C-S-Left> b
-  nnoremap <C-S-Left> gh<C-O>b
-  inoremap <C-S-Left> <C-\><C-O>gh<C-O>b
+    "Edit mapping (make cursor keys work like in Windows: <C-Left><C-Right>
+    "Move to next word.
+    nnoremap <C-Left> b
+    vnoremap <C-S-Left> b
+    nnoremap <C-S-Left> gh<C-O>b
+    inoremap <C-S-Left> <C-\><C-O>gh<C-O>b
 
-  nnoremap <C-Right> e
-  vnoremap <C-S-Right> e
-  nnoremap <C-S-Right> gh<C-O>e
-  inoremap <C-S-Right> <C-\><C-O>gh<C-O>e
+    nnoremap <C-Right> e
+    vnoremap <C-S-Right> e
+    nnoremap <C-S-Right> gh<C-O>e
+    inoremap <C-S-Right> <C-\><C-O>gh<C-O>e
 endfunction
 "" Call mapping function
 au VimEnter * :call AfterMappings()
@@ -536,9 +536,13 @@ vmap <C-CR> %
 
 "" Strip all trailing whitespace in the current file
 nnoremap <silent> <leader>W :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+"" Do the same to all open buffers
+nnoremap <silent> <leader>WW :bufdo let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 "" Reindent Code, strip trailing whitespace and go back to the line the cursor was
 nnoremap <silent> <leader>R :call IndentFile()<CR>:let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+"" Do the same to all open buffers
+nnoremap <silent> <leader>RR :bufdo call IndentFile()<CR>:let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 "" Remove the Windows ^M - when the encodings gets messed up
 noremap <Leader>mm mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
@@ -548,9 +552,9 @@ nnoremap <silent> <leader>m :MRU<CR>
 
 "" Edits vimrc file
 if has("gui_macvim")
-  map <leader>e :e ~/.vim/vimrc<CR>
+    map <leader>e :e ~/.vim/vimrc<CR>
 else
-  map <leader>e :e $VIM/vimfiles/vimrc<CR>
+    map <leader>e :e $VIM/vimfiles/vimrc<CR>
 endif
 
 "" Duplicates current line

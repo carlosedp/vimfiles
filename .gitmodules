@@ -40,9 +40,6 @@
 [submodule "bundle/vim-jade"]
 	path = bundle/vim-jade
 	url = http://github.com/digitaltoad/vim-jade.git
-[submodule "bundle/Javascript-indent"]
-	path = bundle/Javascript-indent
-	url = http://github.com/vim-scripts/JavaScript-Indent.git
 [submodule "bundle/jsbeautify"]
 	path = bundle/jsbeautify
 	url = http://github.com/vim-scripts/jsbeautify.git
@@ -52,9 +49,6 @@
 [submodule "bundle/bufexplorer"]
 	path = bundle/bufexplorer
 	url = https://github.com/vim-scripts/bufexplorer.zip.git
-[submodule "bundle/Javascript-syntax"]
-	path = bundle/Javascript-syntax
-	url = https://github.com/vim-scripts/JavaScript-syntax.git
 [submodule "bundle/mru"]
 	path = bundle/mru
 	url = https://github.com/vim-scripts/mru.vim.git
@@ -109,3 +103,6 @@
 [submodule "bundle/vim-commentary"]
 	path = bundle/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
+[submodule "bundle/vim-javascript"]
+	path = bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
