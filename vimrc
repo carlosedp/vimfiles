@@ -178,7 +178,7 @@ set noequalalways
 set cursorline
 
 "" Set inclusive, default is exclusive... but have problem with sorround.vim plugin
-set selection=old
+set selection=exclusive
 set selectmode=
 
 "" Allow cursor to be positioned anywhere in block select mode
@@ -513,13 +513,13 @@ function! AfterMappings()
     "Move to next word.
     nnoremap <C-Left> b
     vnoremap <C-S-Left> b
-    nnoremap <C-S-Left> gh<C-O>b
-    inoremap <C-S-Left> <C-\><C-O>gh<C-O>b
+    nnoremap <C-S-Left> gh<C-G>b
+    inoremap <C-S-Left> <C-\><C-O>gh<C-G>b
 
     nnoremap <C-Right> e
     vnoremap <C-S-Right> e
-    nnoremap <C-S-Right> gh<C-O>e
-    inoremap <C-S-Right> <C-\><C-O>gh<C-O>e
+    nnoremap <C-S-Right> gh<C-G>e
+    inoremap <C-S-Right> <C-\><C-O>gh<C-G>e
 endfunction
 "" Call mapping function
 au VimEnter * :call AfterMappings()
