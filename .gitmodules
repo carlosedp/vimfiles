@@ -82,9 +82,6 @@
 [submodule "bundle/vim-markdown"]
 	path = bundle/vim-markdown
 	url = https://github.com/hallison/vim-markdown.git
-[submodule "bundle/minibufexpl"]
-	path = bundle/minibufexpl
-	url = https://github.com/fholgado/minibufexpl.vim.git
 [submodule "bundle/vim-coffee-script"]
 	path = bundle/vim-coffee-script
 	url = https://github.com/kchmck/vim-coffee-script.git
@@ -106,3 +103,6 @@
 [submodule "bundle/vim-javascript"]
 	path = bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
+[submodule "bundle/minibufexpl"]
+	path = bundle/minibufexpl
+	url = https://github.com/carlosedp/minibufexpl.vim.git
