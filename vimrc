@@ -15,8 +15,13 @@ set hidden
 set nobackup
 set noswapfile
 
+"" Loads standard MS-Windows way of CTRL-X, CTRL-C and CTRL-V 
 source $VIMRUNTIME/mswin.vim
 behave mswin
+
+""  Set cursor selection mode and prevent entering select mode (prefer visual mode).
+set selection=exclusive
+set selectmode=
 
 " set English language
 language messages en_US
@@ -54,6 +59,7 @@ set hlsearch
 "" Remaps search
 nnoremap / /\v
 vnoremap / /\v
+
 "" All matches in a line are substituted instead of one
 set gdefault
 
@@ -108,7 +114,7 @@ set linespace=0
 " Tab completion
 set wildmenu "Turn on WiLd menu
 set wildmode=list:longest,list:full
-set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,test/fixtures/*,vendor/gems/*
+set wildignore+=*.o,*.obj,*.rbc,*.class,.svn,test/fixtures/*,vendor/gems/*
 
 "Set magic on, for regular expressions
 set magic
@@ -126,13 +132,6 @@ set background=dark
 "colorscheme molokai
 "colorscheme Mustang
 colorscheme solarized
-
-"" Load snippets
-"try
-"source $VIM/vimfiles/snippets/support_functions.vim
-"catch
-"source ~/.vim/snippets/support_functions.vim
-"endtry
 
 ""Minimal number of screen lines to keep above and below the cursor.
 set scrolloff=3
@@ -177,10 +176,6 @@ set noequalalways
 "" Highlight current line and set color
 set cursorline
 
-"" Set inclusive, default is exclusive... but have problem with sorround.vim plugin
-set selection=exclusive
-set selectmode=
-
 "" Allow cursor to be positioned anywhere in block select mode
 set virtualedit=block
 
@@ -205,7 +200,6 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 " Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
-
 
 "" Status line
 augroup ft_statuslinecolor
