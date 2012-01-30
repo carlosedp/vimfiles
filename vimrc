@@ -15,7 +15,7 @@ set hidden
 set nobackup
 set noswapfile
 
-"" Loads standard MS-Windows way of CTRL-X, CTRL-C and CTRL-V 
+"" Loads standard MS-Windows way of CTRL-X, CTRL-C and CTRL-V
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
@@ -39,7 +39,7 @@ set mouse=a
 " Better modes.  Remeber where we are, support yankring
 set viminfo=!,'100,\"100,:20,<50,s10,h,n~/.viminfo
 
-"" Do not return to start of line 
+"" Do not return to start of line
 set nostartofline
 
 "" Disable ALT keys access to menubar. Makes mappings work.
@@ -82,17 +82,17 @@ if has("gui_macvim")
     set guioptions-=L
     " make Mac 'Option' key behave as 'Alt'
     set mmta
-    "set guifont=Inconsolata:h14
+    set guifont=Inconsolata:h14
     "set guifont=Droid\ Sans\ Mono:h10
     "set guifont=Consolas:h14
-    set guifont=Bitstream\ Vera\ Sans\ Mono:h14
+    "set guifont=Bitstream\ Vera\ Sans\ Mono:h14
     " MacVIM shift+arrow-keys behavior (required in .vimrc)
     let macvim_hig_shift_movement = 1
 else
-    "set guifont=Inconsolata:h11
+    set guifont=Inconsolata:h13.5
     "set guifont=Consolas:h11
     "set guifont=Droid\ Sans\ Mono:h10
-    set guifont=Bitstream\ Vera\ Sans\ Mono:h11
+    "set guifont=Bitstream\ Vera\ Sans\ Mono:h11
 endif
 
 "" Set initial window size only on GUI
