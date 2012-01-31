@@ -82,14 +82,16 @@ if has("gui_macvim")
     set guioptions-=L
     " make Mac 'Option' key behave as 'Alt'
     set mmta
-    set guifont=Inconsolata:h14
+    set guifont=Anonymous\ Pro:h14
+    "set guifont=Inconsolata:h14
     "set guifont=Droid\ Sans\ Mono:h10
     "set guifont=Consolas:h14
     "set guifont=Bitstream\ Vera\ Sans\ Mono:h14
     " MacVIM shift+arrow-keys behavior (required in .vimrc)
     let macvim_hig_shift_movement = 1
 else
-    set guifont=Inconsolata:h13.5
+    set guifont=Anonymous\ Pro:h13
+    "set guifont=Inconsolata:h13.5
     "set guifont=Consolas:h11
     "set guifont=Droid\ Sans\ Mono:h10
     "set guifont=Bitstream\ Vera\ Sans\ Mono:h11
@@ -598,9 +600,6 @@ imap <C-x> <C-O>:Bclose<CR>
 "" Closes current window
 nnoremap <M-w> <C-w>c<esc>
 
-"" Clear search highlight
-nnoremap <leader><space> :noh<CR>
-
 "" Pressing < or > will let you indent/unident selected lines
 vnoremap < <gv
 vnoremap > >gv
@@ -624,6 +623,9 @@ map <silent> <leader>tl :TlistToggle<CR>
 
 "" Search word under cursor
 nnoremap , /<C-R><C-W><CR>N
+
+"" Clear highlight
+nnoremap <leader><space> :noh<CR>:call clearmatches()<CR>
 
 "" Make cursor move as expected with wrapped lines (in insert mode only with Ctrl key)
 nnoremap <silent> <Up> gk
