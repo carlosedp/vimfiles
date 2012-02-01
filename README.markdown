@@ -34,7 +34,7 @@ easiest thing to do is:
 On windows, create an environment var `gVim` pointing to the install dir and put
 the` _vimrc` file in this dir. Clone the vimfiles repo into the same place like:
 
-    c:/apps/vim/_vimrc`
+    c:/apps/vim/_vimrc
                /vim72/...
                /vimfiles/...
 
