@@ -36,6 +36,10 @@ Ctrl+Q          -   Visual Mode (Replaces <C-V>)
 <leader>fd      -   Converts filetype endings to dos
 <leader>fm      -   Converts filetype endings to mac
 <leader>pr      -   Executes pandoc generating an RTF from current file
+<leader>1-9     -   Applies highlight to current word
+<leader>0       -   Removes highlight from current word
+<leader>-       -   Removes all highlight
+<leader>+       -   Restores previous highlight
 
 Ctrl+n          -   Create new empty buffer
 Ctrl+C          -   Copy

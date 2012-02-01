@@ -216,7 +216,7 @@ set statusline+=%{fugitive#statusline()}
 set statusline+=%=
 set statusline+=\ [%{&encoding}\ %{&fileformat}\ %{strlen(&ft)?&ft:'none'}]
 set statusline+=\ %{WordCount()}\ words
-set statusline+=\ \ %(%c:%l/%L%)\ (%P)
+set statusline+=\ \ %(%c:%l/%L%)\ (%p%%)
 
 """""""""""""""""""""""""""""""""""""""
 """""""""""""  Functions  """""""""""""
