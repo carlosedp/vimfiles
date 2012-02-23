@@ -106,3 +106,6 @@
 [submodule "bundle/minibufexpl"]
 	path = bundle/minibufexpl
 	url = https://github.com/carlosedp/minibufexpl.vim.git
+[submodule "bundle/vimbookmarking"]
+	path = bundle/vimbookmarking
+	url = https://github.com/dterei/VimBookmarking.git

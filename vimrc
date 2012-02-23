@@ -89,6 +89,10 @@ if has("gui_macvim")
     "set guifont=Bitstream\ Vera\ Sans\ Mono:h14
     " MacVIM shift+arrow-keys behavior (required in .vimrc)
     let macvim_hig_shift_movement = 1
+    " Keep undo history across sessions, by storing in file.
+    set undodir=~/.vim/backups
+    set undofile
+
 else
     set guifont=Anonymous\ Pro:h13
     "set guifont=Inconsolata:h13.5
@@ -483,6 +487,11 @@ else
     let g:jekyll_path = 'E:/Projects/carlosedp.github.com'
 endif
 let g:jekyll_post_suffix = "md"
+
+"" Define VimBookmarking mappings
+map <silent> bb :ToggleBookmark<CR>
+map <silent> bn :NextBookmark<CR>
+map <silent> bp :PreviousBookmark<CR>
 
 """"""""""""""""""""""""""""""""""""""
 """""""""""" Key Mappings """"""""""""
