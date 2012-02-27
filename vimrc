@@ -196,6 +196,10 @@ set nofoldenable
 autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
 autocmd! BufNewFile,BufRead *.ejs set filetype=html.js
 
+"" Define custom indentation for filetypes
+au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+au BufNewFile,BufReadPost *.js setl shiftwidth=2 expandtab
+
 "" Disable AutoClose plugin on markdown files"
 autocmd FileType * :AutoCloseOn
 autocmd FileType markdown :AutoCloseOff
@@ -282,17 +286,17 @@ endfunction
 
 "" Indent files. Use plugin when filetype is Javascript.
 function! IndentFile()
-    if &filetype == 'javascript'
-        let l = line('.')
-        let c = col('.')
-        call g:Jsbeautify()
-        call cursor(l,c)
-    else
+    "if &filetype == 'javascript'
+        "let l = line('.')
+        "let c = col('.')
+        "call g:Jsbeautify()
+        "call cursor(l,c)
+    "else
         let l = line('.')
         let c = col('.')
         execute "normal! gg=G"
         call cursor(l,c)
-    endif
+    "endif
 endfunction
 
 " Convenient command to see the difference between the current buffer and the
