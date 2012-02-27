@@ -497,6 +497,10 @@ map <silent> bb :ToggleBookmark<CR>
 map <silent> bn :NextBookmark<CR>
 map <silent> bp :PreviousBookmark<CR>
 
+
+"" Ack configuration
+au BufNewFile,BufReadPost *.js let g:ackprg="ack --ignore-dir=node_modules"
+
 """"""""""""""""""""""""""""""""""""""
 """""""""""" Key Mappings """"""""""""
 """"""""""""""""""""""""""""""""""""""
