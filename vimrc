@@ -197,8 +197,8 @@ autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
 autocmd! BufNewFile,BufRead *.ejs set filetype=html.js
 
 "" Define custom indentation for filetypes
-au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
-au BufNewFile,BufReadPost *.js setl shiftwidth=2 expandtab
+autocmd FileType javascript :setlocal sw=2 ts=2 sts=2
+autocmd FileType coffee :setlocal sw=2 ts=2 sts=2
 
 "" Disable AutoClose plugin on markdown files"
 autocmd FileType * :AutoCloseOn
