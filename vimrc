@@ -21,7 +21,7 @@ behave mswin
 
 ""  Set cursor selection mode and prevent entering select mode (prefer visual mode).
 set selection=exclusive
-set selectmode=
+set selectmode=mouse,key,cmd
 
 " set English language
 language messages en_US
@@ -524,15 +524,32 @@ function! AfterMappings()
 
     "Edit mapping (make cursor keys work like in Windows: <C-Left><C-Right>
     "Move to next word.
+
+    "These mappings are used when set selectmode= (Visual Mode).
+    "nnoremap <C-Left> b
+    "vnoremap <C-S-Left> <C-O>b
+    "nnoremap <C-S-Left> gh<C-G>b
+    "inoremap <C-S-Left> <C-\><C-O>gh<C-G>b
+
+    "nnoremap <C-Right> e
+    "vnoremap <C-S-Right> <C-O>e
+    "nnoremap <C-S-Right> gh<C-G>e
+    "inoremap <C-S-Right> <C-\><C-O>gh<C-G>e
+    
+    " These mappings are used when set selectmode=mouse,key,cmd (Select Mode).
     nnoremap <C-Left> b
     vnoremap <C-S-Left> b
-    nnoremap <C-S-Left> gh<C-G>b
-    inoremap <C-S-Left> <C-\><C-O>gh<C-G>b
+    nnoremap <C-S-Left> gh<C-O>b
+    inoremap <C-S-Left> <C-\><C-O>gh<C-O>b
 
-    nnoremap <C-Right> e
-    vnoremap <C-S-Right> e
-    nnoremap <C-S-Right> gh<C-G>e
-    inoremap <C-S-Right> <C-\><C-O>gh<C-G>e
+    nnoremap <C-Right> w
+    vnoremap <C-S-Right> w
+    nnoremap <C-S-Right> gh<C-O>w
+    inoremap <C-S-Right> <C-\><C-O>gh<C-O>w
+
+    " Map NERDComment toggle to work on select-mode
+    vmap <leader>c<space> :call NERDComment(1, 'toggle')<CR>
+
 endfunction
 "" Call mapping function
 au VimEnter * :call AfterMappings()
