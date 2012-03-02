@@ -466,7 +466,7 @@ highlight Tb_VisibleNormal guifg=#5DC2D6 guibg=fg
 highlight Tb_VisibleChanged guifg=#F1266F guibg=fg
 
 "" MiniBufExplorer settings
-"autocmd BufEnter -MiniBufExplorer- execute "normal \<c-w>w"
+autocmd BufEnter -MiniBufExplorer- stopinsert
 let g:miniBufExplMaxSize = 3
 let g:miniBufExplMinSize = 1
 let g:miniBufExplorerMoreThanOne=0
