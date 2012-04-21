@@ -688,3 +688,7 @@ nnoremap <leader>r :%s//<left>
 nnoremap _md :set ft=markdown<CR>
 nnoremap _py :set ft=python
 nnoremap _js :set ft=javascript<CR>
+
+"Map CMD-y to CTRL-y for redo
+map <D-y> <C-y>
+
