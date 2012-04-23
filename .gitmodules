@@ -61,9 +61,6 @@
 [submodule "bundle/vim-autoclose"]
 	path = bundle/vim-autoclose
 	url = https://github.com/Townk/vim-autoclose.git
-[submodule "bundle/vim-haml"]
-	path = bundle/vim-haml
-	url = https://github.com/Ariba/vim-haml.git
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = https://github.com/ervandew/supertab.git
@@ -103,3 +100,6 @@
 [submodule "bundle/snipmate-snippets/snippets"]
 	path = bundle/snipmate-snippets/snippets
 	url = https://github.com/carlosedp/snipmate-snippets.git
+[submodule "bundle/vim-haml"]
+	path = bundle/vim-haml
+	url = https://github.com/tpope/vim-haml.git
