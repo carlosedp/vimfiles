@@ -198,6 +198,8 @@ autocmd! BufNewFile,BufRead *.ejs set filetype=html.js
 
 "" Define custom indentation for filetypes
 autocmd FileType javascript :setlocal sw=2 ts=2 sts=2
+autocmd FileType jade :setlocal sw=2 ts=2 sts=2
+autocmd FileType less :setlocal sw=2 ts=2 sts=2
 autocmd FileType coffee :setlocal sw=2 ts=2 sts=2
 
 "" Disable AutoClose plugin on markdown files"
