@@ -664,8 +664,8 @@ nnoremap , /<C-R><C-W><CR>N
 nnoremap <leader><space> :noh<CR>:call clearmatches()<CR>
 
 "" Make cursor move as expected with wrapped lines (in insert mode only with Ctrl key)
-nnoremap <silent> <C-Up> gk
-nnoremap <silent> <C-Down> gj
+nnoremap <silent> <M-Up> gk
+nnoremap <silent> <M-Down> gj
 inoremap <silent> <Up> <C-O>gk
 inoremap <silent> <Down> <C-O>gj
 
