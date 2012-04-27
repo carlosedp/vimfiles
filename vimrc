@@ -495,10 +495,10 @@ endif
 let g:jekyll_post_suffix = "md"
 
 "" Define VimBookmarking mappings
-map <silent> bb :ToggleBookmark<CR>
-map <silent> bn :NextBookmark<CR>
-map <silent> bp :PreviousBookmark<CR>
-
+nmap <silent> bb :ToggleBookmark<CR>
+nmap <silent> bn :NextBookmark<CR>
+nmap <silent> bp :PreviousBookmark<CR>
+imap <silent> <leader>bb <C-O>:ToggleBookmark<CR>
 
 "" Ack configuration
 au BufNewFile,BufReadPost *.js let g:ackprg="ack --ignore-dir=node_modules"
@@ -664,10 +664,10 @@ nnoremap , /<C-R><C-W><CR>N
 nnoremap <leader><space> :noh<CR>:call clearmatches()<CR>
 
 "" Make cursor move as expected with wrapped lines (in insert mode only with Ctrl key)
-nnoremap <silent> <Up> gk
-nnoremap <silent> <Down> gj
-inoremap <silent> <C-Up> <C-O>gk
-inoremap <silent> <C-Down> <C-O>gj
+nnoremap <silent> <C-Up> gk
+nnoremap <silent> <C-Down> gj
+inoremap <silent> <Up> <C-O>gk
+inoremap <silent> <Down> <C-O>gj
 
 "" Inserts file name without extension into text
 inoremap \fn <C-R>=expand("%:t:r")<CR>

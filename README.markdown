@@ -146,9 +146,10 @@ My personal mappings
     Ctrl+up         -   Move current line up(Also works with selection)
     Ctrl+down       -   Move current line down(Also works with selection)
 
-    Ctrl+F2         -   Set line bookmark
-    Shift+F2        -   Go to previous line bookmark
-    Alt+F2          -   Go to next line bookmark
+    bb              -   Set line bookmark(Normal mode)
+    <leader>bb      -   Set line bookmark(Insert mode)
+    bp              -   Go to previous line bookmark
+    bn              -   Go to next line bookmark
 
     >               -   Indent selected text or selection
     <               -   Dedent selected text or selection
