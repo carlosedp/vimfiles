@@ -111,7 +111,6 @@ My personal mappings
     <leader>mm      -   Remove windows to unix "^M" artifacts
     <leader>m       -   Opens Most Recently Used file list
     <leader>ci      -   Toggles block comment/uncomment
-    <leader>t       -   Opens Command-T fuzzy file finder
     <leader>d       -   Duplicates current line
     <leader>r       -   Search and replace in entire file (:%s//)
     <leader>s       -   Split window vertically and switch to it
@@ -137,6 +136,7 @@ My personal mappings
     Ctrl+Z          -   Undo
     Ctrl+Y          -   Redo
     Ctrl+A          -   Select all
+    Ctrl+P          -   Opens CommandP fuzzy file finder
     Ctrl+Tab        -   Cycle thru buffers
     Tab             -   Autocomplete / Add snippet
     Alt+w           -   Close window
