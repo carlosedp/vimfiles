@@ -189,8 +189,11 @@ set virtualedit=block
 "set sessionoptions+=unix,slash,localoptions
 set sessionoptions=buffers,curdir,folds,help,resize,winpos,winsize,tabpages,unix,slash,localoptions
 
-"" Disable code folding
-set nofoldenable
+"" Cold Folding
+set foldenable
+set foldmethod=syntax
+set foldlevelstart=100
+
 
 "" Set custom filetypes
 autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino

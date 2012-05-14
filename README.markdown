@@ -151,6 +151,8 @@ My personal mappings
     bp              -   Go to previous line bookmark
     bn              -   Go to next line bookmark
 
+    za              -   Toggle folding
+
     >               -   Indent selected text or selection
     <               -   Dedent selected text or selection
 
