@@ -501,7 +501,7 @@ nmap <silent> bp :PreviousBookmark<CR>
 imap <silent> <leader>bb <C-O>:ToggleBookmark<CR>
 
 "" Ack configuration
-au BufNewFile,BufReadPost *.js let g:ackprg="ack --ignore-dir=node_modules"
+au BufNewFile,BufReadPost *.js let g:ackprg="ack --ignore-dir=node_modules -H --nocolor --nogroup --column"
 
 """"""""""""""""""""""""""""""""""""""
 """""""""""" Key Mappings """"""""""""
