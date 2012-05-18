@@ -696,4 +696,5 @@ nnoremap _js :set ft=javascript<CR>
 
 "Map CMD-y to CTRL-y for redo
 map <D-y> <C-y>
+imap <D-y> <C-y>
 
