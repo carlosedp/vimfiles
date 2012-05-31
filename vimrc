@@ -121,6 +121,7 @@ set linespace=0
 set wildmenu "Turn on WiLd menu
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,*.rbc,*.class,.svn,test/fixtures/*,vendor/gems/*
+set wildignore+=*/node_modules/*
 
 "Set magic on, for regular expressions
 set magic
