@@ -205,6 +205,7 @@ autocmd FileType javascript :setlocal sw=2 ts=2 sts=2
 autocmd FileType jade :setlocal sw=2 ts=2 sts=2
 autocmd FileType less :setlocal sw=2 ts=2 sts=2
 autocmd FileType coffee :setlocal sw=2 ts=2 sts=2
+autocmd FileType ruby,eruby :setlocal sw=2 ts=2 sts=2
 
 "" Disable AutoClose plugin on markdown files"
 autocmd FileType * :AutoCloseOn
@@ -214,7 +215,7 @@ autocmd FileType markdown :AutoCloseOff
 " Remember cursor position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
-" Resize splits when the window is resized
+" Resize splits when the window is resized 
 au VimResized * exe "normal! \<c-w>="
 
 "" Status line
@@ -231,6 +232,13 @@ set statusline+=%=
 set statusline+=\ [%{&encoding}\ %{&fileformat}\ %{strlen(&ft)?&ft:'none'}]
 set statusline+=\ %{WordCount()}\ words
 set statusline+=\ \ %(%c:%l/%L%)\ (%p%%)
+
+"" Hightlight line if exceeds 80 columns
+"if exists('+colorcolumn')
+  "set colorcolumn=80
+"else
+  "au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+"endif
 
 """""""""""""""""""""""""""""""""""""""
 """""""""""""  Functions  """""""""""""
@@ -418,6 +426,14 @@ function! MyLastWindow()
     endif
 endfunction
 
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd FileType c,cpp,java,php,ruby,eruby,python,javascript,coffee,jade,sass,less,scss autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 """""""""""""""""""""""""""""""""""""""
 """""""""" Plugin Parameters """"""""""
