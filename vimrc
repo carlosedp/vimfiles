@@ -633,8 +633,8 @@ map <silent> <F4> <esc>:bn<CR>
 imap <silent> <F4> <C-O>:bn<CR>
 
 "" Toggle between Wrap and no Wrap lines
-map <silent> <F5> :set nowrap!<CR>
-imap <silent> <F5> <C-O>:set nowrap!<CR>
+map <F5> :set nowrap!<CR> :set wrap?<CR>
+imap <F5> <C-O>:set nowrap!<CR> :set wrap?<CR>
 
 "" Toggle between display line endings
 map <silent> <F6> :set nolist!<CR>
@@ -713,3 +713,5 @@ nnoremap _js :set ft=javascript<CR>
 map <D-y> <C-y>
 imap <D-y> <C-y>
 
+" Map \g to Gundo
+nnoremap <leader>g :GundoToggle<CR>

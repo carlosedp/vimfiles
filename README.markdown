@@ -110,7 +110,7 @@ My personal mappings
     <leader>WW      -   Strip spaces from the end of lines (entire file) on all buffers
     <leader>mm      -   Remove windows to unix "^M" artifacts
     <leader>m       -   Opens Most Recently Used file list
-    <leader>ci      -   Toggles block comment/uncomment
+    <leader>c<space>-   Toggles block comment/uncomment
     <leader>d       -   Duplicates current line
     <leader>r       -   Search and replace in entire file (:%s//)
     <leader>s       -   Split window vertically and switch to it
@@ -127,6 +127,7 @@ My personal mappings
     <leader>-       -   Removes all highlight
     <leader>+       -   Restores previous highlight
     <leader>space   -   Clear search highlight
+    <leader>g       -   Opens Gundo plugin
 
     Ctrl+n          -   Create new empty buffer
     Ctrl+C          -   Copy
