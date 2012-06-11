@@ -658,13 +658,13 @@ nnoremap <M-w> <C-w>c<esc>
 vnoremap < <gv
 vnoremap > >gv
 
-" Unimpaired configuration
-" Bubble single lines
-nmap <C-Up> [e
-nmap <C-Down> ]e
-" Bubble multiple lines
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
+" Bubble lines up and down
+nnoremap <C-Down> :m+<CR>==
+nnoremap <C-Up> :m-2<CR>==
+inoremap <C-Down> <Esc>:m+<CR>==gi
+inoremap <C-Up> <Esc>:m-2<CR>==gi
+vnoremap <C-Down> :m'>+<CR>gv=gv
+vnoremap <C-Up> :m-2<CR>gv=gv
 
 "" Split vertical window and switch to it
 nnoremap <leader>s <C-w>v<C-w>l
