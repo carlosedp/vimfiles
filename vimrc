@@ -634,7 +634,7 @@ imap <silent> <F4> <C-O>:bn<CR>
 
 "" Toggle between Wrap and no Wrap lines
 map <F5> :set nowrap!<CR> :set wrap?<CR>
-imap <F5> <C-O>:set nowrap!<CR> :set wrap?<CR>
+imap <F5> <C-O>:set nowrap!<CR>
 
 "" Toggle between display line endings
 map <silent> <F6> :set nolist!<CR>
