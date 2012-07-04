@@ -135,10 +135,6 @@ set whichwrap+=<,>,[,],h,l
 filetype plugin indent on
 syntax on
 set background=dark
-"colorscheme ir_black
-"colorscheme desert
-"colorscheme molokai
-"colorscheme Mustang
 "colorscheme solarized
 colorscheme Tomorrow-Night
 
