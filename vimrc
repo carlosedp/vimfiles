@@ -95,6 +95,7 @@ if has("gui_macvim")
 
 else
     set guifont=Anonymous\ Pro:h13
+    "set guifont=Ubuntu\ Mono:h13
     "set guifont=Inconsolata:h13.5
     "set guifont=Consolas:h11
     "set guifont=Droid\ Sans\ Mono:h10
@@ -138,7 +139,8 @@ set background=dark
 "colorscheme desert
 "colorscheme molokai
 "colorscheme Mustang
-colorscheme solarized
+"colorscheme solarized
+colorscheme Tomorrow-Night
 
 ""Minimal number of screen lines to keep above and below the cursor.
 set scrolloff=3
