@@ -220,7 +220,7 @@ au VimResized * exe "normal! \<c-w>="
 augroup ft_statuslinecolor
     au!
     au InsertEnter * hi StatusLine ctermfg=196 guifg=#FF3145
-    au InsertLeave * hi StatusLine ctermfg=130 guifg=gray
+    au InsertLeave * hi StatusLine ctermfg=59 guifg=#4d5057
 augroup END
 set laststatus=2
 set statusline=
