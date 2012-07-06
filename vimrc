@@ -104,13 +104,11 @@ endif
 
 "" Set initial window size only on GUI
 if has("gui_running")
-    "set lines=40 columns=120
     set browsedir=buffer
 endif
 
 "" encodings configure
 set fileencoding=utf-8
-"set encoding=latin1
 set encoding=utf-8
 set fileencodings=utf-8,latin1
 set fileformats=unix,dos,mac
@@ -185,14 +183,12 @@ set cursorline
 set virtualedit=block
 
 "" Use Unix format for files
-"set sessionoptions+=unix,slash,localoptions
 set sessionoptions=buffers,curdir,folds,help,resize,winpos,winsize,tabpages,unix,slash,localoptions
 
 "" Cold Folding
 set foldenable
 set foldmethod=syntax
 set foldlevelstart=100
-
 
 "" Set custom filetypes
 autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
@@ -460,12 +456,6 @@ let NERDTreeChDirMode=1
 "" Show hidden files by default
 let NERDTreeShowHidden=1
 
-"" Set BufTabs parameters
-"let g:buftabs_only_basename=1
-"let g:buftabs_in_statusline=1
-"let g:buftabs_reserved_space=55
-"let g:buftabs_active_highlight_group="Visual"
-
 "Command-T configuration
 let g:CommandTMaxHeight=10
 let g:CommandTMatchWindowAtTop=1
@@ -617,8 +607,9 @@ else
     map <leader>e :e $VIM/vimfiles/vimrc<CR>
 endif
 
-"" Duplicates current line
+"" Duplicates current line or selected lines
 nnoremap <leader>d Yp
+snoremap <leader>d <C-O>Yp
 
 "" Creates new empty buffer
 nmap <C-N> :enew<CR>
@@ -716,7 +707,7 @@ nnoremap <leader>r :%s//<left>
 
 " Easy filetype switching
 nnoremap _md :set ft=markdown<CR>
-nnoremap _py :set ft=python
+nnoremap _py :set ft=python<CR>
 nnoremap _js :set ft=javascript<CR>
 
 "Map CMD-y to CTRL-y for redo
