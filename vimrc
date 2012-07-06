@@ -232,8 +232,9 @@ set statusline+=\ %{WordCount()}\ words
 set statusline+=\ \ %(%c:%l/%L%)\ (%p%%)
 
 " Hightlight line if exceeds 80 columns
+let g:colorcol = 80
 if exists('+colorcolumn')
-  set colorcolumn=80
+  let &colorcolumn=g:colorcol
 endif
 
 """""""""""""""""""""""""""""""""""""""
@@ -371,6 +372,11 @@ let g:fullscreenmode = 0
 function! ToggleFullScreen()
     if g:fullscreenmode == 0
         let g:fullscreenmode = 1
+        if exists('+colorcolumn')
+            set colorcolumn=
+        endif
+        let g:oldColumns = &columns
+        let g:oldLines = &lines
         set nonumber
         set laststatus=0
         set guioptions-=mr
@@ -390,8 +396,8 @@ function! ToggleFullScreen()
         endif
         if has("gui_macvim")
             " Settings for WriteRoom like mode.
-            set lines=50 columns=80
-            set fuoptions=background:#00002b36
+            set lines=999 columns=80
+            set fuoptions=background:Normal
             hi NonText guifg=bg
             set fullscreen
         endif
@@ -404,6 +410,11 @@ function! ToggleFullScreen()
         set number
         if has("gui_macvim")
             set nofullscreen
+        endif
+        let &columns=g:oldColumns
+        let &lines=g:oldLines
+        if exists('+colorcolumn')
+            let &colorcolumn=g:colorcol
         endif
         :MiniBufExplorer
         execute "normal \<c-w>w"
