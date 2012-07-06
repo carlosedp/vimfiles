@@ -106,3 +106,6 @@
 [submodule "bundle/vim-coffee-script"]
 	path = bundle/vim-coffee-script
 	url = https://github.com/AndrewRadev/vim-coffee-script.git
+[submodule "bundle/fountain"]
+	path = bundle/fountain
+	url = https://github.com/vim-scripts/fountain.vim.git

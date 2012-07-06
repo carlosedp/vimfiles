@@ -197,6 +197,7 @@ set foldlevelstart=100
 "" Set custom filetypes
 autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
 autocmd! BufNewFile,BufRead *.ejs set filetype=html.js
+autocmd! BufRead,BufNewFile *.fountain	 set filetype=fountain
 
 "" Define custom indentation for filetypes
 autocmd FileType javascript :setlocal sw=2 ts=2 sts=2
