@@ -5,8 +5,8 @@ Vim
 It is recommended that you use gVim in either Windows or Linux and MacVim for
 Mac. Download from:
 
-* (Windows) [http://www.vim.org/download.php#pc](http://www.vim.org/download.php#pc) (gvim72.exe)
-* (Mac) [http://code.google.com/p/macvim/](http://code.google.com/p/macvim/) (snapshot-64 for Lion or build-53 for older versions)
+* (Windows) [http://www.vim.org/download.php#pc](http://www.vim.org/download.php#pc) (gvim73.exe)
+* (Mac) [http://code.google.com/p/macvim/](http://code.google.com/p/macvim/) (snapshot-64)
 
 Usage
 -----
@@ -20,7 +20,7 @@ Clone this repo into your home directory either as `.vim` (linux/mac) or
 
     git clone git://github.com/carlosedp/vimfiles.git ~/.vim
 
-Then `cd` into the repo and run this to get the snippets submodule:
+Then `cd` into the repo and run this to get the submodules:
 
     git submodule init
     git submodule update
@@ -50,6 +50,7 @@ To update all submodules, use the following command on vimfiles dir:
 
 
 If you are using MacVim on MacOS Lion, disable the native fullscreen mode to allow "WriteRoom" mode:
+
     defaults write org.vim.MacVim MMNativeFullScreen
 
 Don't forget to install the font you plan to use from the `Fonts` dir. You can check the one that is enabled(uncommented) on the `set guifont` setting in the `vimrc` file.
@@ -71,6 +72,7 @@ On Windows you have to download Ctags and add ctags.exe in your PATH.
 
 Mac OS X and most Linux distros come with Ruby already. If you're in Windows
 look for Luis Lavena's latest Ruby Installer on [http://rubyforge.org/projects/rubyinstaller/](http://rubyforge.org/projects/rubyinstaller/)
+
 * Ack
 
 You can download Ack standalone from http://betterthangrep.com/ using their own instructions:
