@@ -376,6 +376,7 @@ function! ToggleFullScreen()
         let g:oldLines = &lines
         set nonumber
         set laststatus=0
+        set rulerformat=%40(%=%{WordCount()}\ words\ \ %(%c:%l/%L%)\ (%p%%)%)
         set guioptions-=mr
         set guioptions-=Tb
         if has("gui_running")
@@ -680,7 +681,7 @@ map <silent> <leader>tl :TlistToggle<CR>
 nnoremap , /<C-R><C-W><CR>N
 
 "" Clear highlight
-nnoremap <leader><space> :noh<CR>:call clearmatches()<CR>
+nnoremap <silent> <leader><space> :noh<CR>:call clearmatches()<CR>
 
 "" Make cursor move as expected with wrapped lines (in insert mode only with Ctrl key)
 nnoremap <silent> <M-Up> gk
