@@ -82,7 +82,8 @@ if has("gui_macvim")
     set guioptions-=L
     " make Mac 'Option' key behave as 'Alt'
     set mmta
-    set guifont=Anonymous\ Pro:h16
+    "set guifont=Anonymous\ Pro:h16
+    set guifont=Cousine:h15
     "set guifont=Inconsolata:h15
     "set guifont=Droid\ Sans\ Mono:h10
     "set guifont=Consolas:h14
@@ -94,7 +95,8 @@ if has("gui_macvim")
     set undofile
 
 else
-    set guifont=Anonymous\ Pro:h13
+    "set guifont=Anonymous\ Pro:h13
+    set guifont=Cousine:h13
     "set guifont=Ubuntu\ Mono:h13
     "set guifont=Inconsolata:h13.5
     "set guifont=Consolas:h11
@@ -376,7 +378,8 @@ function! ToggleFullScreen()
         let g:oldLines = &lines
         set nonumber
         set laststatus=0
-        set rulerformat=%40(%=%{WordCount()}\ words\ \ %(%c:%l/%L%)\ (%p%%)%)
+        set rulerformat=%40(%{WordCount()}\ words%=%(%c:%l/%L%)\ (%p%%)%)
+        set linespace=3
         set guioptions-=mr
         set guioptions-=Tb
         if has("gui_running")
@@ -402,6 +405,7 @@ function! ToggleFullScreen()
         :CMiniBufExplorer
     else
         let g:fullscreenmode = 0
+        set linespace=0
         set guioptions+=mr
         set guioptions+=Tb
         set laststatus=2
@@ -684,8 +688,8 @@ nnoremap , /<C-R><C-W><CR>N
 nnoremap <silent> <leader><space> :noh<CR>:call clearmatches()<CR>
 
 "" Make cursor move as expected with wrapped lines (in insert mode only with Ctrl key)
-nnoremap <silent> <M-Up> gk
-nnoremap <silent> <M-Down> gj
+"nnoremap <silent> <M-Up> gk
+"nnoremap <silent> <M-Down> gj
 inoremap <silent> <Up> <C-O>gk
 inoremap <silent> <Down> <C-O>gj
 
