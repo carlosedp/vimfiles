@@ -96,7 +96,7 @@ if has("gui_macvim")
 
 else
     "set guifont=Anonymous\ Pro:h13
-    set guifont=Cousine:h13
+    set guifont=Cousine:h11
     "set guifont=Ubuntu\ Mono:h13
     "set guifont=Inconsolata:h13.5
     "set guifont=Consolas:h11
