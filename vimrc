@@ -137,6 +137,7 @@ syntax on
 set background=dark
 "colorscheme solarized
 colorscheme Tomorrow-Night
+colorscheme jellybeans
 
 ""Minimal number of screen lines to keep above and below the cursor.
 set scrolloff=3
