@@ -109,3 +109,9 @@
 [submodule "bundle/fountain"]
 	path = bundle/fountain
 	url = https://github.com/vim-scripts/fountain.vim.git
+[submodule "bundle/color-jellybeans"]
+	path = bundle/color-jellybeans
+	url = https://github.com/nanotech/jellybeans.vim.git
+[submodule "bundle/color-candyman"]
+	path = bundle/color-candyman
+	url = https://github.com/vim-scripts/candyman.vim.git

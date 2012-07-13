@@ -708,7 +708,7 @@ command! PR :!pandoc "%" -o "%:t:r.rtf" -t rtf -s
 map J gJ
 
 "" Replace
-nnoremap <leader>r :%s//<left>
+nnoremap <leader>r :%s/\v/<left>
 
 " Easy filetype switching
 nnoremap _md :set ft=markdown<CR>
