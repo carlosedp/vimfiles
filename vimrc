@@ -526,6 +526,13 @@ imap <silent> <leader>bb <C-O>:ToggleBookmark<CR>
 "" Ack configuration
 au BufNewFile,BufReadPost *.js let g:ackprg="ack --ignore-dir=node_modules -H --nocolor --nogroup --column"
 
+let g:jellybeans_overrides = {
+\    'Search': { 'guifg': '151515', 'guibg': 'e8e8d3',
+\              'ctermfg': '233', 'ctermbg': '188',
+\              'attr': '' },
+\}
+
+
 """"""""""""""""""""""""""""""""""""""
 """""""""""" Key Mappings """"""""""""
 """"""""""""""""""""""""""""""""""""""
