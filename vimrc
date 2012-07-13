@@ -82,8 +82,8 @@ if has("gui_macvim")
     set guioptions-=L
     " make Mac 'Option' key behave as 'Alt'
     set mmta
-    "set guifont=Anonymous\ Pro:h16
-    set guifont=Cousine:h15
+    set guifont=Anonymous\ Pro:h16
+    "set guifont=Cousine:h15
     "set guifont=Inconsolata:h15
     "set guifont=Droid\ Sans\ Mono:h10
     "set guifont=Consolas:h14
@@ -95,8 +95,8 @@ if has("gui_macvim")
     set undofile
 
 else
-    "set guifont=Anonymous\ Pro:h13
-    set guifont=Cousine:h11
+    set guifont=Anonymous\ Pro:h13
+    "set guifont=Cousine:h11
     "set guifont=Ubuntu\ Mono:h13
     "set guifont=Inconsolata:h13.5
     "set guifont=Consolas:h11
@@ -137,15 +137,8 @@ syntax on
 
 "" Set colorschemes
 set background=dark
-let g:jellybeans_overrides = {
-\    'Search': { 'guifg': '151515', 'guibg': 'e8e8d3',
-\              'ctermfg': '233', 'ctermbg': '188',
-\              'attr': '' },
-\}
-
 "colorscheme solarized
-"colorscheme Tomorrow-Night
-colorscheme jellybeans
+colorscheme Tomorrow-Night
 
 ""Minimal number of screen lines to keep above and below the cursor.
 set scrolloff=3
