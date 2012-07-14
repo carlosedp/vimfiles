@@ -130,6 +130,7 @@ My personal mappings
     <leader>+       -   Restores previous highlight
     <leader>space   -   Clear search highlight
     <leader>g       -   Opens Gundo plugin
+    <leader>a       -   On SelectMode allows surrounding selection with following char
 
     Ctrl+n          -   Create new empty buffer
     Ctrl+C          -   Copy

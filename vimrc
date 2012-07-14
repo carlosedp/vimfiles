@@ -719,9 +719,12 @@ nnoremap _md :set ft=markdown<CR>
 nnoremap _py :set ft=python<CR>
 nnoremap _js :set ft=javascript<CR>
 
-"Map CMD-y to CTRL-y for redo
+" Map CMD-y to CTRL-y for redo
 map <D-y> <C-y>
 imap <D-y> <C-y>
 
 " Map \g to Gundo
 nnoremap <leader>g :GundoToggle<CR>
+
+" Surround selection with following char
+smap <leader>a <C-O><leader>a
