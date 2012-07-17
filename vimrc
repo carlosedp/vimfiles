@@ -82,9 +82,9 @@ if has("gui_macvim")
     set guioptions-=L
     " make Mac 'Option' key behave as 'Alt'
     set mmta
-    set guifont=Anonymous\ Pro:h16
+    "set guifont=Anonymous\ Pro:h16
     "set guifont=Cousine:h15
-    "set guifont=Inconsolata:h15
+    set guifont=Inconsolata:h16
     "set guifont=Droid\ Sans\ Mono:h10
     "set guifont=Consolas:h14
     "set guifont=Bitstream\ Vera\ Sans\ Mono:h14
@@ -95,10 +95,10 @@ if has("gui_macvim")
     set undofile
 
 else
-    set guifont=Anonymous\ Pro:h13
+    "set guifont=Anonymous\ Pro:h13
     "set guifont=Cousine:h11
     "set guifont=Ubuntu\ Mono:h13
-    "set guifont=Inconsolata:h13.5
+    set guifont=Inconsolata:h13.5
     "set guifont=Consolas:h11
     "set guifont=Droid\ Sans\ Mono:h10
     "set guifont=Bitstream\ Vera\ Sans\ Mono:h11
