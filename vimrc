@@ -128,6 +128,7 @@ set wildignore+=*/node_modules/*
 set magic
 
 " Backspace and cursor keys wrap to previous/next line
+set backspace=2
 set backspace=indent,eol,start
 set whichwrap+=<,>,[,],h,l
 
