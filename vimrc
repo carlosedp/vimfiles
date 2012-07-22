@@ -165,9 +165,12 @@ set linebreak
 set formatoptions=qrn1
 
 " Display invisible characters.
-" Use the same symbols as TextMate for tabstops and EOLs
-"set listchars=eol:?,tab:>-,trail:~,extends:>,precedes:<
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+if has("multi_byte")
+        set listchars=eol:$,tab:>-,extends:›,precedes:‹,trail:·,nbsp:✂
+        let &sbr = nr2char(8618).' ' " Show ↪ at the beginning of wrapped lines
+    else
+        set listchars=tab:>-,extends:>,precedes:<,trail:-,nbsp:%
+    endif
 set nolist
 
 " add to autocomplete the dictionary
