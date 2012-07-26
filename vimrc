@@ -123,6 +123,7 @@ set wildmenu "Turn on WiLd menu
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,*.rbc,*.class,.svn,test/fixtures/*,vendor/gems/*
 set wildignore+=*/node_modules/*
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
 
 "Set magic on, for regular expressions
 set magic
@@ -472,11 +473,6 @@ let NERDTreeShowHidden=1
 let g:CommandTMaxHeight=10
 let g:CommandTMatchWindowAtTop=1
 
-"" MRU Configuration
-let MRU_Exclude_Files = '.*\\Local Settings\\Temp\\.*|^.*\.(hg|git|bzr)\\.*$'
-let MRU_Max_Menu_Entries = 40
-let MRU_Max_Entries = 50
-
 "" Taglist configuration
 let Tlist_Use_Right_Window = 1
 let Tlist_Auto_Highlight_Tag = 1
@@ -611,7 +607,7 @@ nnoremap <silent> <leader>RR :bufdo call IndentFile()<CR>:let _s=@/<Bar>:%s/\s\+
 noremap <Leader>mm mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
 
 "" Toggle Last used files list
-nnoremap <silent> <leader>m :MRU<CR>
+nnoremap <silent> <leader>m :CtrlPMRUFiles<CR>
 
 "" Edits vimrc file
 if has("gui_macvim")
