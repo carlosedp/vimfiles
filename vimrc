@@ -579,6 +579,11 @@ function! AfterMappings()
     " Map NERDComment toggle to work on select-mode
     vmap <leader>c<space> :call NERDComment(1, 'toggle')<CR>
 
+    " Alternate between last use buffers
+    nnoremap <C-Tab> :b#<CR>
+    inoremap <C-Tab> <C-O>:b#<CR>
+
+
 endfunction
 "" Call mapping function
 au VimEnter * :call AfterMappings()
