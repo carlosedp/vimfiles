@@ -443,6 +443,7 @@ function! MyLastWindow()
     endif
 endfunction
 
+"" Clear trailing whitespaces on save for some filetypes
 fun! <SID>StripTrailingWhitespaces()
     let l = line(".")
     let c = col(".")
@@ -659,12 +660,13 @@ imap <silent> <F6> <C-O>:set nolist!<CR>
 map <silent> <F11> :call ToggleFullScreen()<CR>
 
 "" Closes buffer but keep window open. Opens clear buffer
-nmap <silent> <C-F4> :Bclose<CR>
-imap <silent> <C-F4> <C-O>:Bclose<CR>
-nmap <silent> <S-F4> :Bclose!<CR>
-imap <silent> <S-F4> <C-O>:Bclose!<CR>
-nmap <C-x> :Bclose<CR>
-imap <C-x> <C-O>:Bclose<CR>
+nnoremap <silent> <C-w> :Bclose<CR>
+nnoremap <silent> <C-x> :Bclose<CR>
+inoremap <silent> <C-w> <C-O>:Bclose<CR>
+inoremap <silent> <C-x> <C-O>:Bclose<CR>
+nnoremap <silent> <S-F4> :Bclose!<CR>
+inoremap <silent> <S-F4> <C-O>:Bclose!<CR>
+
 
 "" Closes current window
 nnoremap <M-w> <C-w>c<esc>

@@ -99,8 +99,7 @@ My personal mappings
 
     F11             -   No-distraction mode writeroom mode (fullscreen)
 
-    Ctrl+F4         -   Close current file
-    Ctrl+X          -   Close current file (In normal mode)
+    Ctrl+W/Ctrl-X   -   Close current file
     Shift+F4        -   Close current file without saving
     Ctrl+Q          -   Visual Mode (Replaces <C-V>)
 
