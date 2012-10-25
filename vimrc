@@ -409,6 +409,12 @@ function! ToggleFullScreen()
             set fuoptions=background:Normal
             hi NonText guifg=bg
             set fullscreen
+        else
+            set numberwidth=10
+            set foldcolumn=12
+            hi FoldColumn ctermbg=none
+            hi LineNr ctermfg=0 ctermbg=none
+            hi NonText ctermfg=0
         endif
         :CMiniBufExplorer
     else
@@ -420,6 +426,10 @@ function! ToggleFullScreen()
         set number
         if has("gui_macvim")
             set nofullscreen
+        else
+            set numberwidth=4
+            set foldcolumn=0
+            execute 'colorscheme ' . g:colors_name
         endif
         let &columns=g:oldColumns
         let &lines=g:oldLines
@@ -427,7 +437,7 @@ function! ToggleFullScreen()
             let &colorcolumn=g:colorcol
         endif
         :MiniBufExplorer
-        execute "normal \<c-w>w"
+        "execute "normal \<c-w>w"
     endif
 endfunction
 
@@ -664,6 +674,8 @@ nnoremap <silent> <C-w> :Bclose<CR>
 nnoremap <silent> <C-x> :Bclose<CR>
 inoremap <silent> <C-w> <C-O>:Bclose<CR>
 inoremap <silent> <C-x> <C-O>:Bclose<CR>
+inoremap <silent> <C-F4> <nop>
+nnoremap <silent> <C-F4> <nop>
 nnoremap <silent> <S-F4> :Bclose!<CR>
 inoremap <silent> <S-F4> <C-O>:Bclose!<CR>
 
