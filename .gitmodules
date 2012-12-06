@@ -82,9 +82,6 @@
 [submodule "bundle/vim-javascript"]
 	path = bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
-[submodule "bundle/minibufexpl"]
-	path = bundle/minibufexpl
-	url = https://github.com/carlosedp/minibufexpl.vim.git
 [submodule "bundle/vimbookmarking"]
 	path = bundle/vimbookmarking
 	url = https://github.com/dterei/VimBookmarking.git
@@ -106,3 +103,6 @@
 [submodule "bundle/fountain"]
 	path = bundle/fountain
 	url = https://github.com/vim-scripts/fountain.vim.git
+[submodule "bundle/minibufexplorer"]
+	path = bundle/minibufexplorer
+	url = https://github.com/techlivezheng/vim-plugin-minibufexpl.git

@@ -515,6 +515,8 @@ let g:miniBufExplMapWindowNavArrows = 0
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplCheckDupeBufs = 0
+let g:miniBufExplBuffersNeeded = 0
+let g:miniBufExplAutoStart = 1
 
 hi MBEVisibleActive guifg=#A6DB29 guibg=fg
 hi MBEVisibleChangedActive guifg=#F1266F guibg=fg
