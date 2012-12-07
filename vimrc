@@ -261,9 +261,9 @@ function! UpdateSession()
     if argc()==0
         let b:sessiondir = $HOME
         let b:sessionfile = b:sessiondir . "/.session.vim"
-        if !(filereadable(b:sessionfile))
-            :call MakeSession()
-        endif
+        "if !(filereadable(b:sessionfile))
+            ":call MakeSession()
+        "endif
         exe "mksession! " . b:sessionfile
         echo "updating session"
     endif
