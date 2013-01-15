@@ -55,9 +55,6 @@
 [submodule "bundle/color-solarized"]
 	path = bundle/color-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule "bundle/vim-autoclose"]
-	path = bundle/vim-autoclose
-	url = https://github.com/Townk/vim-autoclose.git
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = https://github.com/ervandew/supertab.git
@@ -103,3 +100,9 @@
 [submodule "bundle/minibufexplorer"]
 	path = bundle/minibufexplorer
 	url = https://github.com/techlivezheng/vim-plugin-minibufexpl.git
+[submodule "bundle/vim-coffee-script"]
+	path = bundle/vim-coffee-script
+	url = https://github.com/AndrewRadev/vim-coffee-script.git
+[submodule "bundle/autoclose"]
+	path = bundle/autoclose
+	url = https://github.com/vim-scripts/AutoClose.git
