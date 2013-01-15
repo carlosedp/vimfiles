@@ -103,6 +103,3 @@
 [submodule "bundle/minibufexplorer"]
 	path = bundle/minibufexplorer
 	url = https://github.com/techlivezheng/vim-plugin-minibufexpl.git
-[submodule "bundle/vim-coffee-script"]
-	path = bundle/vim-coffee-script
-	url = https://github.com/AndrewRadev/vim-coffee-script.git
