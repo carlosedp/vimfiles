@@ -103,6 +103,3 @@
 [submodule "bundle/vim-coffee-script"]
 	path = bundle/vim-coffee-script
 	url = https://github.com/AndrewRadev/vim-coffee-script.git
-[submodule "bundle/autoclose"]
-	path = bundle/autoclose
-	url = https://github.com/vim-scripts/AutoClose.git
