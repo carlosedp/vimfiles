@@ -626,6 +626,9 @@ autocmd FileType c,cpp,java,php,ruby,eruby,python,javascript,coffee,jade,sass,le
     let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 "" Neosnippet
+    " Disable select mode mappings. Problems with indentation
+    let g:neosnippet#disable_select_mode_mappings=0
+
     " Plugin key-mappings.
     imap <C-k>     <Plug>(neosnippet_expand_or_jump)
     smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -647,8 +650,12 @@ autocmd FileType c,cpp,java,php,ruby,eruby,python,javascript,coffee,jade,sass,le
     let g:neosnippet#enable_snipmate_compatibility = 1
 
     " Tell Neosnippet about the other snippets
-    let g:neosnippet#snippets_directory='$VIM/vimfiles/bundle/vim-snippets/snippets'
-
+    if has("gui_macvim")
+        let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+    else
+        let g:neosnippet#snippets_directory='$VIM/vimfiles/bundle/vim-snippets/snippets'
+    endif
+  
 
 """"""""""""""""""""""""""""""""""""""
 """""""""""" Key Mappings """"""""""""
