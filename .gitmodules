@@ -106,3 +106,9 @@
 [submodule "bundle/AutoClose"]
 	path = bundle/AutoClose
 	url = https://github.com/vim-scripts/AutoClose.git
+[submodule "bundle\\vim-indent-guides"]
+	path = bundle\\vim-indent-guides
+	url = https://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "bundle\\vim-javascript-syntax"]
+	path = bundle\\vim-javascript-syntax
+	url = https://github.com/jelera/vim-javascript-syntax.git
