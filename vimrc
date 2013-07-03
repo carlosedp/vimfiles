@@ -542,6 +542,12 @@ imap <silent> <leader>bb <C-O>:ToggleBookmark<CR>
 "" Ack configuration
 au BufNewFile,BufReadPost *.js let g:ackprg="ack --ignore-dir=node_modules -H --nocolor --nogroup --column"
 
+"" Indent Guides
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
+
 
 """"""""""""""""""""""""""""""""""""""
 """""""""""" Key Mappings """"""""""""
@@ -558,7 +564,7 @@ function! AfterMappings()
     " CTRL-C and CTRL-Insert are Copy
     vnoremap <C-C> "+y
     vnoremap <C-Insert> "+y
-
+ 
     "<Ctrl-V> -- paste
     nm \\paste\\ "=@*.'xy'<CR>gPFx"_2x:echo<CR>
     imap <C-V> x<Esc>\\paste\\"_s

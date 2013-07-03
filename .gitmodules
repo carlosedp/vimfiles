@@ -112,3 +112,6 @@
 [submodule "bundle\\vim-javascript-syntax"]
 	path = bundle\\vim-javascript-syntax
 	url = https://github.com/jelera/vim-javascript-syntax.git
+[submodule "bundle\\vimerl"]
+	path = bundle\\vimerl
+	url = https://github.com/jimenezrick/vimerl.git
