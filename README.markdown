@@ -2,11 +2,22 @@ Vim
 ===
 
 
-It is recommended that you use gVim in either Windows or Linux and MacVim for
-Mac. Download from:
+It is recommended that you use gVim in either Windows or Linux and MacVim for Mac. You need version 7.3.885
+or newer because there are dependencies.
 
-* (Windows) [http://www.vim.org/download.php#pc](http://www.vim.org/download.php#pc) (gvim73.exe)
-* (Mac) [http://code.google.com/p/macvim/](http://code.google.com/p/macvim/) (snapshot-64)
+Download from:
+
+Windows:
+[http://files.kaoriya.net/goto/vim73w32](http://files.kaoriya.net/goto/vim73w32) (32bit)
+[http://files.kaoriya.net/goto/vim73w64](http://files.kaoriya.net/goto/vim73w64) (64bit)
+
+Ps. I needed to "flat-out" the structure of the downloaded zip above. There is
+a vim73 dir inside it that I needed to move the files to the install root.
+
+Mac:
+In MacVim with homebrew:
+
+    brew install macvim --with-cscope --with-lua --override-system-vim
 
 Usage
 -----
@@ -35,13 +46,12 @@ On windows, create an environment var `gVim` pointing to the install dir and put
 the` _vimrc` file in this dir. Clone the vimfiles repo into the same place like:
 
     c:/apps/vim/_vimrc
-               /vim72/...
+               /vim73/...
                /vimfiles/...
 
 If you already have a custom `.vimrc` file, append the following lines to
 load everything else along with your personal hacks:
 
-    source ~/.vim/vimrc      "linux
     source ~/vimfiles/vimrc  "windows
 
 To update all submodules, use the following command on vimfiles dir:
@@ -148,6 +158,7 @@ My personal mappings
 
     Ctrl+up         -   Move current line up(Also works with selection)
     Ctrl+down       -   Move current line down(Also works with selection)
+    Shift+J         -   Joins selected lines without spaces
 
     bb              -   Set line bookmark(Normal mode)
     <leader>bb      -   Set line bookmark(Insert mode)

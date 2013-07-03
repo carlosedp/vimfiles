@@ -75,33 +75,23 @@ set guioptions=egmrLtTb
 "" Remove the 'tear bla bla from menus'
 set guioptions-=t
 
-"" set GUI font
+" Keep undo history across sessions, by storing in file.
+set undodir=~/.vimundo
+set undofile
+
 if has("gui_macvim")
     " set macvim specific stuff
     " Remove left scrollbar
     set guioptions-=L
     " make Mac 'Option' key behave as 'Alt'
     set mmta
-    "set guifont=Anonymous\ Pro:h16
-    "set guifont=Cousine:h15
+    " Set Mac font
     set guifont=Inconsolata:h16
-    "set guifont=Droid\ Sans\ Mono:h10
-    "set guifont=Consolas:h14
-    "set guifont=Bitstream\ Vera\ Sans\ Mono:h14
     " MacVIM shift+arrow-keys behavior (required in .vimrc)
     let macvim_hig_shift_movement = 1
-    " Keep undo history across sessions, by storing in file.
-    set undodir=~/.vim/backups
-    set undofile
-
 else
-    "set guifont=Anonymous\ Pro:h13
-    "set guifont=Cousine:h11
-    "set guifont=Ubuntu\ Mono:h13
+    " Set windows font
     set guifont=Inconsolata:h13.5
-    "set guifont=Consolas:h11
-    "set guifont=Droid\ Sans\ Mono:h10
-    "set guifont=Bitstream\ Vera\ Sans\ Mono:h11
 endif
 
 "" Set initial window size only on GUI
@@ -139,11 +129,14 @@ syntax on
 
 "" Set colorschemes
 set background=dark
-"colorscheme solarized
 colorscheme Tomorrow-Night
 
 ""Minimal number of screen lines to keep above and below the cursor.
 set scrolloff=3
+
+"" setting about indent
+set autoindent
+set smartindent
 
 "" set tabstop value and shift width
 set tabstop=4
@@ -151,9 +144,12 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
-""setting about indent
-set autoindent
-set smartindent
+"" Define custom indentation for filetypes
+autocmd FileType javascript :setlocal sw=2 ts=2 sts=2
+autocmd FileType jade :setlocal sw=2 ts=2 sts=2
+autocmd FileType less :setlocal sw=2 ts=2 sts=2
+autocmd FileType coffee :setlocal sw=2 ts=2 sts=2
+autocmd FileType ruby,eruby :setlocal sw=2 ts=2 sts=2
 
 " No extra space when join lines
 set nojoinspaces
@@ -204,13 +200,6 @@ autocmd! BufNewFile,BufRead *.pde setlocal ft=arduino
 autocmd! BufNewFile,BufRead *.ejs set filetype=html.js
 autocmd! BufRead,BufNewFile *.fountain	 set filetype=fountain
 
-"" Define custom indentation for filetypes
-autocmd FileType javascript :setlocal sw=2 ts=2 sts=2
-autocmd FileType jade :setlocal sw=2 ts=2 sts=2
-autocmd FileType less :setlocal sw=2 ts=2 sts=2
-autocmd FileType coffee :setlocal sw=2 ts=2 sts=2
-autocmd FileType ruby,eruby :setlocal sw=2 ts=2 sts=2
-
 "" Disable AutoClose plugin on markdown files"
 "let g:AutoCloseProtectedRegions = []
 "autocmd FileType * :AutoCloseOn
@@ -220,7 +209,7 @@ autocmd FileType ruby,eruby :setlocal sw=2 ts=2 sts=2
 " Remember cursor position
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 
-" Resize splits when the window is resized 
+" Resize splits when the window is resized
 au VimResized * exe "normal! \<c-w>="
 
 "" Status line
@@ -253,7 +242,6 @@ function! MakeSession()
     let b:sessiondir = $HOME
     let b:sessionfile = b:sessiondir . '/.session.vim'
     exe "mksession! " . b:sessionfile
-
 endfunction
 
 " Updates a session, BUT ONLY IF IT ALREADY EXISTS
@@ -371,7 +359,7 @@ augroup WordCounter
 augroup END
 
 " how eager are you? (default is 4000 ms)
-set updatetime=500
+set updatetime=300
 
 
 "" Full screen function
@@ -416,7 +404,7 @@ function! ToggleFullScreen()
             hi LineNr ctermfg=0 ctermbg=none
             hi NonText ctermfg=0
         endif
-        :CMiniBufExplorer
+        :MBEClose
     else
         let g:fullscreenmode = 0
         set linespace=0
@@ -436,7 +424,7 @@ function! ToggleFullScreen()
         if exists('+colorcolumn')
             let &colorcolumn=g:colorcol
         endif
-        :MiniBufExplorer
+        :MBEOpen
         "execute "normal \<c-w>w"
     endif
 endfunction
@@ -468,21 +456,14 @@ autocmd FileType c,cpp,java,php,ruby,eruby,python,javascript,coffee,jade,sass,le
 """""""""""""""""""""""""""""""""""""""
 
 "" NERDTree Parameters
-    "" Quit on opening files from the tree
+    " Quit on opening files from the tree
     let NERDTreeQuitOnOpen=1
-
-" Highlight the selected entry in the tree
+    " Highlight the selected entry in the tree
     let NERDTreeHighlightCursorline=1
-
-"" Open NERDTree in same dir
+    " Open NERDTree in same dir
     let NERDTreeChDirMode=1
-
-"" Show hidden files by default
+    " Show hidden files by default
     let NERDTreeShowHidden=1
-
-"Command-T configuration
-    let g:CommandTMaxHeight=10
-    let g:CommandTMatchWindowAtTop=1
 
 "" Taglist configuration
     let Tlist_Use_Right_Window = 1
@@ -490,19 +471,6 @@ autocmd FileType c,cpp,java,php,ruby,eruby,python,javascript,coffee,jade,sass,le
     let Tlist_GainFocus_On_ToggleOpen = 1
     let Tlist_Show_One_File = 1
     let Tlist_Sort_Type = "name"
-
-"" TabBar Settings
-    let g:Tb_MoreThanOne= 0
-    let g:Tb_MaxSize = 3
-    let g:Tb_MinSize = 1
-    let g:Tb_ModSelTarget = 1
-    let g:Tb_cTabSwitchBufs = 0
-    let g:Tb_UseSingleClick = 1
-    let g:did_tabbar_syntax_inits = 1
-    highlight Tb_Normal guifg=#808080 guibg=fg
-    highlight Tb_Changed guifg=#CD5907 guibg=fg
-    highlight Tb_VisibleNormal guifg=#5DC2D6 guibg=fg
-    highlight Tb_VisibleChanged guifg=#F1266F guibg=fg
 
 "" MiniBufExplorer settings
     autocmd BufEnter -MiniBufExplorer- stopinsert
@@ -655,7 +623,7 @@ autocmd FileType c,cpp,java,php,ruby,eruby,python,javascript,coffee,jade,sass,le
     else
         let g:neosnippet#snippets_directory='$VIM/vimfiles/bundle/vim-snippets/snippets'
     endif
-  
+
 
 """"""""""""""""""""""""""""""""""""""
 """""""""""" Key Mappings """"""""""""
@@ -672,7 +640,7 @@ function! AfterMappings()
     " CTRL-C and CTRL-Insert are Copy
     vnoremap <C-C> "+y
     vnoremap <C-Insert> "+y
- 
+
     "<Ctrl-V> -- paste
     nm \\paste\\ "=@*.'xy'<CR>gPFx"_2x:echo<CR>
     imap <C-V> x<Esc>\\paste\\"_s
@@ -681,18 +649,7 @@ function! AfterMappings()
     "Edit mapping (make cursor keys work like in Windows: <C-Left><C-Right>
     "Move to next word.
 
-    "These mappings are used when set selectmode= (Visual Mode).
-    "nnoremap <C-Left> b
-    "vnoremap <C-S-Left> <C-O>b
-    "nnoremap <C-S-Left> gh<C-G>b
-    "inoremap <C-S-Left> <C-\><C-O>gh<C-G>b
-
-    "nnoremap <C-Right> e
-    "vnoremap <C-S-Right> <C-O>e
-    "nnoremap <C-S-Right> gh<C-G>e
-    "inoremap <C-S-Right> <C-\><C-O>gh<C-G>e
-    
-    " These mappings are used when set selectmode=mouse,key,cmd (Select Mode).
+    "These mappings are used when set selectmode=mouse,key,cmd (Select Mode).
     nnoremap <C-Left> b
     vnoremap <C-S-Left> b
     nnoremap <C-S-Left> gh<C-O>b
@@ -709,9 +666,8 @@ function! AfterMappings()
     " Alternate between last use buffers
     nnoremap <C-Tab> :b#<CR>
     inoremap <C-Tab> <C-O>:b#<CR>
-
-
 endfunction
+
 "" Call mapping function
 au VimEnter * :call AfterMappings()
 
@@ -727,11 +683,13 @@ vmap <C-CR> %
 
 "" Strip all trailing whitespace in the current file
 nnoremap <silent> <leader>W :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
 "" Do the same to all open buffers
 nnoremap <silent> <leader>WW :bufdo let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 "" Reindent Code, strip trailing whitespace and go back to the line the cursor was
 nnoremap <silent> <leader>R :call IndentFile()<CR>:let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
 "" Do the same to all open buffers
 nnoremap <silent> <leader>RR :bufdo call IndentFile()<CR>:let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
@@ -795,7 +753,6 @@ nnoremap <silent> <C-F4> <nop>
 nnoremap <silent> <S-F4> :Bclose!<CR>
 inoremap <silent> <S-F4> <C-O>:Bclose!<CR>
 
-
 "" Closes current window
 nnoremap <M-w> <C-w>c<esc>
 
@@ -827,8 +784,6 @@ nnoremap , /<C-R><C-W><CR>N
 nnoremap <silent> <leader><space> :noh<CR>:call clearmatches()<CR>
 
 "" Make cursor move as expected with wrapped lines (in insert mode only with Ctrl key)
-"nnoremap <silent> <M-Up> gk
-"nnoremap <silent> <M-Down> gj
 inoremap <silent> <Up> <C-O>gk
 inoremap <silent> <Down> <C-O>gj
 
