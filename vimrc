@@ -561,18 +561,9 @@ autocmd FileType c,cpp,java,php,ruby,eruby,python,javascript,coffee,jade,sass,le
     "inoremap <expr><Up>    neocomplete#close_popup() . "\<Up>"
     "inoremap <expr><Down>  neocomplete#close_popup() . "\<Down>"
     " Or set this.
-    "let g:neocomplete#enable_cursor_hold_i = 1
+    let g:neocomplete#enable_cursor_hold_i = 1
     " Or set this.
     "let g:neocomplete#enable_insert_char_pre = 1
-
-    " AutoComplPop like behavior.
-    "let g:neocomplete#enable_auto_select = 1
-
-    " Shell like behavior(not recommended).
-    "set completeopt+=longest
-    "let g:neocomplete#enable_auto_select = 1
-    "let g:neocomplete#disable_auto_complete = 1
-    "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
     " Enable omni completion.
     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
