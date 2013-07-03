@@ -55,9 +55,6 @@
 [submodule "bundle/color-solarized"]
 	path = bundle/color-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule "bundle/supertab"]
-	path = bundle/supertab
-	url = https://github.com/ervandew/supertab.git
 [submodule "bundle/ack"]
 	path = bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
@@ -73,18 +70,12 @@
 [submodule "bundle/jekyll"]
 	path = bundle/jekyll
 	url = https://github.com/csexton/jekyll.vim.git
-[submodule "bundle/vim-snipmate"]
-	path = bundle/vim-snipmate
-	url = https://github.com/garbas/vim-snipmate.git
 [submodule "bundle/vim-javascript"]
 	path = bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
 [submodule "bundle/vimbookmarking"]
 	path = bundle/vimbookmarking
 	url = https://github.com/dterei/VimBookmarking.git
-[submodule "bundle/snipmate-snippets/snippets"]
-	path = bundle/snipmate-snippets/snippets
-	url = https://github.com/carlosedp/snipmate-snippets.git
 [submodule "bundle/gundo"]
 	path = bundle/gundo
 	url = https://github.com/sjl/gundo.vim.git
@@ -115,3 +106,12 @@
 [submodule "bundle\\vimerl"]
 	path = bundle\\vimerl
 	url = https://github.com/jimenezrick/vimerl.git
+[submodule "bundle\\neocomplete"]
+	path = bundle\\neocomplete
+	url = https://github.com/Shougo/neocomplete.vim.git
+[submodule "bundle\\neosnippet"]
+	path = bundle\\neosnippet
+	url = https://github.com/Shougo/neosnippet.vim.git
+[submodule "bundle\\vim-snippets"]
+	path = bundle\\vim-snippets
+	url = https://github.com/honza/vim-snippets.git
