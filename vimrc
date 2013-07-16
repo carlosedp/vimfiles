@@ -69,6 +69,12 @@ set autochdir
 "" Disable bell
 set vb
 
+"" Do not show mode on command line
+set noshowmode
+
+"" Set timeoutlen
+set ttimeoutlen=50
+
 "" Set GUI Options and scrollbars
 set guioptions=egmrLtTb
 
@@ -86,12 +92,12 @@ if has("gui_macvim")
     " make Mac 'Option' key behave as 'Alt'
     set mmta
     " Set Mac font
-    set guifont=Inconsolata:h16
+    set guifont=Inconsolata_for_Powerline:h16
     " MacVIM shift+arrow-keys behavior (required in .vimrc)
     let macvim_hig_shift_movement = 1
 else
     " Set windows font
-    set guifont=Inconsolata:h13.5
+    set guifont=Inconsolata_for_Powerline:h13.5
 endif
 
 "" Set initial window size only on GUI
@@ -615,6 +621,12 @@ autocmd FileType c,cpp,java,php,ruby,eruby,python,javascript,coffee,jade,sass,le
         let g:neosnippet#snippets_directory='$VIM/vimfiles/bundle/vim-snippets/snippets'
     endif
 
+"" Airline statusbar
+    let g:airline_powerline_fonts = 1
+    function! MyPlugin()
+        " This plugin is called in the after mappings function
+        let w:airline_section_x = "%{strlen(&filetype)>0?&filetype:''} [%{WordCount()} words]"
+    endfunction
 
 """"""""""""""""""""""""""""""""""""""
 """""""""""" Key Mappings """"""""""""
@@ -657,6 +669,9 @@ function! AfterMappings()
     " Alternate between last use buffers
     nnoremap <C-Tab> :b#<CR>
     inoremap <C-Tab> <C-O>:b#<CR>
+
+    " Call airline to add my plugin
+    call add(g:airline_window_override_funcrefs, function('MyPlugin'))
 endfunction
 
 "" Call mapping function
@@ -775,11 +790,12 @@ nnoremap , /<C-R><C-W><CR>N
 nnoremap <silent> <leader><space> :noh<CR>:call clearmatches()<CR>
 
 "" Make cursor move as expected with wrapped lines (in insert mode only with Ctrl key)
-inoremap <silent> <Up> <C-O>gk
-inoremap <silent> <Down> <C-O>gj
+"inoremap <silent> <Up> <C-O>gk
+"inoremap <silent> <Down> <C-O>gj
 
 "" Inserts file name without extension into text
 inoremap \fn <C-R>=expand("%:t:r")<CR>
+
 
 "" Changes line filetype endings
 map <leader>fu :set ff=unix<CR>
@@ -808,4 +824,4 @@ imap <D-y> <C-y>
 nnoremap <leader>g :GundoToggle<CR>
 
 " Surround selection with following char
-smap <leader>a <C-O><leader>a
+smap <leader>a <C-O>S
