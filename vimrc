@@ -628,6 +628,12 @@ autocmd FileType c,cpp,java,php,ruby,eruby,python,javascript,coffee,jade,sass,le
         let w:airline_section_x = "%{strlen(&filetype)>0?&filetype:''} [%{WordCount()} words]"
     endfunction
 
+"" vimerl
+    let g:erlangHighlightErrors = 1
+    let g:erlangHighlightBif = 1
+    let g:erlangCompletionDisplayDoc = 1
+    let g:erlangRefactoring = 1
+
 """"""""""""""""""""""""""""""""""""""
 """""""""""" Key Mappings """"""""""""
 """"""""""""""""""""""""""""""""""""""
@@ -825,3 +831,8 @@ nnoremap <leader>g :GundoToggle<CR>
 
 " Surround selection with following char
 smap <leader>a <C-O>S
+
+" Easy change spell language
+nnoremap _pt :set spell spelllang=pt<CR>
+nnoremap _en :set spell spelllang=en<CR>
+
