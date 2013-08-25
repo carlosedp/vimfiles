@@ -118,6 +118,9 @@
 [submodule "bundle/vim-airline"]
 	path = bundle/vim-airline
 	url = https://github.com/bling/vim-airline
+[submodule "bundle/rust"]
+	path = bundle/rust
+	url = https://github.com/wting/rust.vim.git
 [submodule "bundle/vim-golang"]
 	path = bundle/vim-golang
 	url = https://github.com/jnwhiteh/vim-golang.git
