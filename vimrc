@@ -623,10 +623,7 @@ autocmd FileType c,cpp,java,php,ruby,eruby,python,javascript,coffee,jade,sass,le
 
 "" Airline statusbar
     let g:airline_powerline_fonts = 1
-    function! MyPlugin()
-        " This plugin is called in the after mappings function
-        let w:airline_section_x = "%{strlen(&filetype)>0?&filetype:''} [%{WordCount()} words]"
-    endfunction
+    let g:airline_section_x = "%{strlen(&filetype)>0?&filetype:''} [%{WordCount()} words]"
 
 "" vimerl
     let g:erlangHighlightErrors = 1
@@ -675,9 +672,6 @@ function! AfterMappings()
     " Alternate between last use buffers
     nnoremap <C-Tab> :b#<CR>
     inoremap <C-Tab> <C-O>:b#<CR>
-
-    " Call airline to add my plugin
-    call add(g:airline_window_override_funcrefs, function('MyPlugin'))
 endfunction
 
 "" Call mapping function
