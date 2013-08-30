@@ -239,6 +239,10 @@ if exists('+colorcolumn')
   let &colorcolumn=g:colorcol
 endif
 
+" Highlight trailing whitespaces
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+match ExtraWhitespace /\s\+$/
+
 """""""""""""""""""""""""""""""""""""""
 """""""""""""  Functions  """""""""""""
 """""""""""""""""""""""""""""""""""""""
