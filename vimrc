@@ -455,7 +455,13 @@ fun! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
-autocmd FileType c,cpp,java,php,ruby,eruby,python,javascript,coffee,jade,sass,less,scss autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+autocmd FileType c,cpp,java,php,ruby,eruby,python,javascript,coffee autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
+fun! XMLPretty()
+    set ft=xml
+    %s/\v\>\</>\r<
+    call IndentFile()
+endfun
 
 """""""""""""""""""""""""""""""""""""""
 """""""""" Plugin Parameters """"""""""
@@ -824,7 +830,7 @@ imap <D-y> <C-y>
 nnoremap <leader>g :GundoToggle<CR>
 
 " Surround selection with following char
-smap <leader>a <C-O>S
+smap <leader>a <C-g>S
 
 " Easy change spell language
 nnoremap _pt :set spell spelllang=pt<CR>

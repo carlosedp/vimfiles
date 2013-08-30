@@ -173,6 +173,7 @@ My personal mappings
     _md             -   Set filetype as Markdown
     _py             -   Set filetype as Python
     _js             -   Set filetype as Javascript
+    call XMLPretty()  -  Set filetype to XML, break into lines and reindent file.
 
 Learn Vim
 ---------
