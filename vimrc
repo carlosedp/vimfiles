@@ -579,7 +579,7 @@ endfun
     " Or set this.
     let g:neocomplete#enable_cursor_hold_i = 1
     " Or set this.
-    "let g:neocomplete#enable_insert_char_pre = 1
+    let g:neocomplete#enable_insert_char_pre = 1
 
     " Enable omni completion.
     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
