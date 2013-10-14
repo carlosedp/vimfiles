@@ -465,7 +465,9 @@ fun! XMLPretty()
     set ft=xml
     %s/\v\>\</>\r<
     call IndentFile()
+    call <SID>StripTrailingWhitespaces()
 endfun
+command! XMLPretty :call XMLPretty()
 
 """""""""""""""""""""""""""""""""""""""
 """""""""" Plugin Parameters """"""""""
@@ -805,7 +807,6 @@ nnoremap <silent> <leader><space> :noh<CR>:call clearmatches()<CR>
 
 "" Inserts file name without extension into text
 inoremap \fn <C-R>=expand("%:t:r")<CR>
-
 
 "" Changes line filetype endings
 map <leader>fu :set ff=unix<CR>
