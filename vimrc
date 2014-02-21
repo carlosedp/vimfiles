@@ -92,14 +92,14 @@ if has("gui_macvim")
     " make Mac 'Option' key behave as 'Alt'
     set mmta
     " Set Mac font
-    set guifont=Inconsolata_for_Powerline:h16
-    "set guifont=Fantasque_Neue_Mono:h16
+    "set guifont=Inconsolata_for_Powerline:h16
+    set guifont=Fantasque_Sans_Mono:h16
     " MacVIM shift+arrow-keys behavior (required in .vimrc)
     let macvim_hig_shift_movement = 1
 else
     " Set windows font
-    set guifont=Inconsolata_for_Powerline:h13.5
-    "set guifont=Fantasque_Neue_Mono:h13 
+    "set guifont=Inconsolata_for_Powerline:h13.5
+    set guifont=Fantasque_Sans_Mono:h13
 endif
 
 "" Set initial window size only on GUI
